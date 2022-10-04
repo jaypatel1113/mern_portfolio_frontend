@@ -72,6 +72,11 @@ export const Skills = () => {
                 src={colorSharp}
                 alt="Error"
             />
+            <img
+                className="background-image-left secimg"
+                src={colorSharp}
+                alt="Error"
+            />
             
         </section>
     );

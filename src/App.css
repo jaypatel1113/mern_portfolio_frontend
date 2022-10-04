@@ -80,6 +80,28 @@ p.danger {
 	color: red;
 }
 
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: linear-gradient(45deg, #AA367C -5.91%, #2f9eff 111.58%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(45deg, rgb(232, 255, 55) -5.91%, rgb(48, 255, 207) 111.58%);
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(45deg, rgb(232, 255, 55) 111.58%, rgb(48, 255, 207) -5.91%);
+}
+
 /************ Navbar Css ************/
 nav.navbar {
 	padding: 1.8rem 0;
@@ -103,16 +125,18 @@ nav .textstyle {
 nav.navbar.scrolled {
 	background-color: #121212;
 }
+
 nav.navbar .show {
 	background-color: #121212;
 }
+
 nav.navbar button.collapsed {
 	padding: 0.2rem 0;
 }
 
 .Typewriter__wrapper,
 .Typewriter__cursor {
-	color:rgb(147, 88, 215);
+	color: rgb(147, 88, 215);
 }
 
 nav.navbar a.navbar-brand {
@@ -131,6 +155,10 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
 	opacity: 1;
+}
+
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+	font-weight: 800;
 }
 
 span.navbar-text {
@@ -276,8 +304,8 @@ nav.navbar .collapsed .navbar-toggler-icon:before {
 	height: 1.5px;
 }
 
-nav.navbar .collapsed .navbar-toggler-icon{
-	
+nav.navbar .collapsed .navbar-toggler-icon {
+
 	background-color: #fff;
 }
 
@@ -304,7 +332,7 @@ nav.navbar .collapsed .navbar-toggler-icon{
 
 .banner h1 {
 	font-size: 6.5rem;
-	font-weight:700;
+	font-weight: 700;
 	letter-spacing: 0.8px;
 	line-height: 1;
 	margin-bottom: 2rem;
@@ -324,15 +352,18 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	font-size: 3rem;
 	background: -webkit-linear-gradient(45deg, #AA367C -5.91%, #2f9eff 111.58%);
 	/* background: -webkit-linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); */
-	/* background-clip: text; */
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
-.banner .nav-link, .aboutme .nav-link {
+.banner .nav-link,
+.aboutme .nav-link {
 	padding: 0.5rem 0;
 }
-.banner button, .aboutme button  {
+
+.banner button,
+.aboutme button {
 	color: #fff;
 	font-weight: 700;
 	font-size: 2rem;
@@ -342,14 +373,16 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	align-items: center;
 }
 
-.banner button svg, .aboutme button svg {
+.banner button svg,
+.aboutme button svg {
 	font-size: 2.5rem;
 	margin-left: 1rem;
 	transition: 0.3s ease-in-out;
 	line-height: 1;
 }
 
-.banner button:hover svg, .aboutme button:hover svg {
+.banner button:hover svg,
+.aboutme button:hover svg {
 	margin-left: 2.5rem;
 }
 
@@ -386,7 +419,7 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	border-radius: 6.4rem;
 	text-align: center;
 	padding: 6rem 5rem;
-	margin-top: -6rem;
+	margin-top: 6rem;
 }
 
 .skill h2 {
@@ -419,19 +452,25 @@ nav.navbar .collapsed .navbar-toggler-icon{
 }
 
 .background-image-left {
-	top: 38%;
+	top: -50%;
 	position: absolute;
 	bottom: 0;
 	width: 40%;
 	z-index: -4;
 }
 
+.background-image-left.secimg {
+	right: 0%;
+	top: -80%;
+	transform: rotateY(180deg);
+}
+
 .item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1rem;
 	user-select: none;
 }
 
@@ -452,7 +491,8 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	text-align: center;
 }
 
-.project p, .aboutme p {
+.project p,
+.aboutme p {
 	color: #B8B8B8;
 	font-size: 1.8rem;
 	letter-spacing: 0.8px;
@@ -540,8 +580,8 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	cursor: pointer;
 	border: double 3px transparent;
 	border-radius: 3rem;
-	background-image: linear-gradient(white, white), 
-					  linear-gradient(30deg, #AA367C, #4A2FBD);
+	background-image: linear-gradient(white, white),
+		linear-gradient(30deg, #AA367C, #4A2FBD);
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 }
@@ -566,6 +606,7 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	transition: all 0.4s ease-in-out;
 	z-index: -1;
 }
+
 .proj-imgbx:hover img.projectImg {
 	transform: scale(1.1);
 }
@@ -706,7 +747,8 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	background-repeat: no-repeat;
 }
 
-.footer .logo, .navbar .logo {
+.footer .logo,
+.navbar .logo {
 	font-size: 4rem;
 	font-weight: 800;
 	color: #fff;
@@ -798,89 +840,117 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	margin-bottom: 3rem;
 	text-align: center;
 }
+
 .aboutme p {
 	color: #444;
 	font-size: 1.8rem;
 }
+
 .aboutme .piccont {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
+
 .aboutme .newsletter-bx {
 	padding: 8.5rem 10rem;
-	margin-top: -5rem;
+	/* margin-top: -5rem; */
 }
 
+.aboutme .background-image-left {
+	position: absolute;
+	right: 0;
+	width: 50%;
+
+}
+
+
 .aboutme img.imgabt {
-	width: 35rem;
-	height: 35rem;
+	width: 100%;
+	height: 100%;
 	/* border-radius: 50%; */
 	border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
 	animation: waterwave 3s linear infinite;
 }
+
 @keyframes waterwave {
-	0%, 100% {
+
+	0%,
+	100% {
 		border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
 	}
+
 	50% {
 		border-radius: 3% 97% 15% 85% / 72% 0% 100% 28%;
 	}
 }
+
 .aboutme .imgbx {
 	position: relative;
 	width: 35rem;
 	height: 35rem;
 }
+
 .aboutme .name h3 {
 	margin-bottom: 1rem;
 	/* font-weight: 600; */
 	font-size: 2.3rem;
 	color: #333;
 }
+
 .aboutme .abtcont {
 	display: grid;
 	grid-template-columns: 1fr;
 }
+
 .aboutme .abtcont .abtmerow {
 	width: 100%;
 }
+
 .aboutme .abtmerow {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 }
+
 .aboutme .abtmerow .pinfo {
 	flex: 1 1 55rem;
 	padding: 3rem 1rem;
 }
+
 .aboutme .abtmerow .pinfo .boxcont {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	flex-direction: row;
 }
+
 .aboutme .abtmerow .pinfo .boxcont .box {
 	padding: 0rem 1rem;
 }
+
 .aboutme .abtmerow .pinfo .boxcont .box h3 {
 	font-size: 2.3rem;
 	color: #333;
 	padding: 2rem 0;
 }
+
 .aboutme .abtmerow .pinfo .boxcont .box h3 span {
 	color: #777;
 	font-size: 2rem;
 }
+
 .aboutme .lang {
 	text-align: center;
 	font-size: 2rem;
 }
+
 .aboutme .boxCont {
 	display: flex;
 	justify-content: space-between;
 }
+
 .aboutme img.img {
 	width: 3rem;
 	height: 3rem;
@@ -888,6 +958,7 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	margin-right: 0.6rem;
 
 }
+
 .aboutme button {
 	color: #000;
 	width: 28.5rem;
@@ -898,9 +969,11 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	position: relative;
 	transition: 0.3s ease-in-out;
 }
+
 .aboutme button svg {
 	transition: 0.3s ease-in-out;
 }
+
 .aboutme button span {
 	z-index: 1;
 }
@@ -929,51 +1002,142 @@ nav.navbar .collapsed .navbar-toggler-icon{
 }
 
 
+/* education and work */
+.eduwork {
+	margin-top: -9rem;
+}
+
+.eduwork .skill-bx {
+	background: linear-gradient(45deg, #AA367C -5.91%, #2f9eff 111.58%);
+	padding: 6rem 8rem 8rem 8rem;
+}
+
+.eduwork .rows {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: left;
+}
+
+.eduwork .rows .cols {
+	flex: 1 1 40rem;
+	margin: 1rem;
+	padding: 2rem 2rem 2rem;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.eduwork .rows .cols .title {
+	font-size: 2.5rem;
+	padding-bottom: 2rem;
+}
+
+.eduwork .rows .cols .box {
+	padding-left: 2.5rem;
+	border-left: 4px solid white;
+	position: relative;
+}
+
+.eduwork .rows .cols .box:not(:last-child) {
+	padding-bottom: 2rem;
+}
+
+.eduwork .rows .cols .box::before {
+	content: '';
+	position: absolute;
+	top: 1rem;
+	left: -1.2rem;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	background: white;
+}
+
+.eduwork .rows .cols .box .year {
+	font-size: 1.8rem;
+	padding: .5rem;
+	color: #ccc;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+}
+
+.eduwork .rows .cols .box .year img {
+	padding: 0 .7rem 0 0;
+	width: 4rem;
+	height: 4rem;
+}
+
+.eduwork .rows .cols .box .year .bxName {
+	color: #ddd;
+}
+
+.eduwork .rows .cols .box .year .bxDetail {
+	color: #999;
+}
+
+
+
 
 /* responsive code */
 @media screen and (max-width: 1400px) {
-	.aboutme img, .aboutme .imgbx {
+
+	.aboutme img,
+	.aboutme .imgbx {
 		width: 20rem;
 		height: 20rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 {
 		font-size: 2rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 span {
 		font-size: 1.7rem;
 	}
 }
+
 @media screen and (max-width: 1200px) {
 	.banner p span {
 		font-size: 2.5rem;
 	}
+
 	.aboutme table tr td {
 		padding: 1rem 3rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 {
 		font-size: 1.7rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 span {
 		font-size: 1.4rem;
 	}
 }
+
 @media screen and (max-width: 992px) {
 	html {
 		font-size: 50%;
 	}
+
 	.project p {
 		width: auto;
 	}
-	.aboutme img, .aboutme .imgbx {
+
+	.aboutme img,
+	.aboutme .imgbx {
 		width: 30rem;
 		height: 30rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 {
 		font-size: 1.5rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 span {
 		font-size: 1.2rem;
 	}
+
 	.aboutme button {
 		width: 29.5rem;
 	}
@@ -983,106 +1147,146 @@ nav.navbar .collapsed .navbar-toggler-icon{
 	.project .nav.nav-pills {
 		width: 100%;
 	}
+
 	.owl-carousel button {
 		transform: scale(0.9);
 	}
+
 	.navbar-collapse {
 		margin: 2rem 0;
 	}
+
 	.navbar-collapse a {
 		margin: .4rem 0;
 	}
+
 	.aboutme .abtcont {
 		display: flex;
 		justify-content: center;
 	}
+
 	.aboutme p {
 		width: auto;
 	}
-	.aboutme div[data-angel="95"], .aboutme div[data-angel="95"] svg,
-	.aboutme div[data-angel="85"], .aboutme div[data-angel="85"] svg,
-	.aboutme div[data-angel="70"], .aboutme div[data-angel="70"] svg {
+
+	.aboutme div[data-angel="95"],
+	.aboutme div[data-angel="95"] svg,
+	.aboutme div[data-angel="85"],
+	.aboutme div[data-angel="85"] svg,
+	.aboutme div[data-angel="70"],
+	.aboutme div[data-angel="70"] svg {
 		width: 10rem !important;
 		height: 10rem !important;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 span {
 		min-width: 18rem;
 		display: inline-block;
 	}
 }
+
 @media screen and (max-width: 576px) {
 	html {
 		font-size: 45%;
 	}
+
 	.banner {
 		padding: 25rem 6rem;
 	}
+
 	.banner h1 {
 		font-size: 5rem;
 	}
+
 	nav.navbar {
 		padding: 4rem 6rem
 	}
+
 	nav svg text {
 		font-size: 50px;
 		margin-right: -100px;
 	}
+
 	section {
 		padding: 10px;
 	}
+
 	.skill {
 		padding: 0 6rem 5rem 6rem;
 	}
+
+	.eduwork .skill-bx {
+		padding: 6rem 6rem 8rem 6rem;
+	}
+
+	.eduwork .rows .cols .box {
+		border-left: 2px solid white;
+	}
+
 	.background-image-left {
 		width: 80%;
 		left: -10%;
 	}
+
 	.project {
 		padding: 8rem 6rem;
-	}	
+	}
+
 	.contact {
 		padding: 6rem 6rem 20rem 6rem;
 	}
+
 	.footer {
 		padding-left: 6rem;
 		padding-right: 6rem;
 		text-align: center;
 	}
+
 	.footer .moremar {
 		margin: 0 0 3rem 0;
 	}
+
 	.owl-carousel button {
 		transform: scale(0.7);
 	}
+
 	.social-icon a,
 	.social-icon a::before {
 		width: 5.6rem;
 		height: 5.6rem;
 	}
+
 	.aboutme table tr td {
 		padding: 1rem 4rem;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 {
 		text-align: left;
 	}
+
 	.aboutme .abtmerow .pinfo .boxcont .box h3 span {
 		min-width: 14rem;
 	}
+
 	.aboutme .newsletter-bx {
 		padding: 6rem;
 	}
+
 	.aboutme button {
 		width: 26rem;
 		padding: 2rem;
 	}
 }
+
 @media screen and (max-width: 470px) {
 	html {
 		font-size: 40%;
 	}
+
 	.aboutme table tr td {
 		padding: 2rem 2rem;
 	}
+
 	.aboutme button {
 		width: 29rem;
 		padding: 2rem 3rem;
