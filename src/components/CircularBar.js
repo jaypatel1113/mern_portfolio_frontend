@@ -10,7 +10,7 @@ const CircularBar = ({ percentage, name }) => {
                 percent={percentage}
                 round
                 fontColor="#fff"
-                stroke="7"
+                stroke={7}
                 fontSize="1.7rem"
                 fontWeight={700}
             />

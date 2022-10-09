@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { HashLink } from "react-router-hash-link";
+import { Navbar, Container } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const navVariant = {
+    hidden: { opacity: 0, right: "-100vh" },
+    visible: { opacity: 1, right: 0, transition: { delay: 0.2 } },
+};
 
 export const NavBar = () => {
-    const [activeLink, setActiveLink] = useState("home");
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -21,67 +25,26 @@ export const NavBar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const onUpdateActiveLink = (value) => {
-        setActiveLink(value);
-    };
-
     return (
         <Router>
             <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
                 <Container>
-                    <Navbar.Brand href="/">
-                        {/* <img src={logo} alt="Logo" className="logo" /> */}
-                        <span className="logo">
-                            JAY PATEL
-                        </span>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav">
-                        <span className="navbar-toggler-icon"></span>
-                    </Navbar.Toggle>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
-                            <Nav.Link
-                                href="#home"
-                                className={
-                                    activeLink === "home"
-                                        ? "active navbar-link"
-                                        : "navbar-link"
-                                }
-                                onClick={() => onUpdateActiveLink("home")}
+                    <motion.div
+                        variants={navVariant}
+                        initial="hidden"
+                        animate="visible"
+                        style={{ position: "relative" }}
+                    >
+                        <Navbar.Brand href="/">
+                            {/* <img src={logo} alt="Logo" className="logo" /> */}
+                            <motion.div
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.8 }}
                             >
-                                Home
-                            </Nav.Link>
-                            <Nav.Link
-                                href="#skills"
-                                className={
-                                    activeLink === "skills"
-                                        ? "active navbar-link"
-                                        : "navbar-link"
-                                }
-                                onClick={() => onUpdateActiveLink("skills")}
-                            >
-                                Skills
-                            </Nav.Link>
-                            <Nav.Link
-                                href="#projects"
-                                className={
-                                    activeLink === "projects"
-                                        ? "active navbar-link"
-                                        : "navbar-link"
-                                }
-                                onClick={() => onUpdateActiveLink("projects")}
-                            >
-                                Projects
-                            </Nav.Link>
-                        </Nav>
-                        <span className="navbar-text">
-                            <HashLink to="#connect">
-                                <button className="vvd">
-                                    <span>Let’s Connect</span>
-                                </button>
-                            </HashLink>
-                        </span>
-                    </Navbar.Collapse>
+                                <span className="logo">JAY PATEL</span>
+                            </motion.div>
+                        </Navbar.Brand>
+                    </motion.div>
                 </Container>
             </Navbar>
         </Router>

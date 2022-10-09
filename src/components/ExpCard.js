@@ -1,15 +1,18 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const ExpCard = ({ data }) => {
+const ExpCard = ({ data, ...rest }) => {
     return (
-        <div className="box">
+        <motion.div className="box"
+            {...rest}
+        >
             <div className="year">
                 <img src={data.icon} alt="Error" className="img" />
                 {data.year}
             </div>
             <h3 className="bxName">{data.name}</h3>
             <p className="bxDetail" style={{fontSize: "1.5rem"}}>{data.description}</p>
-        </div>
+        </motion.div>
     );
 };
 

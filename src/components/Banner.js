@@ -1,86 +1,99 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import "animate.css";
-import TrackVisibility from "react-on-screen";
 import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
+
+const containerVariant = {
+    hidden: { rotate: 90 },
+    visible: {
+        rotate: 0,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.5,
+        },
+    },
+};
+const itemA = {
+    hidden: { scale: 0},
+    visible: { scale: 1},
+}
+
 
 export const Banner = () => {
-    
     return (
-        <section className="banner" id="home">
+        <motion.section
+            className="banner"
+            id="home"
+            variants={containerVariant}
+            initial="hidden"
+            animate="visible"
+        >
             <Container>
                 <Row className="aligh-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <TrackVisibility>
-                            {({ isVisible }) => (
-                                <div
-                                    className={
-                                        isVisible
-                                            ? "animate__animated animate__fadeIn"
-                                            : ""
-                                    }
-                                >
-                                    <span className="tagline">
-                                        Welcome to my Portfolio
-                                    </span>
-                                    <h1>
-                                        <Typewriter
-                                            options={{
-                                                strings: [
-                                                    "Hi, The name's Jay Patel",
-                                                    "Web Developer",
-                                                    "MERN Stack Developer",
-                                                    "Guys-who-loves-Tea.js",
-                                                    '< ButLovesToCodeMore />',
-                                                ],
-                                                autoStart: true,
-                                                loop: true,
-                                                delay: 70,
-                                                deleteSpeed: 40,
-                                                pauseFor: 2000,
-                                            }}
-                                        />
-                                    </h1>
-                                    <p>
-									I'm an Enthusiastic, Self-Motivated, Reliable, Responsible & Hard Working Person. I use a creative approach to solve the problem. I am motivated to go to the gym before work to get fit and healthy. <br /><br />
-
-                                    {/* When i'm not coding, I'm the proud father of a baby bulldog, 2 cats and a bunny. */}
-                                    {/* Programming is like sex: One mistake and you have to support it for the rest of your life. */}
-                                    <span>while ( ! ( succeed = try ( ) ) ) ;</span>
-                                    </p>
-                                    <Nav.Link
-                                        href="#aboutmesec"
-                                        className="navbar-link"
-                                    >
-                                        <button
-                                            onClick={() => console.log("connect")}
-                                        >
-                                            About Me 
-                                            <ArrowRightCircle size={25} />
-                                        </button>
-                                    </Nav.Link>
-                                </div>
-                            )}
-                        </TrackVisibility>
+                        <motion.span
+                            variants={itemA}
+                            className="tagline"
+                        >
+                            Welcome to my Portfolio
+                        </motion.span>
+                        <motion.h1 
+                            variants={itemA}
+                        >
+                            <Typewriter
+                                options={{
+                                    strings: [
+                                        "Hi, The name's Jay Patel",
+                                        "Web Developer",
+                                        "MERN Stack Developer",
+                                        "Guys-who-loves-Tea.js",
+                                        "< ButLovesToCodeMore />",
+                                    ],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 70,
+                                    deleteSpeed: 40,
+                                    pauseFor: 2000,
+                                }}
+                            />
+                        </motion.h1>
+                        <motion.p 
+                            variants={itemA}
+                        >
+                            I'm an Enthusiastic, Self-Motivated, Reliable, Responsible & Hard Working Person. I use a creative approach to solve the problem. I am motivated to go
+                            to the gym before work to get fit and healthy.
+                            <br />
+                            <br />
+                            {/* When i'm not coding, I'm the proud father of a baby bulldog, 2 cats and a bunny. */}
+                            {/* Programming is like sex: One mistake and you have to support it for the rest of your life. */}
+                            <motion.button whileHover={{ scale: 1.05, x:15 }} whileTap={{scale: 0.7, x: -65}} >
+                                <span>while ( ! ( succeed = try ( ) ) ) ;</span>
+                            </motion.button>
+                        </motion.p>
+                        <Nav.Link href="#aboutmesec" className="navbar-link">
+                            <motion.button
+                                variants={itemA}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                About Me
+                                <ArrowRightCircle size={25} />
+                            </motion.button>
+                        </Nav.Link>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <TrackVisibility>
-                            {({ isVisible }) => (
-                                <div
-                                    className={
-                                        isVisible
-                                            ? "animate__animated animate__zoomIn"
-                                            : ""
-                                    }
-                                >
-                                    <img src={headerImg} alt="Header Img" />
-                                </div>
-                            )}
-                        </TrackVisibility>
+                        <motion.div
+                            whileInView={{
+                                scale: [1, 1.5, 1.5, 1, 1],
+                                rotate: [0, 0, 270, 270, 0],
+                                borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+                            }}
+                        >
+                            <img src={headerImg} alt="Header Img" />
+                        </motion.div>
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </motion.section>
     );
 };

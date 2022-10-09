@@ -2,6 +2,31 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import colorSharp from "../assets/img/color-sharp.png";
 import CircularBar from "./CircularBar";
+import { motion } from "framer-motion";
+
+const contVariant = {
+    hidden: {
+        scale: 0.7,
+    },
+    visible: {
+        scale: 1,
+    },
+};
+
+const txtVariant = {
+    hidden: {
+        top: "-50px",
+        opacity: 0,
+    },
+    visible: {
+        top: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.5,
+        },
+    },
+};
+
 
 export const Skills = () => {
     const responsive = {
@@ -33,37 +58,52 @@ export const Skills = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <div className="skill-bx wow zoomIn">
-                            <h2>Skills</h2>
-                            <p>
+                        <motion.div
+                            className="skill-bx wow"
+                            variants={contVariant}
+                            initial="hidden"
+                            whileInView="visible"
+                            style={{ position: "relative" }}
+                            // viewport={{once: true}}
+                            >
+                            <motion.h2
+                                variants={txtVariant}
+                                style={{ position: "relative" }}
+                                >
+                                Skills
+                            </motion.h2>
+                            <motion.p
+                                variants={txtVariant}
+                                style={{ position: "relative" }}
+                                >
                                 Here are my Top and Prioritized Skills.
-                            </p>
+                            </motion.p>
                             <Carousel
                                 responsive={responsive}
                                 // infinite={true}
                                 className="owl-carousel owl-theme skill-slider"
                             >
-                                <CircularBar percentage="87" name="HTML" />
-                                <CircularBar percentage="85" name="CSS" />
-                                <CircularBar percentage="80" name="JAVASCRIPT" />
-                                <CircularBar percentage="85" name="REACT JS" />
-                                <CircularBar percentage="73" name="REACT NATIVE" />
-                                <CircularBar percentage="80" name="MONGODB" />
-                                <CircularBar percentage="75" name="NODE JS" />
-                                <CircularBar percentage="65" name="EXPRESS JS " />
-                                <CircularBar percentage="60" name="PHP" />
-                                <CircularBar percentage="70" name="MY SQL" />
-                                <CircularBar percentage="55" name="ANGULAR JS" />
-                                <CircularBar percentage="69" name="J-QUERY" />
-                                <CircularBar percentage="89" name="SCSS" />
-                                <CircularBar percentage="74" name="TAILWIND" />
-                                <CircularBar percentage="78" name="C" />
-                                <CircularBar percentage="75" name="JAVA & JAVA-FX" />
-                                <CircularBar percentage="85" name="GIT & GITHUB" />
-                                <CircularBar percentage="83" name="DATA STRUCTURE" />
-                                <CircularBar percentage="80" name="EXCEL" />
+                                <CircularBar percentage={87} name="HTML" />
+                                <CircularBar percentage={85} name="CSS" />
+                                <CircularBar percentage={80} name="JAVASCRIPT" />
+                                <CircularBar percentage={85} name="REACT JS" />
+                                <CircularBar percentage={73} name="REACT NATIVE" />
+                                <CircularBar percentage={80} name="MONGODB" />
+                                <CircularBar percentage={75} name="NODE JS" />
+                                <CircularBar percentage={65} name="EXPRESS JS" />
+                                <CircularBar percentage={60} name="PHP" />
+                                <CircularBar percentage={70} name="MY SQL" />
+                                <CircularBar percentage={55} name="ANGULAR JS" />
+                                <CircularBar percentage={69} name="J-QUERY" />
+                                <CircularBar percentage={89} name="SCSS" />
+                                <CircularBar percentage={74} name="TAILWIND" />
+                                <CircularBar percentage={78} name="C" />
+                                <CircularBar percentage={75} name="JAVA & JAVA-FX" />
+                                <CircularBar percentage={85} name="GIT & GITHUB" />
+                                <CircularBar percentage={83} name="DATA STRUCTURE" />
+                                <CircularBar percentage={80} name="EXCEL" />
                             </Carousel>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -77,7 +117,6 @@ export const Skills = () => {
                 src={colorSharp}
                 alt="Error"
             />
-            
         </section>
     );
 };
