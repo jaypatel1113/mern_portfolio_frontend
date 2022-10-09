@@ -1,7 +1,8 @@
 import React from "react";
-import { ProjectCard } from "./ProjectCard";
 import { Tab } from "react-bootstrap";
 import { motion } from "framer-motion";
+
+import { ProjectCard } from "./ProjectCard";
 
 const container = {
     hidden: { opacity: 0 },
@@ -21,25 +22,31 @@ const itemA = {
         x: 0,
         transition: {
             // type: "spring",
-            // duration: 1, 
+            // duration: 1,
             // bounce: 0.3
         },
     },
 };
 
-const ProjectCategory = ({projects, number}) => {
+const ProjectCategory = ({ projects, type }) => {
     return (
-        <Tab.Pane eventKey={number}>
-            <motion.div className="row"
+        <Tab.Pane eventKey={type}>
+            <motion.div
+                className="row"
                 variants={container}
                 initial="hidden"
-                whileInView="visible">
-
+                whileInView="visible"
+            >
                 {projects.map((projects, index) => {
-                    return <ProjectCard key={index} {...projects} 
-                    variants={itemA} />;
+                    return (
+                        <ProjectCard
+                            key={index}
+                            {...projects}
+                            variants={itemA}
+                        />
+                    );
                 })}
-                </motion.div>
+            </motion.div>
         </Tab.Pane>
     );
 };

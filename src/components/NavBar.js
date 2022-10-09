@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container } from "react-bootstrap";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const navVariant = {
@@ -8,7 +8,7 @@ const navVariant = {
     visible: { opacity: 1, right: 0, transition: { delay: 0.2 } },
 };
 
-export const NavBar = () => {
+const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export const NavBar = () => {
     }, []);
 
     return (
-        <Router>
+        // <Router>
             <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
                 <Container>
                     <motion.div
@@ -47,6 +47,8 @@ export const NavBar = () => {
                     </motion.div>
                 </Container>
             </Navbar>
-        </Router>
+        // </Router>
     );
 };
+
+export default NavBar;

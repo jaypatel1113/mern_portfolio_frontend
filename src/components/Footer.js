@@ -1,4 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
+
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
@@ -7,8 +9,8 @@ import navIcon5 from "../assets/img/nav-icon5.svg";
 import navIcon6 from "../assets/img/nav-icon6.svg";
 import navIcon7 from "../assets/img/nav-icon7.svg";
 import navIcon8 from "../assets/img/nav-icon8.svg";
-import FooterLink from "./FooterLink";
-import { motion } from "framer-motion";
+
+import FooterLink from "./SubComponents/FooterLink";
 
 const container = {
     hidden: { opacity: 0 },
@@ -49,7 +51,7 @@ const txtVariant = {
     },
 };
 
-export const Footer = () => {
+const Footer = () => {
     return (
         <footer className="footer">
             <Container>
@@ -57,9 +59,9 @@ export const Footer = () => {
                     <Col size={12} sm={6} className="moremar">
                         <motion.span
                             className="logo"
-                            initial={{opacity: 0}}
-                            whileInView={{opacity: 1}}
-                            transition={{delay: 0.5}}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
                         >
                             JAY PATEL
                         </motion.span>
@@ -123,16 +125,21 @@ export const Footer = () => {
                         <motion.div
                             variants={container}
                             initial="hidden"
-                            whileInView="visible">
-
-                        <motion.p
-                            variants={txtVariant}
-                            // viewport={{once: true}}
-                            style={{ position: "relative" }}>Copyright 2022. All Rights Reserved</motion.p>
-                            </motion.div>
+                            whileInView="visible"
+                        >
+                            <motion.p
+                                variants={txtVariant}
+                                // viewport={{once: true}}
+                                style={{ position: "relative" }}
+                            >
+                                Copyright 2022. All Rights Reserved
+                            </motion.p>
+                        </motion.div>
                     </Col>
                 </Row>
             </Container>
         </footer>
     );
 };
+
+export default Footer;

@@ -3,6 +3,7 @@ import React from "react";
 
 const ProgressBar = () => {
     const { scrollYProgress } = useScroll();
+    
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,

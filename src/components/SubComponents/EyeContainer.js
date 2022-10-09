@@ -5,41 +5,35 @@ const EyeContainer = () => {
     const [scrolled, setScrolled] = useState(false);
 
     const backToTop = () => {
-        if(scrolled) {
-            window.scrollTo({
-                top: 0,
-            });
+        if (scrolled) {
+            window.scrollTo({ top: 0 });
         }
     };
-    
+
     const eyeball = (e) => {
         var pupils = document.querySelectorAll(".pupil");
 
         // pupil movement
         let pupilStartPoint = -5;
-        let pupilRange = 20-10; //20 height and width of eye and 10 is of pupil
+        let pupilRange = 20 - 10; //20 height and width of eye and 10 is of pupil
 
         // x points
         let mouseXEndPoint = window.innerWidth;
         let currentXPosition = e.clientX;
         let fracX = currentXPosition / mouseXEndPoint;
 
-        
         // y points
         let mouseYEndPoint = window.innerHeight;
         let currentYPosition = e.clientY;
         let fracY = currentYPosition / mouseYEndPoint;
 
-
-        let pupilXCurrentPos = pupilStartPoint + (fracX * pupilRange); // value between 0 and 10
-        let pupilYCurrentPos = pupilStartPoint + (fracY * pupilRange); // value between 0 and 10
+        let pupilXCurrentPos = pupilStartPoint + fracX * pupilRange; // value between 0 and 10
+        let pupilYCurrentPos = pupilStartPoint + fracY * pupilRange; // value between 0 and 10
         // console.log(pupilXCurrentPos);
-        
 
         pupils.forEach((pupil) => {
             pupil.style.transform = "translate(" + pupilXCurrentPos + "px, " + pupilYCurrentPos + "px)";
-        })
-
+        });
 
         // var eye = document.querySelectorAll(".eye");
         // eye.forEach((eye) => {
@@ -72,7 +66,10 @@ const EyeContainer = () => {
         <div
             className="eyeCont"
             onClick={backToTop}
-            style={{ opacity: `${scrolled ? 1 : 0}`, cursor: `${scrolled ? "grabbing" : "default"}` }}
+            style={{
+                opacity: `${scrolled ? 1 : 0}`,
+                cursor: `${scrolled ? "grabbing" : "default"}`,
+            }}
         >
             <div className="arrow">
                 <CaretUpFill size={25} />

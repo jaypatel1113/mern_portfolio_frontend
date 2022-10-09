@@ -1,8 +1,11 @@
+import { motion } from "framer-motion";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 import colorSharp from "../assets/img/color-sharp.png";
-import CircularBar from "./CircularBar";
-import { motion } from "framer-motion";
+import CircularBar from "./SubComponents/CircularBar";
+
+import Title from "./SubComponents/Title";
 
 const contVariant = {
     hidden: {
@@ -28,7 +31,7 @@ const txtVariant = {
 };
 
 
-export const Skills = () => {
+const Skills = () => {
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -63,24 +66,21 @@ export const Skills = () => {
                             variants={contVariant}
                             initial="hidden"
                             whileInView="visible"
-                            style={{ position: "relative" }}
+                            style={{ position: 'relative' }}
                             // viewport={{once: true}}
-                            >
-                            <motion.h2
-                                variants={txtVariant}
-                                style={{ position: "relative" }}
-                                >
-                                Skills
-                            </motion.h2>
-                            <motion.p
-                                variants={txtVariant}
-                                style={{ position: "relative" }}
-                                >
-                                Here are my Top and Prioritized Skills.
-                            </motion.p>
+                        >
+
+                            <Title 
+                                h2={"Skills"} 
+                                p={"Here are my Top and Prioritized Skills.."} 
+                                txtVariant={txtVariant} 
+                            />
+
                             <Carousel
                                 responsive={responsive}
                                 // infinite={true}
+                                // autoPlay={true}
+                                // autoPlaySpeed={2000}
                                 className="owl-carousel owl-theme skill-slider"
                             >
                                 <CircularBar percentage={87} name="HTML" />
@@ -120,3 +120,5 @@ export const Skills = () => {
         </section>
     );
 };
+
+export default Skills;

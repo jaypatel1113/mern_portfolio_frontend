@@ -1,14 +1,17 @@
 import { Container, Row } from "react-bootstrap";
-import { Newsletter } from "./Newsletter";
 
-export const AboutMe = () => {
+import { Information } from "./Information";
+
+const AboutMe = () => {
     return (
         <footer className="footer aboutme" id="aboutmesec">
             <Container>
                 <Row className="align-items-center">
-                    <Newsletter />
+                    <Information />
                 </Row>
             </Container>
         </footer>
     );
 };
+
+export default AboutMe;

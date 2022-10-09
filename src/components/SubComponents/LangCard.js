@@ -2,10 +2,17 @@ import React from "react";
 import { CircularProgressBar } from "@tomik23/react-circular-progress-bar";
 import { motion } from "framer-motion";
 
-const LangCard = ({perc, name, ...rest}) => {
+const itemA = {
+    hidden: { scale: 0, left: "-20vh" },
+    visible: { scale: 1, left: 0 },
+};
+
+const LangCard = ({ perc, name, ...rest }) => {
     return (
-        <motion.div className="box"
-            {...rest}
+        <motion.div
+            className="box"
+            style={{ position: "relative" }}
+            variants={itemA}
         >
             <CircularProgressBar
                 colorCircle="#e6e6e6"

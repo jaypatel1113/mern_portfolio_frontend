@@ -1,16 +1,17 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-import { AboutMe } from "./components/AboutMe";
-import { EducationWork } from "./components/EducationWork";
 import { ToastContainer } from "react-toastify";
-import ProgressBar from "./components/ProgressBar";
+
+import NavBar from "./components/NavBar";
+import Banner from "./components/Banner";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import AboutMe from "./components/AboutMe";
+import EducationWork from "./components/EducationWork";
+import ProgressBar from "./components/SubComponents/ProgressBar";
 import Bottombar from "./components/Bottombar";
 
 function App() {

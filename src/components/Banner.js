@@ -1,8 +1,9 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
+
+import headerImg from "../assets/img/header-img.svg";
 
 const containerVariant = {
     hidden: { rotate: 90 },
@@ -14,13 +15,14 @@ const containerVariant = {
         },
     },
 };
+
 const itemA = {
     hidden: { scale: 0},
     visible: { scale: 1},
 }
 
 
-export const Banner = () => {
+const Banner = () => {
     return (
         <motion.section
             className="banner"
@@ -61,8 +63,7 @@ export const Banner = () => {
                         <motion.p 
                             variants={itemA}
                         >
-                            I'm an Enthusiastic, Self-Motivated, Reliable, Responsible & Hard Working Person. I use a creative approach to solve the problem. I am motivated to go
-                            to the gym before work to get fit and healthy.
+                            I'm an Enthusiastic, Self-Motivated, Reliable, Responsible & Hard Working Person. I use a creative approach to solve the problem. I am motivated to go to the gym before work to get fit and healthy.
                             <br />
                             <br />
                             {/* When i'm not coding, I'm the proud father of a baby bulldog, 2 cats and a bunny. */}
@@ -97,3 +98,5 @@ export const Banner = () => {
         </motion.section>
     );
 };
+
+export default Banner;

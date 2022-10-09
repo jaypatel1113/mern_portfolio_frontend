@@ -1,10 +1,12 @@
 import React from "react";
-import ExpCard from "./ExpCard";
 import { educationData } from "./ProjectData/educationData";
 import { experienceData } from "./ProjectData/experienceData";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+
+import Title from "./SubComponents/Title";
+import EduWorkCard from "./SubComponents/EduWorkCard";
 
 const container = {
     hidden: { scale: 0 },
@@ -16,14 +18,14 @@ const container = {
         },
     },
 };
-const itemA = {
-    hidden: { opacity: 0, left: "-20vh" },
-    visible: { opacity: 1, left: 0, transition: {delay: 1.5} },
-};
-const itemB = {
-    hidden: { opacity: 0, right: "-20vh" },
-    visible: { opacity: 1, right: 0, transition: {delay: 1.5} },
-};
+// const itemA = {
+//     hidden: { opacity: 0, left: "-20vh" },
+//     visible: { opacity: 1, left: 0, transition: {delay: 1.5} },
+// };
+// const itemB = {
+//     hidden: { opacity: 0, right: "-20vh" },
+//     visible: { opacity: 1, right: 0, transition: {delay: 1.5} },
+// };
 
 const contVariant = {
     hidden: {
@@ -33,8 +35,7 @@ const contVariant = {
         scale: 1,
         transition: {
             staggerChildren: 0.5,
-        }
-
+        },
     },
 };
 
@@ -52,9 +53,9 @@ const txtVariant = {
     },
 };
 
-export const EducationWork = () => {
-    const {ref, inView} = useInView({
-        threshold: 0.3
+const EducationWork = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.3,
     });
     // const {ref2, inView2} = useInView({
     //     threshold: 0.5
@@ -62,12 +63,11 @@ export const EducationWork = () => {
     const animation = useAnimation();
     const animation2 = useAnimation();
 
-    useEffect(()=> {
-        if(inView) {
+    useEffect(() => {
+        if (inView) {
             animation.start("visible");
             animation2.start("visible");
-
-        } else if(!inView) {
+        } else if (!inView) {
             animation.start("hidden");
             animation2.start("hidden");
         }
@@ -79,7 +79,7 @@ export const EducationWork = () => {
         //     animation2.start("hidden");
         // }
         // console.log("in view = ", inView );
-    }, [inView, animation, animation2])
+    }, [inView, animation, animation2]);
 
     return (
         <section className="skill eduwork" id="educations">
@@ -92,62 +92,29 @@ export const EducationWork = () => {
                     // viewport={{once: true}}
                     style={{ position: "relative" }}
                 >
-                    <motion.h2
-                        variants={txtVariant}
-                        style={{ position: "relative" }}
-                    >
-                        Educations & Work
-                    </motion.h2>
-                    <motion.p
-                        style={{ position: "relative" }}
-                        variants={txtVariant}
-                    >
-                        Here are my Education details Work Experience.
-                    </motion.p>
+                    <Title
+                        h2={"Educations & Work"}
+                        p={"Here are my Education details Work Experience."}
+                        txtVariant={txtVariant}
+                    />
+
                     <motion.div className="rows" variants={container}>
                         <div
-                            className="cols"
                             // ref={ref2}
+                            className="cols"
                         >
-                            <motion.h2
-                                className="title"
-                                style={{ position: "relative" }}
-                                variants={itemA}
-                                // animate={animation}
-                            >
-                                My Education
-                            </motion.h2>
-                            {educationData.map((data, ind) => (
-                                <ExpCard
-                                    data={data}
-                                    key={ind}
-                                    style={{ position: "relative" }}
-                                    variants={itemB}
-                                    // animate={animation2}
-                                />
-                            ))}
+                            <EduWorkCard
+                                titlee="My Education"
+                                dataa={educationData}
+                            />
                         </div>
-                        <div 
-                            ref={ref}
-                            className="cols" 
-                        >
-                            <motion.h2
-                                className="title"
-                                style={{ position: "relative" }}
-                                variants={itemA}
-                                animate={animation}
-                            >
-                                My Experience
-                            </motion.h2>
-                            {experienceData.map((data, ind) => (
-                                <ExpCard
-                                    data={data}
-                                    key={ind}
-                                    style={{ position: "relative" }}
-                                    variants={itemB}
-                                    animate={animation2}
-                                />
-                            ))}
+                        <div ref={ref} className="cols">
+                            <EduWorkCard
+                                titlee="My Experience"
+                                dataa={experienceData}
+                                animation={animation}
+                                animation2={animation2}
+                            />
                         </div>
                     </motion.div>
                 </motion.div>
@@ -155,3 +122,5 @@ export const EducationWork = () => {
         </section>
     );
 };
+
+export default EducationWork;

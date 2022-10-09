@@ -1,11 +1,13 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import { frontendProjects } from "./ProjectData/frontEnd";
 import { backendProjects } from "./ProjectData/backEnd";
 import { fullStackProjects } from "./ProjectData/fullStack";
-import ProjectCategory from "./ProjectCategory";
-import ProjectCategoryName from "./ProjectCategoryName";
-import { motion } from "framer-motion";
+
+import ProjectCategory from "./SubComponents/ProjectCategory";
+import ProjectCategoryName from "./SubComponents/ProjectCategoryName";
+import Title from "./SubComponents/Title";
 
 const txtVariant = {
     hidden: {
@@ -21,31 +23,20 @@ const txtVariant = {
     },
 };
 
-export const Projects = () => {
+const Projects = () => {
     return (
         <section className="project" id="projects">
             <Container>
                 <Row>
                     <Col size={12}>
-                        <motion.h2
-                            variants={txtVariant}
-                            initial="hidden"
-                            whileInView="visible"
-                            // viewport={{ once: true }}
-                            style={{ position: "relative" }}
-                        >
-                            Projects
-                        </motion.h2>
-                        <motion.p
-                            variants={txtVariant}
-                            initial="hidden"
-                            whileInView="visible"
-                            // viewport={{ once: true }}
-                            style={{ position: "relative" }}
-                        >
-                            These are the projects that showcases my skills and
-                            experience.
-                        </motion.p>
+                        <Title
+                            h2={"Projects"}
+                            p={
+                                "These are the projects that showcases my skills and experience."
+                            }
+                            txtVariant={txtVariant}
+                        />
+
                         <Tab.Container
                             id="projects-tabs"
                             defaultActiveKey="first"
@@ -58,28 +49,28 @@ export const Projects = () => {
                                 <ProjectCategoryName
                                     projectType="FrontEnd Projects"
                                     number="first"
-                                    />
+                                />
                                 <ProjectCategoryName
                                     projectType="FullStack Projects"
                                     number="second"
-                                    />
+                                />
                                 <ProjectCategoryName
                                     projectType="BackEnd Projects"
                                     number="third"
-                                    />
+                                />
                             </Nav>
                             <Tab.Content id="slideInUp">
                                 <ProjectCategory
                                     projects={frontendProjects}
-                                    number="first"
-                                    />
+                                    type="first"
+                                />
                                 <ProjectCategory
                                     projects={fullStackProjects}
-                                    number="second"
+                                    type="second"
                                 />
                                 <ProjectCategory
                                     projects={backendProjects}
-                                    number="third"
+                                    type="third"
                                 />
                             </Tab.Content>
                         </Tab.Container>
@@ -90,7 +81,9 @@ export const Projects = () => {
                 className="background-image-right"
                 src={colorSharp2}
                 alt="Error"
-            ></img>
+            />
         </section>
     );
 };
+
+export default Projects;

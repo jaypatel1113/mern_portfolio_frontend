@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+
+import contactImg from "../assets/img/contact-img.svg";
+import Title from "./SubComponents/Title";
+import InputTag from "./SubComponents/InputTag";
+
 
 const txtVariant = {
     hidden: {
@@ -18,11 +22,6 @@ const txtVariant = {
     },
 };
 
-const contvar = {
-    hidden: {},
-    visible: {},
-};
-
 const inpVariant = {
     hidden: {
         width: "0%",
@@ -34,6 +33,11 @@ const inpVariant = {
         x: 0,
         opacity: 1,
     },
+};
+
+const contvar = {
+    hidden: {},
+    visible: {},
 };
 
 const btnVariant = {
@@ -49,7 +53,7 @@ const btnVariant = {
     },
 };
 
-export const Contact = () => {
+const Contact = () => {
     const formInitialDetails = {
         firstName: "",
         lastName: "",
@@ -75,15 +79,10 @@ export const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { firstName, lastName, email, phone, message } = formDetails;
-        if (
-            firstName === "" ||
-            lastName === "" ||
-            email === "" ||
-            phone === "" ||
-            message === ""
-        )
+        if ( firstName === "" || lastName === "" || email === "" || phone === "" || message === "" )
             toast.warn("Fill all detail");
-        else if (!email.includes("@")) toast.warn("includes @ in your email!");
+        else if (!email.includes("@")) 
+            toast.warn("includes @ in your email!");
         else if (phone.length < 10 || phone.length > 10)
             toast.warn("Enter only 10 digits in number!");
         else {
@@ -116,28 +115,15 @@ export const Contact = () => {
                             whileInView={{
                                 scale: [1, 1.2, 1.2, 1, 1],
                                 rotate: [0, 0, 270, 270, 0],
-                                borderRadius: [
-                                    "20%",
-                                    "20%",
-                                    "50%",
-                                    "50%",
-                                    "20%",
-                                ],
+                                borderRadius: [ "20%", "20%", "50%", "50%", "20%" ],
                             }}
                         >
                             <img src={contactImg} alt="Contact Us" />
                         </motion.div>
                     </Col>
                     <Col size={12} md={6}>
-                        <motion.h2
-                            variants={txtVariant}
-                            initial="hidden"
-                            whileInView="visible"
-                            // viewport={{ once: true }}
-                            style={{ position: "relative" }}
-                        >
-                            Get In Touch
-                        </motion.h2>
+                        <Title h2={"Get In Touch"} txtVariant={txtVariant} />
+
                         <form onSubmit={handleSubmit}>
                             <motion.div
                                 className="row"
@@ -145,50 +131,39 @@ export const Contact = () => {
                                 initial="hidden"
                                 whileInView="visible"
                             >
-                                <Col size={12} sm={6} className="px-1">
-                                    <motion.input
-                                        type="text"
-                                        name="firstName"
-                                        value={formDetails.firstName}
-                                        placeholder="First Name"
-                                        onChange={setVal}
-                                        variants={inpVariant}
-                                        transition={{ delay: 0.2 }}
-                                    />
-                                </Col>
-                                <Col size={12} sm={6} className="px-1">
-                                    <motion.input
-                                        type="text"
-                                        name="lastName"
-                                        value={formDetails.lasttName}
-                                        placeholder="Last Name"
-                                        onChange={setVal}
-                                        variants={inpVariant}
-                                        transition={{ delay: 0.3 }}
-                                    />
-                                </Col>
-                                <Col size={12} sm={6} className="px-1">
-                                    <motion.input
-                                        type="text"
-                                        name="email"
-                                        value={formDetails.email}
-                                        placeholder="Email Address"
-                                        onChange={setVal}
-                                        variants={inpVariant}
-                                        transition={{ delay: 0.4 }}
-                                    />
-                                </Col>
-                                <Col size={12} sm={6} className="px-1">
-                                    <motion.input
-                                        type="tel"
-                                        name="phone"
-                                        value={formDetails.phone}
-                                        placeholder="Phone No."
-                                        onChange={setVal}
-                                        variants={inpVariant}
-                                        transition={{ delay: 0.5 }}
-                                    />
-                                </Col>
+                                <InputTag
+                                    type="text"
+                                    name="firstname"
+                                    placeholder={"First Name"}
+                                    value={formDetails.firstName}
+                                    setVal={setVal}
+                                    dly={0.2}
+                                />
+                                <InputTag
+                                    type="text"
+                                    name="lastName"
+                                    placeholder={"Last Name"}
+                                    value={formDetails.lasttName}
+                                    setVal={setVal}
+                                    dly={0.35}
+                                />
+                                <InputTag
+                                    type="text"
+                                    name="email"
+                                    placeholder={"Email Address"}
+                                    value={formDetails.email}
+                                    setVal={setVal}
+                                    dly={0.5}
+                                />
+                                <InputTag
+                                    type="tel"
+                                    name="phone"
+                                    placeholder={"Phone Number"}
+                                    value={formDetails.phone}
+                                    setVal={setVal}
+                                    dly={0.65}
+                                />
+
                                 <Col size={12} className="px-1">
                                     <motion.textarea
                                         rows="6"
@@ -197,15 +172,15 @@ export const Contact = () => {
                                         placeholder="Message"
                                         onChange={setVal}
                                         variants={inpVariant}
-                                        transition={{ delay: 0.7 }}
-                                    ></motion.textarea>
+                                        transition={{ delay: 0.8 }}
+                                    />
                                     <motion.button
                                         type="submit"
                                         variants={btnVariant}
                                         transition={{
                                             type: "spring",
                                             bounce: 0.9,
-                                            delay: 1,
+                                            delay: 1.25,
                                             duration: 0.5,
                                         }}
                                     >
@@ -220,3 +195,5 @@ export const Contact = () => {
         </section>
     );
 };
+
+export default Contact;

@@ -1018,6 +1018,7 @@ nav.navbar .collapsed .navbar-toggler-icon {
 }
 
 
+
 /* education and work */
 .eduwork {
 	margin-top: -9rem;
@@ -1164,6 +1165,13 @@ nav.navbar .collapsed .navbar-toggler-icon {
 	border-bottom-right-radius: 0px;
 }
 
+.eyeCont .face:hover{
+	background: linear-gradient(180deg, #f44336, #f44336, #ffcd00);
+}
+
+.eyeCont .face:hover::before{
+	background: #9d0b00;
+}
 .eyeCont .eyes {
 	position: relative;
 	top: -0.5rem;
