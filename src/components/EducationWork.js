@@ -18,11 +18,11 @@ const container = {
 };
 const itemA = {
     hidden: { opacity: 0, left: "-20vh" },
-    visible: { opacity: 1, left: 0 },
+    visible: { opacity: 1, left: 0, transition: {delay: 1.5} },
 };
 const itemB = {
     hidden: { opacity: 0, right: "-20vh" },
-    visible: { opacity: 1, right: 0 },
+    visible: { opacity: 1, right: 0, transition: {delay: 1.5} },
 };
 
 const contVariant = {
@@ -54,8 +54,11 @@ const txtVariant = {
 
 export const EducationWork = () => {
     const {ref, inView} = useInView({
-        threshold: 0.5
+        threshold: 0.3
     });
+    // const {ref2, inView2} = useInView({
+    //     threshold: 0.5
+    // });
     const animation = useAnimation();
     const animation2 = useAnimation();
 
@@ -68,6 +71,13 @@ export const EducationWork = () => {
             animation.start("hidden");
             animation2.start("hidden");
         }
+        // if(inView2) {
+        //     animation.start("visible");
+        //     animation2.start("visible");
+        // } else if(!inView2) {
+        //     animation.start("hidden");
+        //     animation2.start("hidden");
+        // }
         // console.log("in view = ", inView );
     }, [inView, animation, animation2])
 
@@ -97,11 +107,13 @@ export const EducationWork = () => {
                     <motion.div className="rows" variants={container}>
                         <div
                             className="cols"
+                            // ref={ref2}
                         >
                             <motion.h2
                                 className="title"
                                 style={{ position: "relative" }}
                                 variants={itemA}
+                                // animate={animation}
                             >
                                 My Education
                             </motion.h2>
@@ -111,6 +123,7 @@ export const EducationWork = () => {
                                     key={ind}
                                     style={{ position: "relative" }}
                                     variants={itemB}
+                                    // animate={animation2}
                                 />
                             ))}
                         </div>
@@ -132,7 +145,7 @@ export const EducationWork = () => {
                                     key={ind}
                                     style={{ position: "relative" }}
                                     variants={itemB}
-                                animate={animation2}
+                                    animate={animation2}
                                 />
                             ))}
                         </div>
