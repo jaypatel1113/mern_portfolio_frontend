@@ -91,13 +91,13 @@ const Skills = () => {
                                 <CircularBar percentage={80} name="MONGODB" />
                                 <CircularBar percentage={75} name="NODE JS" />
                                 <CircularBar percentage={65} name="EXPRESS JS" />
-                                <CircularBar percentage={60} name="PHP" />
-                                <CircularBar percentage={70} name="MY SQL" />
-                                <CircularBar percentage={55} name="ANGULAR JS" />
+                                <CircularBar percentage={80} name="PHP" />
+                                <CircularBar percentage={75} name="MY SQL" />
+                                <CircularBar percentage={60} name="ANGULAR JS" />
                                 <CircularBar percentage={69} name="J-QUERY" />
                                 <CircularBar percentage={89} name="SCSS" />
                                 <CircularBar percentage={74} name="TAILWIND" />
-                                <CircularBar percentage={78} name="C" />
+                                <CircularBar percentage={84} name="C" />
                                 <CircularBar percentage={75} name="JAVA & JAVA-FX" />
                                 <CircularBar percentage={85} name="GIT & GITHUB" />
                                 <CircularBar percentage={83} name="DATA STRUCTURE" />
