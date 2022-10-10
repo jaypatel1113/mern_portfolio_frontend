@@ -50,7 +50,7 @@ const Banner = () => {
                                         "Web Developer",
                                         "MERN Stack Developer",
                                         "Guys-who-loves-Tea.js",
-                                        "< ButLovesToCodeMore />",
+                                        "< ButLovesTo-CodeMore />",
                                     ],
                                     autoStart: true,
                                     loop: true,
