@@ -1635,4 +1635,20 @@ nav.navbar .collapsed .navbar-toggler-icon {
 	.proj-txtx a.demo {
 		left: 3rem;
 	}
+
+	.aboutme .aboutme-bx {
+		margin-top: 0;
+	}
+	.footer {
+		padding: 6rem 0;
+	}
+	.skill {
+		padding: 0 0 5rem 0;
+	}
+	.skill-bx, .aboutme-bx {
+		border-radius: 0;
+	}
+	.aboutme .boxCont .box {
+		flex: 1 1 85px;
+	}
 }
