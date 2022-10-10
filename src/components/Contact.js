@@ -87,7 +87,7 @@ const Contact = () => {
             toast.warn("Enter only 10 digits in number!");
         else {
             setButtonText("Sending...");
-            let response = await fetch("http://localhost:5000/contact", {
+            let response = await fetch(`${process.env.REACT_APP_BACKEND_LINK}/contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8",
@@ -133,7 +133,7 @@ const Contact = () => {
                             >
                                 <InputTag
                                     type="text"
-                                    name="firstname"
+                                    name="firstName"
                                     placeholder={"First Name"}
                                     value={formDetails.firstName}
                                     setVal={setVal}
@@ -143,7 +143,7 @@ const Contact = () => {
                                     type="text"
                                     name="lastName"
                                     placeholder={"Last Name"}
-                                    value={formDetails.lasttName}
+                                    value={formDetails.lastName}
                                     setVal={setVal}
                                     dly={0.35}
                                 />
@@ -156,7 +156,7 @@ const Contact = () => {
                                     dly={0.5}
                                 />
                                 <InputTag
-                                    type="tel"
+                                    type="number"
                                     name="phone"
                                     placeholder={"Phone Number"}
                                     value={formDetails.phone}

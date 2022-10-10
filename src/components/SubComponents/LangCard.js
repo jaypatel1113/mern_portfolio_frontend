@@ -16,7 +16,7 @@ const LangCard = ({ perc, name, ...rest }) => {
         >
             <CircularProgressBar
                 colorCircle="#e6e6e6"
-                size="20rem"
+                size={200}
                 linearGradient={["#AA367C", "#4A2FBD"]}
                 cut={30}
                 percent={perc}

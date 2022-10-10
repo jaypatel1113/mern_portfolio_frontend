@@ -80,6 +80,19 @@ p.danger {
 	color: red;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 0px;
@@ -892,6 +905,7 @@ nav.navbar .collapsed .navbar-toggler-icon {
 	/* font-weight: 600; */
 	font-size: 2.3rem;
 	color: #333;
+	text-align: left;
 }
 
 .aboutme .abtcont {
@@ -943,7 +957,17 @@ nav.navbar .collapsed .navbar-toggler-icon {
 
 .aboutme .boxCont {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.aboutme .boxCont .box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	flex: 1 1 110px;
 }
 
 .aboutme img.img {
