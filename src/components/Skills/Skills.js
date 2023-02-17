@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
-import MongoDb from '../../assets/img/Skills/mongodb.svg';
-import Git from '../../assets/img/Skills/brand-git.svg';
-import Js from '../../assets/img/Skills/js.svg';
-import ReactJs from '../../assets/img/Skills/reactjs.svg';
-import Scss from '../../assets/img/Skills/sass.svg';
-import Tailwind from '../../assets/img/Skills/tailwindcss.svg';
+import MongoDb from '../../Assets/img/Skills/mongodb.svg';
+import Git from '../../Assets/img/Skills/brand-git.svg';
+import Js from '../../Assets/img/Skills/js.svg';
+import ReactJs from '../../Assets/img/Skills/reactjs.svg';
+import Scss from '../../Assets/img/Skills/sass.svg';
+import Tailwind from '../../Assets/img/Skills/tailwindcss.svg';
 
-import colorSharp from "../../assets/img/color-sharp.png";
+import colorSharp from "../../Assets/img/color-sharp.png";
 
 import Title from "../SubComponents/Title";
 import SkillList from "../SubComponents/SkillList";

@@ -1,14 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-import navIcon1 from "../../assets/img/nav-icon1.svg";
-import navIcon2 from "../../assets/img/nav-icon2.svg";
-import navIcon3 from "../../assets/img/nav-icon3.svg";
-import navIcon4 from "../../assets/img/nav-icon4.svg";
-import navIcon5 from "../../assets/img/nav-icon5.svg";
-import navIcon6 from "../../assets/img/nav-icon6.svg";
-import navIcon7 from "../../assets/img/nav-icon7.svg";
-import navIcon8 from "../../assets/img/nav-icon8.svg";
+import navIcon1 from "../../Assets/img/nav-icon1.svg";
+import navIcon2 from "../../Assets/img/nav-icon2.svg";
+import navIcon3 from "../../Assets/img/nav-icon3.svg";
+import navIcon4 from "../../Assets/img/nav-icon4.svg";
+import navIcon5 from "../../Assets/img/nav-icon5.svg";
+import navIcon6 from "../../Assets/img/nav-icon6.svg";
+import navIcon7 from "../../Assets/img/nav-icon7.svg";
+import navIcon8 from "../../Assets/img/nav-icon8.svg";
 
 import FooterLink from "../SubComponents/FooterLink";
 

@@ -1,5 +1,5 @@
 
-import edu  from "../../assets/img/edu.svg";
+import edu  from "../../Assets/img/edu.svg";
 export const educationData = [
     {
         year: "2006 - 2019",

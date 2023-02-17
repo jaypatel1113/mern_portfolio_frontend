@@ -1,5 +1,5 @@
 
-import work from "../../assets/img/work.svg";
+import work from "../../Assets/img/work.svg";
 export const experienceData = [
     // {
     //     year: "2021 - Present",

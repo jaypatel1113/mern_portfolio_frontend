@@ -3,7 +3,7 @@ import { ArrowRightCircle } from "react-bootstrap-icons";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-import headerImg from "../../assets/img/header-img.svg";
+import headerImg from "../../Assets/img/header-img.svg";
 
 import './Banner.css';
 

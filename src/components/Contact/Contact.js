@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
-import contactImg from "../../assets/img/contact-img.svg";
+import contactImg from "../../Assets/img/contact-img.svg";
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 

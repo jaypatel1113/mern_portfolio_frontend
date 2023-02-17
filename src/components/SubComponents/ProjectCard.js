@@ -3,8 +3,8 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import gitIcon from "../../assets/img/nav-icon6.svg";
-import liveIcon from "../../assets/img/live.svg";
+import gitIcon from "../../Assets/img/nav-icon6.svg";
+import liveIcon from "../../Assets/img/live.svg";
 
 export const ProjectCard = ({
     title,

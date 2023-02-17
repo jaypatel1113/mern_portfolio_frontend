@@ -1,6 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 
-import colorSharp2 from "../../assets/img/color-sharp2.png";
+import colorSharp2 from "../../Assets/img/color-sharp2.png";
 import { frontendProjects } from "../ProjectData/frontEnd";
 import { backendProjects } from "../ProjectData/backEnd";
 import { fullStackProjects } from "../ProjectData/fullStack";

@@ -3,16 +3,16 @@ import { Col, Nav, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 
-import headerImg from "../../assets/img/pic.png";
-import location from "../../assets/img/location.svg";
-import user from "../../assets/img/user.svg";
-import email from "../../assets/img/email.svg";
-import phone from "../../assets/img/phone.svg";
-import bday from "../../assets/img/bday.svg";
-import freelancer from "../../assets/img/freelancer.svg";
-import language from "../../assets/img/language.svg";
-import DarkResume from "../../assets/pdfs/CV-resume-Dark Mode.pdf";
-import LightResume from "../../assets/pdfs/CV-resume-Light Mode.pdf";
+import headerImg from "../../Assets/img/pic.png";
+import location from "../../Assets/img/location.svg";
+import user from "../../Assets/img/user.svg";
+import email from "../../Assets/img/email.svg";
+import phone from "../../Assets/img/phone.svg";
+import bday from "../../Assets/img/bday.svg";
+import freelancer from "../../Assets/img/freelancer.svg";
+import language from "../../Assets/img/language.svg";
+import DarkResume from "../../Assets/pdfs/CV-resume-Dark Mode.pdf";
+import LightResume from "../../Assets/pdfs/CV-resume-Light Mode.pdf";
 
 import Detail from "../SubComponents/Detail";
 import Title from "../SubComponents/Title";

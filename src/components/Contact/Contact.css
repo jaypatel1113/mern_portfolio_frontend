@@ -59,6 +59,7 @@
     border-radius: 0;
     position: relative;
     transition: 0.3s ease-in-out;
+    z-index: 11;
 }
 
 .contact form button span {
