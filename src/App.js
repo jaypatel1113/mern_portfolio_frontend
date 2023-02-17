@@ -15,6 +15,7 @@ import EducationWorkPage from "./Components/Pages/EducationWorkPage";
 import SkillPage from "./Components/Pages/SkillPage";
 import ProjectPage from "./Components/Pages/ProjectPage";
 import ContactPage from "./Components/Pages/ContactPage";
+import LoginPage from "./Components/Pages/LoginPage";
 
 const App = () => {
     return (
@@ -30,6 +31,7 @@ const App = () => {
                 <Route path="/skills" element={<SkillPage />} />
                 <Route path="/projects" element={<ProjectPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/login" element={<LoginPage />} />
             </Routes>
 
             
