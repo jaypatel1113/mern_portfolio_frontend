@@ -1,9 +1,9 @@
 
-import projImg1 from "../../Assets/img/firebase1.png";
-import projImg2 from "../../Assets/img/firebase2.png";
-import projImg3 from "../../Assets/img/mern1.png";
-import projImg4 from "../../Assets/img/mern2.png";
-import projImg5 from "../../Assets/img/php.png";
+import projImg1 from "../../assets/img/firebase1.png";
+import projImg2 from "../../assets/img/firebase2.png";
+import projImg3 from "../../assets/img/mern1.png";
+import projImg4 from "../../assets/img/mern2.png";
+import projImg5 from "../../assets/img/php.png";
 
 export const fullStackProjects = [
     {

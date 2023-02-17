@@ -4,18 +4,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
-import Bottombar from "./Components/BottomBar/Bottombar";
-import Footer from "./Components/Footer/Footer";
-import HomePage from "./Components/Pages/HomePage";
-import NavBar from "./Components/NavBar/NavBar";
-import ProgressBar from "./Components/ProgressBar/ProgressBar";
+import Bottombar from "./components/BottomBar/Bottombar";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./components/Pages/HomePage";
+import NavBar from "./components/NavBar/NavBar";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
-import AboutMePage from "./Components/Pages/AboutMePage";
-import EducationWorkPage from "./Components/Pages/EducationWorkPage";
-import SkillPage from "./Components/Pages/SkillPage";
-import ProjectPage from "./Components/Pages/ProjectPage";
-import ContactPage from "./Components/Pages/ContactPage";
-import LoginPage from "./Components/Pages/LoginPage";
+import AboutMePage from "./components/Pages/AboutMePage";
+import EducationWorkPage from "./components/Pages/EducationWorkPage";
+import SkillPage from "./components/Pages/SkillPage";
+import ProjectPage from "./components/Pages/ProjectPage";
+import ContactPage from "./components/Pages/ContactPage";
+import LoginPage from "./components/Pages/LoginPage";
 
 const App = () => {
     return (

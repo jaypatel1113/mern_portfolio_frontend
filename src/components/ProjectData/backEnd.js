@@ -1,7 +1,7 @@
 
-import projImg1 from "../../Assets/img/backend1.png";
-import projImg2 from "../../Assets/img/backend2.png";
-import projImg3 from "../../Assets/img/backend3.png";
+import projImg1 from "../../assets/img/backend1.png";
+import projImg2 from "../../assets/img/backend2.png";
+import projImg3 from "../../assets/img/backend3.png";
 
 export const backendProjects = [
     {
