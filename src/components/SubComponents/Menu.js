@@ -1,12 +1,12 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Menu = ({ i, clr, setClick, click, href, title, svg }) => {
     return (
         <li style={{ "--i": i, "--clr": clr }} onClick={() => setClick(!click)}>
-            <Nav.Link href={href} className="navbar-link" data-title={title}>
+            <NavLink to={href} className="navbar-link" data-title={title}>
                 {svg}
-            </Nav.Link>
+            </NavLink>
         </li>
     );
 };

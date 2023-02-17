@@ -70,7 +70,7 @@ const Skills = () => {
                         >
                             <Title
                                 h2={"Skills"}
-                                p={"Here are my Top and Prioritized Skills.."}
+                                p={"Here are my Top and Prioritized Skills."}
                                 txtVariant={txtVariant}
                             />
 

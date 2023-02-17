@@ -4,6 +4,7 @@ import { Navbar, Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import './NavBar.css'
+import { NavLink } from "react-router-dom";
 
 const navVariant = {
     hidden: { opacity: 0, right: "-100vh" },
@@ -37,15 +38,18 @@ const NavBar = () => {
                         animate="visible"
                         style={{ position: "relative" }}
                     >
-                        <Navbar.Brand href="/">
+                        <NavLink to={'/'}>
+
+                        {/* <Navbar.Brand> */}
                             {/* <img src={logo} alt="Logo" className="logo" /> */}
                             <motion.div
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.8 }}
-                            >
+                                >
                                 <span className="logo">JAY PATEL</span>
                             </motion.div>
-                        </Navbar.Brand>
+                        {/* </Navbar.Brand> */}
+                                </NavLink>
                     </motion.div>
                 </Container>
             </Navbar>

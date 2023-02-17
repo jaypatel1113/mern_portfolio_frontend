@@ -27,7 +27,7 @@ const MenuLinks = () => {
                     clr={"#ff2972"}
                     setClick={setClick}
                     click={click}
-                    href={"#home"}
+                    href={"/"}
                     title={"Home"}
                     svg={<HouseDoor />}
                 />
@@ -36,7 +36,7 @@ const MenuLinks = () => {
                     clr={"#FF00FF"}
                     setClick={setClick}
                     click={click}
-                    href={"#aboutmesec"}
+                    href={"/about-me"}
                     title={"About Me"}
                     svg={<Person />}
                 />
@@ -45,7 +45,7 @@ const MenuLinks = () => {
                     clr={"#04fc43"}
                     setClick={setClick}
                     click={click}
-                    href={"#educations"}
+                    href={"/education-work"}
                     title={"Education & Work"}
                     svg={<Mortarboard />}
                 />
@@ -54,7 +54,7 @@ const MenuLinks = () => {
                     clr={"#ffc0cb"}
                     setClick={setClick}
                     click={click}
-                    href={"#skills"}
+                    href={"/skills"}
                     title={"Skills"}
                     svg={<Award />}
                 />
@@ -63,7 +63,7 @@ const MenuLinks = () => {
                     clr={"#00b0fe"}
                     setClick={setClick}
                     click={click}
-                    href={"#projects"}
+                    href={"/projects"}
                     title={"Projects"}
                     svg={<Puzzle />}
                 />
@@ -72,7 +72,7 @@ const MenuLinks = () => {
                     clr={"#fea600"}
                     setClick={setClick}
                     click={click}
-                    href={"#connect"}
+                    href={"/contact"}
                     title={"Contact"}
                     svg={<EnvelopeHeart />}
                 />

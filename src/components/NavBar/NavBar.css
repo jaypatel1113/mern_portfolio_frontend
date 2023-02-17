@@ -17,6 +17,10 @@ nav.navbar.scrolled {
     background-color: #121212;
 }
 
+nav.navbar a {
+    text-decoration: none;
+}
+
 
 /* nav.navbar a.navbar-brand {
     width: auto;

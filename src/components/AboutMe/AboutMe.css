@@ -76,8 +76,9 @@
 
 .hiddencls {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
-    justify-content: space-between;
     flex-wrap: wrap;
     padding: 3rem 4rem;
 }
