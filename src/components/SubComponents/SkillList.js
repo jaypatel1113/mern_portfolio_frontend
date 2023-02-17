@@ -17,7 +17,7 @@ const contVariant = {
 const SkillList = () => {
     return (
         <Marquee
-            speed={150}
+            speed={100}
             pauseOnHover={true}
             gradient={false}
         >

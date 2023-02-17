@@ -116,14 +116,15 @@
     padding: 10px 15px;
     border-radius: 10px;
     font-weight: bolder;
+    box-shadow: 0 0 5px #fff;
     transition: all .4s;
     cursor: pointer;
 }
 
 .marquee p span:hover {
     background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    box-shadow: 0 0 5px #4A2FBD;
     color: #fff;
-
 }
 
 @keyframes cubeRotation {
