@@ -1,0 +1,115 @@
+
+/* menu links */
+.menuLinks {
+    display: inline-block;
+    z-index: 1000000000000;
+}
+
+.menuLinks .menus {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 14rem;
+    padding-left: 0;
+}
+
+.menuLinks .menus li {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    list-style: none;
+    transition: 0.5s;
+    transition-delay: calc(0.05s * var(--i));
+    transform-origin: 7rem;
+    transform: rotate(0deg) translateX(5rem);
+
+}
+
+.menuLinks .menus.active li {
+    transform: rotate(calc(360deg / 6 * var(--i))) translateX(-2rem);
+    opacity: 1;
+}
+
+.menuLinks .menus li a {
+    color: var(--clr);
+    border: 3px solid var(--clr);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(calc(360deg / -6 * var(--i)));
+    transition: 1s;
+}
+
+.menuLinks .menus li a:hover {
+    position: relative;
+    transition: 0s;
+    background: var(--clr);
+    color: #000;
+    box-shadow: 0 0 10px var(--clr),
+        0 0 30px var(--clr),
+        0 0 50px var(--clr);
+}
+
+.menuLinks .menus li a:hover::after {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+    height: 8px;
+    width: 8px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--clr);
+}
+
+.menuLinks .menus li a:hover::before {
+    content: attr(data-title);
+    position: absolute;
+    top: -3.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--clr);
+    width: auto;
+    height: 2.5rem;
+    font-weight: 500;
+    color: #111;
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+    border: 1px solid var(--clr);
+}
+
+.menuLinks .menus li a svg {
+    transform: scale(2);
+}
+
+.menuLinks .menus .togglers {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    /* background: radial-gradient(#AA367C, #4A2FBD);
+	background: radial-gradient(#881798, #c23983); */
+    background: #ffcd00;
+    border: 3px solid #ffcd00;
+    border-radius: 50%;
+    color: #000;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 3rem;
+    transition: transform 0.5s;
+}
+
+.menuLinks .menus.active .togglers {
+    transform: rotate(315deg);
+}

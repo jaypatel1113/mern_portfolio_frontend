@@ -1,0 +1,62 @@
+
+/************ Navbar Css ************/
+nav.navbar {
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: 0.32s ease-in-out;
+}
+
+/* nav svg {
+    transform: scale(2.5);
+} */
+
+nav.navbar.scrolled {
+    background-color: #121212;
+}
+
+
+/* nav.navbar a.navbar-brand {
+    width: auto;
+} */
+
+/* nav.navbar .navbar-nav .nav-link.navbar-link {
+    font-weight: 400;
+    color: #fff !important;
+    letter-spacing: 0.8px;
+    padding: 0 2.5rem;
+    font-size: 1.8rem;
+    opacity: 0.75;
+} */
+
+/* nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+} */
+
+/* nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    font-weight: 800;
+} */
+
+/* span.navbar-text {
+    display: flex;
+    align-items: center;
+} */
+
+.navbar-light .navbar-brand {
+    display: flex;
+}
+
+/* nav.navbar .collapsed .navbar-toggler-icon {
+    background-color: #fff;
+} */
+
+
+
+@media screen and (max-width: 576px) {
+    nav.navbar {
+        padding: 2rem 6rem;
+    }
+}

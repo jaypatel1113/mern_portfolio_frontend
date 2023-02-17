@@ -1,0 +1,104 @@
+
+/************ Footer Css ************/
+.footer {
+    padding: 5rem 0 5rem 0;
+    background-image: url('../../assets/img/footer-bg.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer .logo,
+.navbar .logo {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.footer img {
+    width: 26%;
+}
+
+.footer p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #B8B8B8;
+    letter-spacing: 0.8px;
+    margin-top: 2rem
+}
+
+
+.social-icon {
+    display: inline-block;
+    margin-left: 1.4rem;
+}
+
+.social-icon a {
+    width: 4.2rem;
+    height: 4.2rem;
+    background: rgba(217, 217, 217, 0.1);
+    display: inline-flex;
+    border-radius: 50%;
+    margin-right: 6px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    border: 2px solid var(--br-clr);
+    margin: 0.5rem;
+}
+
+.social-icon a::before {
+    content: "";
+    width: 4.2rem;
+    height: 4.2rem;
+    position: absolute;
+    background-color: var(--br-clr);
+    box-shadow: 0 0 10px var(--br-clr),
+        0 0 30px var(--br-clr),
+        0 0 50px var(--br-clr);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon a:hover::before {
+    transform: scale(1);
+}
+
+.social-icon a img {
+    width: 40%;
+    z-index: 2;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon a:hover img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+
+@media screen and (max-width: 576px) {
+    .footer {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        text-align: center;
+    }
+
+    .footer .moremar {
+        margin: 0 0 3rem 0;
+    }
+
+    .social-icon a,
+    .social-icon a::before {
+        width: 5.6rem;
+        height: 5.6rem;
+    }
+}
+
+
+@media screen and (max-width: 470px) {
+    .footer {
+        padding: 6rem 0;
+    }
+}

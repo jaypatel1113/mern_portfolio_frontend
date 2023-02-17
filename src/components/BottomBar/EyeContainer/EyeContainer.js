@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { CaretUpFill } from "react-bootstrap-icons";
 
+import './EyeContainer.css'
+
 const EyeContainer = () => {
     const [scrolled, setScrolled] = useState(false);
 

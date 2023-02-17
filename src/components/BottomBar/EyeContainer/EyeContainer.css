@@ -1,0 +1,96 @@
+
+/* face scroll to top */
+.eyeCont {
+    position: relative;
+    transition: 0.3s;
+    /* z-index: 1; */
+}
+
+.eyeCont .arrow {
+    position: absolute;
+    color: #fff;
+    font-weight: 900;
+    transition: 0.5s;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eyeCont:hover .arrow {
+    transform: translate(-12px, -25px);
+}
+
+.arrow svg {
+    color: #ffcd00;
+}
+
+.eyeCont .face {
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    background-color: #ffcd00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eyeCont .face::before {
+    content: '';
+    position: absolute;
+    top: 4.3rem;
+    width: 3.5rem;
+    height: 1.4rem;
+    background: #b57700;
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+    transition: 0.5s;
+}
+
+.eyeCont .face:hover::before {
+    top: 4.5rem;
+    height: 0.8rem;
+    background: #b57700;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.eyeCont .face:hover {
+    background: linear-gradient(180deg, #f44336, #f44336, #ffcd00);
+}
+
+.eyeCont .face:hover::before {
+    background: #9d0b00;
+}
+
+.eyeCont .eyes {
+    position: relative;
+    top: -0.5rem;
+    display: flex;
+}
+
+.eyeCont .eyes .eye {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.eyeCont .eyes .eye .pupil {
+    width: 1rem;
+    height: 1rem;
+    background: #333;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.eyeCont .face:hover .eyes .eye .pupil {
+    width: 1.5rem;
+    height: 1.5rem;
+}

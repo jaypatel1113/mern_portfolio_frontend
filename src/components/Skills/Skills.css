@@ -1,0 +1,197 @@
+
+/************ Skills Css ************/
+.skill {
+    padding: 0 0 5rem 0;
+    position: relative;
+}
+
+.skill-bx {
+    background: #151515;
+    border-radius: 6.4rem;
+    text-align: center;
+    padding: 6rem 5rem;
+    margin-top: 6rem;
+}
+
+.skill h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+.skill p {
+    color: #B8B8B8;
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+    line-height: 3rem;
+    margin: 1.4rem 0 7.5rem 0;
+}
+
+.background-image-left {
+    top: -50%;
+    position: absolute;
+    bottom: 0;
+    width: 40%;
+    z-index: -4;
+}
+
+.background-image-left.secimg {
+    right: 0%;
+    top: -80%;
+    transform: rotateY(180deg);
+}
+
+
+.skillcontainer {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 100px;
+}
+
+.skillcube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: cubeRotation 15s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.skillface {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    opacity: 0.9;
+}
+
+.skillface img {
+    /* width: inherit; */
+    /* height: inherit; */
+    /* object-fit: cover; */
+    background-color: #fff;
+    /* background: linear-gradient(90.21deg, rgba(74, 47, 189, 0.65) -5.91%, rgba(170, 54, 124, 0.65) 111.58%) !important; */
+}
+
+.face1 {
+    transform: translate3d(0, 0, 100px);
+}
+
+.face2 {
+    transform: rotateY(180deg) translate3d(0, 0, 100px);
+}
+
+.face3 {
+    transform: rotateY(-90deg) translate3d(0, 0, 100px);
+}
+
+.face4 {
+    transform: rotateY(90deg) translate3d(0, 0, 100px);
+}
+
+.face5 {
+    transform: rotateX(90deg) translate3d(0, 0, 100px);
+}
+
+.face6 {
+    transform: rotateX(-90deg) translate3d(0, 0, 100px);
+}
+
+
+.marquee {
+    margin-top: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marquee-container {
+    width: 70rem !important;
+}
+
+.marquee p span {
+    margin: 0 15px;
+    background: #fff;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.marquee p span:hover {
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    color: #fff;
+
+}
+
+@keyframes cubeRotation {
+    to {
+        transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .skillcube {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .face1 {
+        transform: translate3d(0, 0, 75px);
+    }
+
+    .face2 {
+        transform: rotateY(180deg) translate3d(0, 0, 75px);
+    }
+
+    .face3 {
+        transform: rotateY(-90deg) translate3d(0, 0, 75px);
+    }
+
+    .face4 {
+        transform: rotateY(90deg) translate3d(0, 0, 75px);
+    }
+
+    .face5 {
+        transform: rotateX(90deg) translate3d(0, 0, 75px);
+    }
+
+    .face6 {
+        transform: rotateX(-90deg) translate3d(0, 0, 75px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .marquee-container {
+        width: 50rem !important;
+    }
+    
+    .marquee p span {
+        margin: 0 15px;
+        font-size: 1.6rem;
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .skill {
+        padding: 0 6rem 5rem 6rem;
+    }
+    .background-image-left {
+        width: 80%;
+        left: -10%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .skill {
+        padding: 0 0 5rem 0;
+    }
+
+    .skill-bx,
+    .aboutme-bx {
+        border-radius: 0;
+    }
+}

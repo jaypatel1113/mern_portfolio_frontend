@@ -1,12 +1,14 @@
 import React from "react";
 
-import EyeContainer from "./SubComponents/EyeContainer";
-import MenuList from "./SubComponents/MenuList";
+import EyeContainer from "./EyeContainer/EyeContainer";
+import MenuLinks from "./MenuLinks/MenuLinks";
+
+import './BottomBar.css';
 
 const Bottombar = () => {
     return (
         <div className="btmcnt">
-            <MenuList />
+            <MenuLinks />
             <EyeContainer />
         </div>
     );

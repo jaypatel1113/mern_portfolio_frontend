@@ -1,0 +1,15 @@
+
+.btmcnt {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    height: 17rem;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4.5rem;
+    padding-right: 8.25rem;
+}

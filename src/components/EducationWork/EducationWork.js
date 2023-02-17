@@ -1,12 +1,13 @@
 import React from "react";
-import { educationData } from "./ProjectData/educationData";
-import { experienceData } from "./ProjectData/experienceData";
+import { educationData } from "../ProjectData/educationData";
+import { experienceData } from "../ProjectData/experienceData";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-import Title from "./SubComponents/Title";
-import EduWorkCard from "./SubComponents/EduWorkCard";
+import Title from "../SubComponents/Title";
+import EduWorkCard from "../SubComponents/EduWorkCard";
+import './EducationWork.css'
 
 const container = {
     hidden: { scale: 0 },

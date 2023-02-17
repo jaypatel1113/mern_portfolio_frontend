@@ -3,20 +3,20 @@ import { Col, Nav, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 
-import headerImg from "../assets/img/pic.png";
-import location from "../assets/img/location.svg";
-import user from "../assets/img/user.svg";
-import email from "../assets/img/email.svg";
-import phone from "../assets/img/phone.svg";
-import bday from "../assets/img/bday.svg";
-import freelancer from "../assets/img/freelancer.svg";
-import language from "../assets/img/language.svg";
-import Detail from "./SubComponents/Detail";
-import DarkResume from "../assets/pdfs/CV-resume-Dark Mode.pdf";
-import LightResume from "../assets/pdfs/CV-resume-Light Mode.pdf";
+import headerImg from "../../assets/img/pic.png";
+import location from "../../assets/img/location.svg";
+import user from "../../assets/img/user.svg";
+import email from "../../assets/img/email.svg";
+import phone from "../../assets/img/phone.svg";
+import bday from "../../assets/img/bday.svg";
+import freelancer from "../../assets/img/freelancer.svg";
+import language from "../../assets/img/language.svg";
+import DarkResume from "../../assets/pdfs/CV-resume-Dark Mode.pdf";
+import LightResume from "../../assets/pdfs/CV-resume-Light Mode.pdf";
 
-import Title from "./SubComponents/Title";
-import LangCard from "./SubComponents/LangCard";
+import Detail from "../SubComponents/Detail";
+import Title from "../SubComponents/Title";
+import LangCard from "../SubComponents/LangCard";
 
 const container = {
     hidden: { rotate: 90 },
@@ -28,14 +28,6 @@ const container = {
         },
     },
 };
-// const itemA = {
-//     hidden: { scale: 0, left: "-20vh" },
-//     visible: { scale: 1, left: 0 },
-// };
-// const itemB = {
-//     hidden: { scale: 0, right: "-20vh" },
-//     visible: { scale: 1, right: 0 },
-// };
 
 const txtVariant = {
     hidden: {
@@ -143,7 +135,7 @@ export const Information = () => {
                                             className="navbar-link"
                                         >
                                             <button>
-                                                <span>Resume Download</span>
+                                                <span>CV Download</span>
                                             </button>
                                         </Nav.Link>
                                         <Nav.Link
@@ -154,7 +146,7 @@ export const Information = () => {
                                             className="navbar-link"
                                         >
                                             <button>
-                                                <span>Resume Website</span>
+                                                <span>CV Website</span>
                                             </button>
                                         </Nav.Link>
                                     </motion.span>
@@ -240,9 +232,9 @@ export const Information = () => {
                                 whileInView="visible"
                                 // viewport={{once: true}}
                             >
-                                <LangCard name={"Gujarati"} perc={95} />
-                                <LangCard name={"English"} perc={85} />
-                                <LangCard name={"Hindi"} perc={70} />
+                                <LangCard name={"English"} />
+                                <LangCard name={"Gujarati"} />
+                                <LangCard name={"Hindi"} />
                             </motion.div>
                         </div>
                     </Col>

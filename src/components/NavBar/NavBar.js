@@ -3,6 +3,8 @@ import { Navbar, Container } from "react-bootstrap";
 // import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
 
+import './NavBar.css'
+
 const navVariant = {
     hidden: { opacity: 0, right: "-100vh" },
     visible: { opacity: 1, right: 0, transition: { delay: 0.2 } },

@@ -1,0 +1,420 @@
+/* aboutme section */
+
+.aboutme-bx {
+    background: #FFFFFF;
+    border-radius: 5.5rem;
+    color: #121212;
+    padding: 8.5rem 12.5rem;
+    margin-bottom: 8rem;
+    margin-top: -12.2rem;
+}
+
+/* .aboutme-bx h3 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 3rem;
+} */
+
+.aboutme h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.aboutme p {
+    color: #444;
+    font-size: 1.8rem !important;
+}
+
+.aboutme .piccont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.aboutme .aboutme-bx {
+    padding: 8.5rem 10rem;
+    /* margin-top: -5rem; */
+}
+
+.aboutme img.imgabt {
+    width: 100%;
+    height: 100%;
+    /* border-radius: 50%; */
+    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+    animation: waterwave 3s linear infinite;
+}
+
+@keyframes waterwave {
+
+    0%,
+    100% {
+        border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+    }
+
+    50% {
+        border-radius: 3% 97% 15% 85% / 72% 0% 100% 28%;
+    }
+}
+
+.aboutme .imgbx {
+    position: relative;
+    width: 35rem;
+    height: 35rem;
+}
+
+.lrbtn {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hiddencls {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3rem 4rem;
+}
+
+.hiddencls button {
+    /* min-width: 29.5rem; */
+    font-size: 1.8rem;
+    flex: 1 1 20rem;
+}
+
+.aboutme button {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    /* margin: 6rem 0; */
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+}
+
+.aboutme .abtcont {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+.aboutme .abtcont .abtmerow {
+    width: 100%;
+}
+
+.aboutme .abtmerow {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.aboutme .abtmerow .pinfo {
+    flex: 1 1 55rem;
+    padding: 3rem 1rem;
+}
+
+.aboutme .abtmerow .pinfo .boxcont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.aboutme .abtmerow .pinfo .boxcont .box {
+    padding: 0rem 1rem;
+}
+
+.aboutme .abtmerow .pinfo .boxcont .box h3 {
+    font-size: 2.3rem;
+    color: #333;
+    padding: 2rem 0;
+}
+
+.aboutme .abtmerow .pinfo .boxcont .box h3 span {
+    color: #777;
+    font-size: 2rem;
+}
+
+.aboutme .lang {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.aboutme .boxCont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutme .boxCont .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 110px;
+}
+
+.aboutme img.img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0;
+    margin-right: 0.6rem;
+
+}
+
+.aboutme button {
+    color: #000;
+    /* width: 28.5rem; */
+    background-color: #fff;
+    border: 3px solid #000;
+    padding: 2rem 4rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.aboutme .mtopsome {
+    margin: 15px;
+}
+
+.aboutme button svg {
+    transition: 0.3s ease-in-out;
+}
+
+.aboutme button span {
+    z-index: 1;
+    width: 100%;
+}
+
+.aboutme button::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.aboutme button.active {
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+}
+
+.aboutme .lrbtn.active {
+    width: 100%;
+    border-radius: 2rem;
+    padding: 0 2rem;
+}
+
+.aboutme button:hover {
+    color: #fff;
+}
+
+.aboutme button:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.aboutme .name h3 {
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    font-size: 2.3rem;
+    color: #333;
+    text-align: left;
+}
+
+.langbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 110px;
+    background: #000;
+    margin: 10px 20px;
+    height: 125px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100px;
+}
+
+.langbox::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-image: conic-gradient(transparent, transparent, transparent, #AA367C);
+    animation: animateborder 4s linear infinite;
+}
+
+.langbox::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-image: conic-gradient(transparent, transparent, transparent, #4A2FBD);
+    animation: animateborder 4s linear infinite;
+    animation-delay: -2s;
+}
+
+@keyframes animateborder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.langbox span {
+    background-color: #fff;
+    position: absolute;
+    inset: 6px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+
+
+@media screen and (max-width: 1400px) {
+
+    .aboutme img,
+    .aboutme .imgbx {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 {
+        font-size: 2rem;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 span {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    /* .aboutme table tr td {
+        padding: 1rem 3rem;
+    } */
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 {
+        font-size: 1.7rem;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 span {
+        font-size: 1.4rem;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .aboutme img,
+    .aboutme .imgbx {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 {
+        font-size: 1.5rem;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 span {
+        font-size: 1.2rem;
+    }
+
+    .aboutme button {
+        width: 29.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .aboutme .abtcont {
+        display: flex;
+        justify-content: center;
+    }
+
+    .aboutme p {
+        width: auto;
+    }
+
+    .aboutme div[data-angel="95"],
+    .aboutme div[data-angel="95"] svg,
+    .aboutme div[data-angel="85"],
+    .aboutme div[data-angel="85"] svg,
+    .aboutme div[data-angel="70"],
+    .aboutme div[data-angel="70"] svg {
+        width: 10rem !important;
+        height: 10rem !important;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 span {
+        min-width: 18rem;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .aboutme .abtmerow .pinfo .boxcont .box h3 {
+        text-align: left;
+    }
+
+    .aboutme .abtmerow .pinfo .boxcont .box h3 span {
+        min-width: 14rem;
+    }
+
+    .aboutme .aboutme-bx {
+        padding: 6rem;
+    }
+
+    .aboutme button {
+        width: 28rem;
+        padding: 2rem 3rem;
+    }
+
+    .hiddencls {
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    /* .aboutme table tr td {
+        padding: 2rem 2rem;
+    } */
+
+    .aboutme button {
+        width: 29rem;
+        padding: 2rem 3rem;
+    }
+
+    .aboutme .aboutme-bx {
+        margin-top: 0;
+    }
+
+    .skill-bx,
+    .aboutme-bx {
+        border-radius: 0;
+    }
+
+    .aboutme .boxCont .box {
+        flex: 1 1 85px;
+    }
+}

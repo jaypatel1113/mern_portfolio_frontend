@@ -9,13 +9,15 @@ import {
     Plus,
     Puzzle,
 } from "react-bootstrap-icons";
-import Menu from "./Menu";
+import Menu from "../../SubComponents/Menu";
 
-const MenuList = () => {
+import './MenuLinks.css';
+
+const MenuLinks = () => {
     const [click, setClick] = useState("false");
 
     return (
-        <div className="menuList">
+        <div className="menuLinks">
             <ul className={`menus ${!click ? "active" : ""}`}>
                 <div className="togglers" onClick={() => setClick(!click)}>
                     <Plus />
@@ -79,4 +81,4 @@ const MenuList = () => {
     );
 };
 
-export default MenuList;
+export default MenuLinks;

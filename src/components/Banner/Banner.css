@@ -1,0 +1,116 @@
+
+/************ Banner Css ************/
+.banner {
+    margin-top: 0;
+    padding: 15rem 0 10rem 0;
+    background-image: url('../../assets/img/banner-bg.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner .tagline {
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 2rem;
+    margin-bottom: 2.6rem;
+    display: inline-block;
+}
+
+.banner h1 {
+    font-size: 6.5rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.banner p {
+    color: #B8B8B8;
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+    line-height: 3rem;
+    width: 96%;
+}
+
+.banner p span {
+    font-weight: 900;
+    font-size: 3rem;
+    background: linear-gradient(45deg, #AA367C -5.91%, #2f9eff 111.58%);
+    /* background: -webkit-linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* .banner .nav-link,
+.aboutme .nav-link {
+    padding: 0.5rem 0;
+} */
+
+.banner .nav-link {
+    margin: 5rem 0 0 0;
+}
+
+.banner button {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    /* margin: 6rem 0; */
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+}
+
+
+.banner button svg,
+.aboutme button svg {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    transition: 0.3s ease-in-out;
+    line-height: 1;
+}
+
+.banner button:hover svg,
+.aboutme button:hover svg {
+    margin-left: 2.5rem;
+}
+
+.banner img {
+    animation: updown 3s linear infinite;
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .banner p span {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        padding: 15rem 6rem;
+    }
+
+    .banner h1 {
+        font-size: 5rem;
+    }
+}

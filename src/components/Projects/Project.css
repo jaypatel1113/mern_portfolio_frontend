@@ -1,0 +1,331 @@
+
+/************ Projects Css ************/
+.project {
+    padding: 8rem 0;
+    position: relative;
+    background-color: black;
+    z-index: 0;
+}
+
+.project h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.project p,
+.aboutme p {
+    color: #B8B8B8;
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+    line-height: 3rem;
+    margin: 1.4rem auto 3rem auto;
+    text-align: center;
+    width: 56%;
+}
+
+.project .nav.nav-pills {
+    width: 72%;
+    margin: 0 auto;
+    border-radius: 5rem;
+    background-color: rgb(255 255 255 / 10%);
+    overflow: hidden;
+}
+
+.project .nav.nav-pills .nav-item {
+    width: 33.33333%;
+    cursor: pointer;
+}
+
+.project .nav.nav-pills .nav-link {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 1.7rem 0;
+    color: #fff;
+    width: 100%;
+    font-size: 1.7rem;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    z-index: 1;
+    /* padding: 0 5px; */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.project .nav.nav-pills .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+}
+
+.project .nav.nav-pills .nav-link.active::before {
+    width: 100% !important;
+}
+
+/* .project .nav.nav-pills .nav-link.active {
+    border: 1px solid rgba(255, 255, 255, 1);
+} */
+
+.project .nav.nav-pills {
+    margin-bottom: 5rem !important;
+}
+
+.nav-link#projects-tabs-tab-first {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5.5rem 0px 0px 5.5rem;
+}
+
+.nav-link#projects-tabs-tab-second {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-link#projects-tabs-tab-third {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0 5.5rem 5.5rem 0;
+}
+
+.proj-imgbx {
+    position: relative;
+    border-radius: 3rem;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    border: double 3px transparent;
+    border-radius: 3rem;
+    background-image: linear-gradient(white, white), linear-gradient(30deg, #AA367C, #4A2FBD);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.proj-imgbx::before {
+    content: "";
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    opacity: 0.85;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    transition: 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.proj-imgbx:hover::before {
+    transition: all 0 ease-in-out;
+    height: 100%;
+}
+
+.proj-imgbx img.projectImg {
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.proj-imgbx:hover img.projectImg {
+    transform: scale(1.1);
+}
+
+.proj-txtx {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+}
+
+.proj-txtx img.projectGit,
+.proj-txtx a {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    display: inline-block;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 11;
+    height: 3rem;
+    width: 3rem;
+}
+
+.proj-txtx a {
+    transition: 0.2s;
+}
+
+.proj-txtx img.projectGit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.proj-txtx .backgit {
+    right: 8rem;
+}
+
+.proj-txtx a:hover {
+    transform: scale(1.2);
+}
+
+.proj-txtx a:active {
+    transform: scale(0.8);
+}
+
+.proj-txtx .demo {
+    left: 3rem;
+}
+
+.proj-imgbx:hover .proj-txtx {
+    top: 50%;
+    opacity: 1;
+}
+
+.proj-imgbx:hover .proj-txtx img.projectGit,
+.proj-txtx a {
+    opacity: 1;
+}
+
+.proj-txtx h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 3rem;
+}
+
+.proj-txtx span {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.8px;
+}
+
+.background-image-right {
+    top: 20%;
+    position: absolute;
+    bottom: 0;
+    width: 35%;
+    right: 0;
+    z-index: -4;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .proj-txtx {
+        padding: 0 .4rem;
+    }
+
+    .proj-txtx h4 {
+        font-size: 2.5rem;
+    }
+
+    .proj-txtx a {
+        height: 1.7rem;
+        width: 1.7rem;
+    }
+
+    .proj-txtx .backgit {
+        right: 6rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .project p {
+        width: auto;
+    } 
+
+    .proj-txtx img.projectGit,
+    .proj-txtx a {
+        bottom: 5px;
+    }
+
+    .proj-txtx .backgit {
+        right: 6.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .project .nav.nav-pills {
+        width: 100%;
+    }
+
+    .proj-txtx a {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .project {
+        padding: 8rem 6rem;
+    }
+    
+    .proj-txtx {
+        padding: 0 4rem;
+    }
+
+    .proj-txtx h4 {
+        font-size: 4rem;
+        line-height: 40px;
+    }
+
+    .proj-txtx span {
+        font-size: 2.5rem;
+    }
+    
+    .proj-txtx a {
+        right: 4rem;
+        bottom: 4rem;
+        height: 4.7rem;
+        width: 4.7rem;
+    }
+    
+    .proj-txtx a.demo {
+        left: 4rem;
+    }
+    
+    .proj-txtx .backgit {
+        right: 11rem;
+    }
+}
+
+
+@media screen and (max-width: 470px) {
+    .proj-txtx h4 {
+        font-size: 3rem;
+        line-height: 30px;
+    }
+
+    .proj-txtx a {
+        height: 3rem;
+        width: 3rem;
+        right: 3rem;
+        bottom: 3rem;
+    }
+
+    .proj-txtx .backgit {
+        right: 9.5rem;
+    }
+
+    .proj-txtx a.demo {
+        left: 3rem;
+    }
+
+    .aboutme .aboutme-bx {
+        margin-top: 0;
+    }
+}

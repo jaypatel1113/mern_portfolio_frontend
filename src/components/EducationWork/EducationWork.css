@@ -1,0 +1,84 @@
+
+/* education and work */
+.eduwork {
+    margin-top: -9rem;
+}
+
+.eduwork .skill-bx {
+    background: linear-gradient(45deg, #AA367C -5.91%, #2f9eff 111.58%);
+    padding: 6rem 8rem 8rem 8rem;
+}
+
+.eduwork .rows {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.eduwork .rows .cols {
+    flex: 1 1 40rem;
+    margin: 1rem;
+    padding: 2rem 2rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.eduwork .rows .cols .title {
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+}
+
+.eduwork .rows .cols .box {
+    padding-left: 2.5rem;
+    border-left: 4px solid white;
+    position: relative;
+}
+
+.eduwork .rows .cols .box:not(:last-child) {
+    padding-bottom: 2rem;
+}
+
+.eduwork .rows .cols .box::before {
+    content: '';
+    position: absolute;
+    top: 1.35rem;
+    left: -1.2rem;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background: white;
+}
+
+.eduwork .rows .cols .box .year {
+    font-size: 1.8rem;
+    padding: .5rem;
+    color: #ccc;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.eduwork .rows .cols .box .year img {
+    padding: 0 .7rem 0 0;
+    width: 4rem;
+    height: 4rem;
+}
+
+.eduwork .rows .cols .box .year .bxName {
+    color: #ddd;
+}
+
+.eduwork .rows .cols .box .year .bxDetail {
+    color: #999;
+}
+
+@media screen and (max-width: 576px) {
+    .eduwork .skill-bx {
+        padding: 6rem 6rem 8rem 6rem;
+    }
+
+    .eduwork .rows .cols .box {
+        border-left: 2px solid white;
+    }
+}

@@ -1,13 +1,15 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import { frontendProjects } from "./ProjectData/frontEnd";
-import { backendProjects } from "./ProjectData/backEnd";
-import { fullStackProjects } from "./ProjectData/fullStack";
+import colorSharp2 from "../../assets/img/color-sharp2.png";
+import { frontendProjects } from "../ProjectData/frontEnd";
+import { backendProjects } from "../ProjectData/backEnd";
+import { fullStackProjects } from "../ProjectData/fullStack";
 
-import ProjectCategory from "./SubComponents/ProjectCategory";
-import ProjectCategoryName from "./SubComponents/ProjectCategoryName";
-import Title from "./SubComponents/Title";
+import ProjectCategory from "../SubComponents/ProjectCategory";
+import ProjectCategoryName from "../SubComponents/ProjectCategoryName";
+import Title from "../SubComponents/Title";
+
+import './Project.css';
 
 const txtVariant = {
     hidden: {
