@@ -60,7 +60,7 @@
     width: inherit;
     height: inherit;
     position: absolute;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(170, 54, 124, 0.65);
     opacity: 0.9;
 }
 
@@ -68,8 +68,8 @@
     /* width: inherit; */
     /* height: inherit; */
     /* object-fit: cover; */
-    background-color: #fff;
-    /* background: linear-gradient(90.21deg, rgba(74, 47, 189, 0.65) -5.91%, rgba(170, 54, 124, 0.65) 111.58%) !important; */
+    /* background: linear-gradient(90.21deg, #536DFE -5.91%, #00B0FF 111.58%); */
+    background: linear-gradient(90.21deg, rgba(74, 47, 189, 0.65) -5.91%, rgba(170, 54, 124, 0.65) 111.58%);
 }
 
 .face1 {
@@ -111,12 +111,13 @@
 
 .marquee p span {
     margin: 0 15px;
-    background: #fff;
-    color: #000;
+    /* background: linear-gradient(90.21deg, #536DFE -5.91%, #00B0FF 111.58%); */
+    background: linear-gradient(90.21deg, rgba(74, 47, 189, 0.65) -5.91%, rgba(170, 54, 124, 0.65) 111.58%);
+    color: #fff;
     padding: 10px 15px;
     border-radius: 10px;
     font-weight: bolder;
-    box-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 5px rgba(74, 47, 189, 0.65);
     transition: all .4s;
     cursor: pointer;
 }
@@ -124,7 +125,7 @@
 .marquee p span:hover {
     background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
     box-shadow: 0 0 5px #4A2FBD;
-    color: #fff;
+    font-size: 2rem;
 }
 
 @keyframes cubeRotation {
