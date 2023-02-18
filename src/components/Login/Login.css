@@ -1,0 +1,13 @@
+.contact.login {
+    background: linear-gradient(90.21deg, #536DFE -5.91%, #00B0FF 111.58%);
+    padding: 6rem 0 20rem 0;
+}
+.contact.login h2, .contact.login img {
+    margin-top: 5rem;
+}
+
+@media screen and (max-width: 576px) {
+    .contact.login {
+        padding: 6rem 6rem 20rem 6rem;
+    }
+}

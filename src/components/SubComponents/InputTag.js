@@ -15,9 +15,9 @@ const inpVariant = {
     },
 };
 
-const InputTag = ({ type, name, value, setVal, placeholder, dly }) => {
+const InputTag = ({ type, name, value, setVal, placeholder, dly, loginPage=false }) => {
     return (
-        <Col size={12} sm={6} className="px-1">
+        <Col size={12} sm={`${loginPage ? 12 : 6}`} className="px-1">
             <motion.input
                 type={type}
                 name={name}

@@ -8,9 +8,9 @@ import headerImg from "../../assets/img/header-img.svg";
 import './Banner.css';
 
 const containerVariant = {
-    hidden: { rotate: 90 },
+    hidden: { opacity: 0 },
     visible: {
-        rotate: 0,
+        opacity: 1,
         transition: {
             staggerChildren: 0.2,
             delayChildren: 0.5,

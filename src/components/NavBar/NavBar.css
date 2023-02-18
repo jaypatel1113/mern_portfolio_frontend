@@ -9,9 +9,18 @@ nav.navbar {
     transition: 0.32s ease-in-out;
 }
 
-/* nav svg {
-    transform: scale(2.5);
-} */
+nav svg {
+    height: 3rem;
+    width: 3rem;
+    transition: 0.3s;
+    color: #fff;
+}
+nav svg:hover {
+    transform: scale(1.2);
+}
+nav svg:active {
+    transform: scale(0.8);
+}
 
 nav.navbar.scrolled {
     background-color: #121212;
