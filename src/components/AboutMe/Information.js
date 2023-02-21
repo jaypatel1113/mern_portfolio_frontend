@@ -18,6 +18,7 @@ import Detail from "../SubComponents/Detail";
 import Title from "../SubComponents/Title";
 import LangCard from "../SubComponents/LangCard";
 
+
 const container = {
     hidden: { rotate: 90 },
     visible: {
@@ -46,12 +47,13 @@ const txtVariant = {
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 3px, rgba(0,0,0,1) 3px, rgba(0,0,0,1) 3px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 3px)`;
 
-export const Information = () => {
+export const Information = ({aboutDetails, languagesKnown}) => {
     const [pdf, setPdf] = useState(0);
     const [isOpen, setIsOpen] = useState("false");
     const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
+        // console.log(aboutDetails);
         const randInt = Math.floor(Math.random() * 1000) + 1;
         setPdf(randInt % 2);
         // console.log(randInxt);
@@ -96,7 +98,7 @@ export const Information = () => {
                             onViewportLeave={() => setIsInView(false)}
                         >
                             <img
-                                src={headerImg}
+                                src={aboutDetails.avatar.url}
                                 alt="Header Img"
                                 className="imgabt"
                             />
@@ -139,9 +141,7 @@ export const Information = () => {
                                             </button>
                                         </Nav.Link>
                                         <Nav.Link
-                                            href={
-                                                "https://jaypatel3382.github.io/responsive-resume/"
-                                            }
+                                            href={aboutDetails.cvweblink}
                                             target="_blank"
                                             className="navbar-link"
                                         >
@@ -167,19 +167,20 @@ export const Information = () => {
                                     <Detail
                                         src={user}
                                         name="Full Name"
-                                        value="Jay Patel"
+                                        value={aboutDetails.fullName}
                                         left={1}
                                     />
                                     <Detail
                                         src={bday}
                                         name="Date of Birth"
-                                        value="11/02/2002"
+                                        value={aboutDetails.dob}
                                         left={1}
+                                        date={true}
                                     />
                                     <Detail
                                         src={location}
                                         name="Address"
-                                        value="Bochasan, India - 388540"
+                                        value={aboutDetails.address}
                                         left={1}
                                     />
                                 </motion.div>
@@ -193,17 +194,17 @@ export const Information = () => {
                                     <Detail
                                         src={email}
                                         name="Email"
-                                        value="jay64441860@gmail.com"
+                                        value={aboutDetails.email}
                                     />
                                     <Detail
                                         src={phone}
                                         name="Phone"
-                                        value="+91 93284 73489"
+                                        value={aboutDetails.phoneNumber}
                                     />
                                     <Detail
                                         src={freelancer}
                                         name="Freelance"
-                                        value="Available"
+                                        value={aboutDetails.freeLancing}
                                     />
                                 </motion.div>
                             </div>
@@ -232,9 +233,9 @@ export const Information = () => {
                                 whileInView="visible"
                                 // viewport={{once: true}}
                             >
-                                <LangCard name={"English"} />
-                                <LangCard name={"Gujarati"} />
-                                <LangCard name={"Hindi"} />
+                                {
+                                    languagesKnown?.map((language) => <LangCard key={language._id} name={language.name} />)
+                                }
                             </motion.div>
                         </div>
                     </Col>

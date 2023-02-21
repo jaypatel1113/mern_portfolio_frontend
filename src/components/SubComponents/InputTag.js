@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 const inpVariant = {
     hidden: {
-        width: "0%",
-        x: "50vw",
+        // width: "0%",
         opacity: 0,
+        x: "50vw",
     },
     visible: {
-        width: "100%",
+        // width: "100%",
         x: 0,
         opacity: 1,
     },

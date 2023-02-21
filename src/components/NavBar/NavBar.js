@@ -5,9 +5,12 @@ import { Navbar, Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import "./NavBar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-import { RiUserSharedFill } from "react-icons/ri";
+import { RiUserSharedFill, RiAdminFill } from "react-icons/ri";
+import { BiLogOutCircle } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/User";
 
 const navVariant = {
     hidden: { opacity: 0, right: "-100vh" },
@@ -16,10 +19,19 @@ const navVariant = {
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const { isAuthenticated } = useSelector((state) => state.login);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const backToTop = () => {
         window.scrollTo({ top: 0 });
     };
+
+    const logOutHandle = () => {
+        dispatch(logout());
+        navigate("/login");
+    }
 
     useEffect(() => {
         const onScroll = () => {
@@ -34,6 +46,7 @@ const NavBar = () => {
 
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
 
     return (
         // <Router>
@@ -61,9 +74,22 @@ const NavBar = () => {
                         </motion.div>
                         {/* </Navbar.Brand> */}
                     </NavLink>
-                    <NavLink to={"/login"} onClick={backToTop}>
-                        <RiUserSharedFill />
-                    </NavLink>
+                    {
+                        isAuthenticated ? (
+                            <div>
+                                <NavLink to={"/logout"} onClick={logOutHandle}>
+                                    <BiLogOutCircle />
+                                </NavLink>
+                                <NavLink to={"/admin"} style={{marginLeft:"20px"}}>
+                                    <RiAdminFill />
+                                </NavLink>
+                            </div>
+                        ) : (
+                            <NavLink to={"/login"} onClick={backToTop}>
+                                <RiUserSharedFill />
+                            </NavLink>
+                        )
+                    }
                 </motion.div>
             </Container>
         </Navbar>

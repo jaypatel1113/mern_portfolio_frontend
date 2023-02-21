@@ -174,10 +174,6 @@
     height: 100%;
 }
 
-.proj-txtx .backgit {
-    right: 8rem;
-}
-
 .proj-txtx a:hover {
     transform: scale(1.2);
 }

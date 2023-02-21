@@ -1,0 +1,52 @@
+.adminpanel .admin-top-margin {
+    margin-top: 5rem !important;
+    font-size: 3rem !important;
+}
+.adminpanel .admin-top-margin label {
+    font-size: 3rem !important;
+}
+.adminpanel .links {
+    /* background: red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    font-size: 1.4rem;
+    gap: 1rem;
+}
+.adminpanel .links > a {
+    background: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-weight: 600;
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+.adminpanel .fullwidth {
+    width: 100%;
+}
+
+.adminpanel.contact .row input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    color: #eee;
+}
+.adminpanel.contact .row input:focus ~ fieldset {
+    border-color: rgba(0, 0, 0, 0);
+}
+.adminpanel.contact .row input:hover ~ fieldset {
+    border: 2px solid #30fff1
+}
+.adminpanel.contact .row input:hover ~ fieldset {
+    border: 2px solid #30fff1
+}
+
+
+.adminpanel.contact .row input::placeholder {
+    font-size: 2em;
+    font-weight: 900;
+    color: #000;
+}

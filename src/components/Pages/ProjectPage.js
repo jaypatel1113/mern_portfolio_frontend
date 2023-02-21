@@ -1,10 +1,14 @@
 import React from 'react'
 import Projects from '../Projects/Projects'
 
-const ProjectPage = () => {
+const ProjectPage = ({user}) => {
   return (
     <div className="single-page" style={{marginTop: 0}}>
-        <Projects />
+        <Projects
+                frontendProjects={user.frontendProjects}
+                fullstackProjects={user.fullstackProjects}
+                backendProjects={user.backendProjects}
+            />
     </div>
   )
 }

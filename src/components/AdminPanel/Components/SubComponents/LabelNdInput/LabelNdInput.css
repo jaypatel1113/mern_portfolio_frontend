@@ -1,0 +1,36 @@
+.adminpanel .row label{
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    color: #ddd;
+}
+.adminpanel .row input{
+    /* border-radius: 1rem; */
+    margin: 0  !important;
+    padding: 1.5rem 1.5rem;
+    font-weight:600;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    border-bottom: 3px solid #fff;
+}
+
+.adminpanel .row fieldset{
+    border-color: rgba(0, 0, 0, 0);
+}
+.adminpanel .admin-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.adminpanel .adminmargin {
+    margin-top: 1.4rem;
+}
+
+/* .adminpanel.contact .row input {
+    outline: none;
+    padding: 1.5rem 2.6rem;
+} */

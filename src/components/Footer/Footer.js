@@ -25,9 +25,10 @@ const container = {
     },
 };
 const itemA = {
-    hidden: { scale: 0 },
+    hidden: { scale: 0, opacity: 0 },
     visible: {
         scale: 1,
+        opacity: 1,
         transition: {
             type: "spring",
             bounce: 1.5,

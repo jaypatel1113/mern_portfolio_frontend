@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {format } from "date-fns";
 
 const itemA = {
     hidden: { scale: 0, left: "-20vh" },
@@ -10,7 +11,7 @@ const itemB = {
     visible: { scale: 1, right: 0 },
 };
 
-const Detail = ({ src, name, value, left }) => {
+const Detail = ({ src, name, value, left, date=false }) => {
     return (
         <motion.h3
             style={{ position: "relative" }}
@@ -20,7 +21,7 @@ const Detail = ({ src, name, value, left }) => {
                 <img src={src} alt="Error" className="img" />
                 {name} :
             </span>
-            {" "+ value}
+            {!date ? (" "+ value) : format(new Date(value), "do MMMM, yyyy")}
         </motion.h3>
     );
 };

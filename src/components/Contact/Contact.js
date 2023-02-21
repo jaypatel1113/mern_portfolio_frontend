@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
@@ -8,6 +8,8 @@ import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 
 import './Contact.css';
+import { useDispatch, useSelector } from "react-redux";
+import { contactus } from "../../actions/User";
 
 
 const txtVariant = {
@@ -57,14 +59,15 @@ const btnVariant = {
 
 const Contact = () => {
     const formInitialDetails = {
-        firstName: "",
-        lastName: "",
+        fullName: "",
         email: "",
-        phone: "",
         message: "",
     };
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState("Send");
+
+    const dispatch = useDispatch();
+    const { message:updateMessage, error, loading } = useSelector((state) => state.update);
 
     const setVal = (e) => {
         // console.log(e.target.value);
@@ -80,33 +83,31 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { firstName, lastName, email, phone, message } = formDetails;
-        if ( firstName === "" || lastName === "" || email === "" || phone === "" || message === "" )
+        const { fullName, email, message } = formDetails;
+        if ( fullName === "" || email === "" || message === "" )
             toast.warn("Fill all detail");
         else if (!email.includes("@")) 
             toast.warn("includes @ in your email!");
-        else if (phone.length < 10 || phone.length > 10)
-            toast.warn("Enter only 10 digits in number!");
+        // else if (phone.length < 10 || phone.length > 10)
+        //     toast.warn("Enter only 10 digits in number!");
         else {
             setButtonText("Sending...");
-            let response = await fetch(`${process.env.REACT_APP_BACKEND_LINK}/contact`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8",
-                },
-                body: JSON.stringify(formDetails),
-            });
+            dispatch(contactus(fullName, email, message))
             setButtonText("Send");
-            let result = await response.json();
-            console.log(result);
-            if (result.status === 201) {
-                toast.success("Feedback recorded!");
-                setFormDetails(formInitialDetails);
-            } else {
-                toast.error("Someting went wrong! 😥");
-            }
         }
     };
+
+    
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+            dispatch({ type: "CLEAR_ERROR" });
+        }
+        if (updateMessage) {
+            toast.success(updateMessage);
+            dispatch({ type: "CLEAR_MESSAGE" });
+        }
+    }, [error, updateMessage, dispatch]);
 
     return (
         <section className="contact" id="connect">
@@ -135,19 +136,11 @@ const Contact = () => {
                             >
                                 <InputTag
                                     type="text"
-                                    name="firstName"
+                                    name="fullName"
                                     placeholder={"First Name"}
-                                    value={formDetails.firstName}
+                                    value={formDetails.fullName}
                                     setVal={setVal}
                                     dly={0.2}
-                                />
-                                <InputTag
-                                    type="text"
-                                    name="lastName"
-                                    placeholder={"Last Name"}
-                                    value={formDetails.lastName}
-                                    setVal={setVal}
-                                    dly={0.35}
                                 />
                                 <InputTag
                                     type="text"
@@ -155,15 +148,7 @@ const Contact = () => {
                                     placeholder={"Email Address"}
                                     value={formDetails.email}
                                     setVal={setVal}
-                                    dly={0.5}
-                                />
-                                <InputTag
-                                    type="number"
-                                    name="phone"
-                                    placeholder={"Phone Number"}
-                                    value={formDetails.phone}
-                                    setVal={setVal}
-                                    dly={0.65}
+                                    dly={0.35}
                                 />
 
                                 <Col size={12} className="px-1">
@@ -174,7 +159,7 @@ const Contact = () => {
                                         placeholder="Message"
                                         onChange={setVal}
                                         variants={inpVariant}
-                                        transition={{ delay: 0.8 }}
+                                        transition={{ delay: 0.5 }}
                                     />
                                     <motion.button
                                         type="submit"
@@ -182,9 +167,10 @@ const Contact = () => {
                                         transition={{
                                             type: "spring",
                                             bounce: 0.9,
-                                            delay: 1.25,
+                                            delay: 0.9,
                                             duration: 0.5,
                                         }}
+                                        disabled={loading}
                                     >
                                         <span>{buttonText}</span>
                                     </motion.button>

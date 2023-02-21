@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import {useDispatch, useSelector} from "react-redux";
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 import "./Login.css";
 import loginImg from "../../assets/img/login.svg";
+import { getUser, login } from "../../actions/User";
+import { useNavigate } from "react-router-dom";
 
 const txtVariant = {
     hidden: {
@@ -47,6 +50,11 @@ const Login = () => {
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState("Login");
 
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const { error, message, loading } = useSelector((state) => state.login);
+
+    
     const setVal = (e) => {
         // console.log(e.target.value);
         const { name, value } = e.target;
@@ -66,26 +74,25 @@ const Login = () => {
         if ( userName === "" || password === "" )
             toast.warn("Fill all detail");
         else {
-            setButtonText("Loggin In...");
-            // console.log(formDetails);
-            // let response = await fetch(`${process.env.REACT_APP_BACKEND_LINK}/contact`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json;charset=utf-8",
-            //     },
-            //     body: JSON.stringify(formDetails),
-            // });
-            // setButtonText("Send");
-            // let result = await response.json();
-            // console.log(result);
-            // if (result.status === 201) {
-            //     toast.success("Feedback recorded!");
-            //     setFormDetails(formInitialDetails);
-            // } else {
-            //     toast.error("Someting went wrong! 😥");
-            // }
+            setButtonText("Logging In...");
+            await dispatch(login(formDetails.userName, formDetails.password));
+            setButtonText("Login");
         }
     };
+
+    // display messages and errors from backend in all components
+    useEffect(() => {
+        // console.log(":login ", error, message);
+        if(error) {
+          toast.error(error);
+          dispatch({type: "CLEAR_ERROR"})
+      }
+      if(message) {
+        console.log("login ", message);
+          toast.success(message);
+          dispatch({type: "CLEAR_MESSAGE"})
+        }
+      }, [error, message, dispatch]);
 
     return (
         <section className="contact login" id="connect">
@@ -111,7 +118,7 @@ const Login = () => {
                                 <InputTag
                                     type="text"
                                     name="userName"
-                                    placeholder={"Enter Username"}
+                                    placeholder={"Admin Username"}
                                     value={formDetails.userName}
                                     setVal={setVal}
                                     dly={0.2}
@@ -120,7 +127,7 @@ const Login = () => {
                                 <InputTag
                                     type="password"
                                     name="password"
-                                    placeholder={"Enter Password"}
+                                    placeholder={"Admin Password"}
                                     value={formDetails.password}
                                     setVal={setVal}
                                     dly={0.35}
@@ -136,6 +143,7 @@ const Login = () => {
                                             delay: 1.25,
                                             duration: 0.5,
                                         }}
+                                        disabled={loading}
                                     >
                                         <span>{buttonText}</span>
                                     </motion.button>

@@ -1,0 +1,9 @@
+.adminpanel .skillimage {
+    margin-top: 1rem !important;
+}
+.adminpanel .skillimage label {
+    font-size: 2rem;
+}
+.adminpanel .skillimage input {
+    font-size: 1.2rem;
+}

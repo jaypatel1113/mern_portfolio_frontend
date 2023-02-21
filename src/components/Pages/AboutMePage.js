@@ -2,10 +2,13 @@ import React from "react";
 import AboutMe from "../AboutMe/AboutMe";
 import './Pages.css';
 
-const AboutMePage = () => {
+const AboutMePage = ({user}) => {
     return (
         <div className="single-page">
-            <AboutMe />
+            <AboutMe
+                aboutDetails={user.about}
+                languagesKnown={user.languagesKnown}
+            />
         </div>
     );
 };

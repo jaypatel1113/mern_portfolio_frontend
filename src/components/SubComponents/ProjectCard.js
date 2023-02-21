@@ -6,19 +6,12 @@ import { useEffect } from "react";
 import gitIcon from "../../assets/img/nav-icon6.svg";
 import liveIcon from "../../assets/img/live.svg";
 
-export const ProjectCard = ({
-    title,
-    description,
-    imgUrl,
-    gitLink,
-    demoLink,
-    backendLink,
-    ...rest
-}) => {
+export const ProjectCard = ({project, ...rest}) => {
     const { ref, inView } = useInView({ threshold: 0.5 });
     const animation = useAnimation();
 
     useEffect(() => {
+        console.log(project);
         // if(inView) {
         //     animation.start({
         //         opacity: 1, scale: 1 ,
@@ -41,35 +34,21 @@ export const ProjectCard = ({
                 //  animate={animation}
                 {...rest}
             >
-                <img src={imgUrl} alt="Error" className="projectImg" />
+                <img src={project.image.url} alt="Error" className="projectImg" />
                 <div className="proj-txtx">
-                    <h4>{title}</h4>
-                    <span>{description}</span>
+                    <h4>{project.title}</h4>
+                    <span>{project.description}</span>
                     <a
                         target="_blank"
-                        href={gitLink}
+                        href={project.gitLink}
                         className="git"
                         rel="noreferrer"
                     >
                         <img src={gitIcon} alt="Error" className="projectGit" />
                     </a>
-                    {backendLink && (
-                        <a
-                            target="_blank"
-                            href={backendLink}
-                            className="backgit"
-                            rel="noreferrer"
-                        >
-                            <img
-                                src={gitIcon}
-                                alt="Error"
-                                className="projectGit backlink"
-                            />
-                        </a>
-                    )}
                     <a
                         target="_blank"
-                        href={demoLink}
+                        href={project.demoLink}
                         className="demo"
                         rel="noreferrer"
                     >

@@ -12,7 +12,7 @@ const itemB = {
     visible: { opacity: 1, right: 0, transition: { delay: 1.5 } },
 };
 
-const EduWorkCard = ({ titlee, dataa, animation, animation2 }) => {
+const EduWorkCard = ({ titlee, animation, animation2, details, icon }) => {
     return (
         <>
             <motion.h2
@@ -23,10 +23,11 @@ const EduWorkCard = ({ titlee, dataa, animation, animation2 }) => {
             >
                 {titlee}
             </motion.h2>
-            {dataa.map((data, ind) => (
+            {details?.map((data, ind) => (
                 <CardDetail
                     data={data}
                     key={ind}
+                    icon={icon}
                     style={{ position: "relative" }}
                     variants={itemB}
                     animate={animation2}

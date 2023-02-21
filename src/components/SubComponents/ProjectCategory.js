@@ -37,11 +37,11 @@ const ProjectCategory = ({ projects, type }) => {
                 initial="hidden"
                 whileInView="visible"
             >
-                {projects.map((projects, index) => {
+                {projects?.map((project) => {
                     return (
                         <ProjectCard
-                            key={index}
-                            {...projects}
+                            key={project._id}
+                            project={project}
                             variants={itemA}
                         />
                     );

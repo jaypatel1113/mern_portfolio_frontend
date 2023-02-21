@@ -1,10 +1,13 @@
 import React from "react";
 import EducationWork from "../EducationWork/EducationWork";
 
-const EducationWorkPage = () => {
+const EducationWorkPage = ({user}) => {
     return (
         <div className="single-page" style={{ marginTop: "18rem" }}>
-            <EducationWork />
+            <EducationWork
+                educationTimeline={user.educationTimeline}
+                workTimeline={user.workTimeline}
+            />
         </div>
     );
 };

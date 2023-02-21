@@ -25,7 +25,7 @@ const txtVariant = {
     },
 };
 
-const Projects = () => {
+const Projects = (props) => {
     return (
         <section className="project" id="projects">
             <Container>
@@ -63,15 +63,15 @@ const Projects = () => {
                             </Nav>
                             <Tab.Content id="slideInUp">
                                 <ProjectCategory
-                                    projects={frontendProjects}
+                                    projects={props.frontendProjects}
                                     type="first"
                                 />
                                 <ProjectCategory
-                                    projects={fullStackProjects}
+                                    projects={props.fullstackProjects}
                                     type="second"
                                 />
                                 <ProjectCategory
-                                    projects={backendProjects}
+                                    projects={props.backendProjects}
                                     type="third"
                                 />
                             </Tab.Content>

@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { format } from "date-fns";
 
-const CardDetail = ({ data, ...rest }) => {
+const CardDetail = ({ data, icon, ...rest }) => {
     return (
         <motion.div className="box" {...rest}>
             <div className="year">
-                <img src={data.icon} alt="Error" className="img" />
-                {data.year}
+                <img src={icon} alt="Error" className="img" />
+                {format(new Date(data.startdate), "MMM yyyy")} - {format(new Date(data.enddate), "MMM yyyy")}
             </div>
-            <h3 className="bxName">{data.name}</h3>
+            <h3 className="bxName">{data.title}</h3>
             <p className="bxDetail" style={{ fontSize: "1.5rem" }}>
                 {data.description}
             </p>

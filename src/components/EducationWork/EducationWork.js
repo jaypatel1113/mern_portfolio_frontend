@@ -1,4 +1,6 @@
 import React from "react";
+import edu  from "../../assets/img/edu.svg";
+import work from "../../assets/img/work.svg";
 import { educationData } from "../ProjectData/educationData";
 import { experienceData } from "../ProjectData/experienceData";
 import { motion, useAnimation } from "framer-motion";
@@ -54,7 +56,7 @@ const txtVariant = {
     },
 };
 
-const EducationWork = () => {
+const EducationWork = ({educationTimeline, workTimeline}) => {
     const { ref, inView } = useInView({
         threshold: 0.3,
     });
@@ -106,15 +108,17 @@ const EducationWork = () => {
                         >
                             <EduWorkCard
                                 titlee="My Education"
-                                dataa={educationData}
-                            />
+                                details={educationTimeline}
+                                icon={edu}
+                                />
                         </div>
                         <div ref={ref} className="cols">
                             <EduWorkCard
                                 titlee="My Experience"
-                                dataa={experienceData}
                                 animation={animation}
                                 animation2={animation2}
+                                icon={work}
+                                details={workTimeline}
                             />
                         </div>
                     </motion.div>

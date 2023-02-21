@@ -54,7 +54,7 @@ const cubeVariant = {
     }
 }
 
-const Skills = () => {
+const Skills = ({skills, skillImages}) => {
     return (
         <section className="skill" id="skills">
             <div className="container">
@@ -78,15 +78,15 @@ const Skills = () => {
                                 <motion.div className="skillcube"
                                     variants={cubeVariant}
                                 >
-                                    <SkillCubeFace img={ReactJs} no={1} />
-                                    <SkillCubeFace img={MongoDb} no={2} />
-                                    <SkillCubeFace img={Js} no={3} />
-                                    <SkillCubeFace img={Tailwind} no={4} />
-                                    <SkillCubeFace img={Scss} no={5} />
-                                    <SkillCubeFace img={Git} no={6} />
+                                    <SkillCubeFace img={skillImages.image1.url} no={1} />
+                                    <SkillCubeFace img={skillImages.image2.url} no={2} />
+                                    <SkillCubeFace img={skillImages.image3.url} no={3} />
+                                    <SkillCubeFace img={skillImages.image4.url} no={4} />
+                                    <SkillCubeFace img={skillImages.image5.url} no={5} />
+                                    <SkillCubeFace img={skillImages.image6.url} no={6} />
                                 </motion.div>
                                 <div className="marquee">
-                                    <SkillList />
+                                    <SkillList skills={skills} />
                                 </div>
                             </div>
                         </motion.div>

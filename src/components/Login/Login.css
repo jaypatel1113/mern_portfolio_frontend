@@ -5,6 +5,12 @@
 .contact.login h2, .contact.login img {
     margin-top: 5rem;
 }
+button:disabled,
+button[disabled]{
+  /* border: 1px solid #999999; */
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
 
 @media screen and (max-width: 576px) {
     .contact.login {
