@@ -3,15 +3,17 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import Title from "../SubComponents/Title";
-import "./AdminPanel.css";
-import LabelNdInput from "./Components/SubComponents/LabelNdInput/LabelNdInput";
 
-import { getUser, logout, updateUser } from "../../actions/User";
-import { useNavigate } from "react-router-dom";
+import Title from "../SubComponents/Title";
+import LabelNdInput from "./Components/SubComponents/LabelNdInput/LabelNdInput";
 import Links from "./Components/SubComponents/Links";
 import InputField from "./Components/SubComponents/InputField/InputField";
 import SkillImages from "./Components/SubComponents/SkillImages/SkillImages";
+
+import { logout, updateUser } from "../../actions/User";
+
+import "./AdminPanel.css";
+
 
 const txtVariant = {
     hidden: {
@@ -51,11 +53,11 @@ const AdminPanel = () => {
     const [skillsCubeImg, setSkillsCubeImg] = useState({});
     const [about, setAbout] = useState({});
     const [buttonText, setButtonText] = useState("Save");
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    
     const { message: loginMessage } = useSelector((state) => state.login);
     const { message, error, loading } = useSelector((state) => state.update);
+    
+    const dispatch = useDispatch();
 
     const handleAboutImage = (e) => {
         const file = e.target.files[0];
@@ -121,13 +123,14 @@ const AdminPanel = () => {
 
     const logOutHandle = () => {
         dispatch(logout());
-        navigate("/login");
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(updateUser(userName, password, skillsCubeImg, about));
-        console.log(userName, password, skillsCubeImg, about)
+        setButtonText("Saving...");
+        await dispatch(updateUser(userName, password, skillsCubeImg, about));
+        setButtonText("Save");
+        // console.log(userName, password, skillsCubeImg, about)
     };
 
 

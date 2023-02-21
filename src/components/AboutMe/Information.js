@@ -3,7 +3,6 @@ import { Col, Nav, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 
-import headerImg from "../../assets/img/pic.png";
 import location from "../../assets/img/location.svg";
 import user from "../../assets/img/user.svg";
 import email from "../../assets/img/email.svg";
@@ -109,9 +108,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                         >
                             <motion.div
                                 layout
-                                className={`${
-                                    !isOpen ? "active lrbtn" : "lrbtn"
-                                }`}
+                                className={`${ !isOpen ? "active lrbtn" : "lrbtn" }`}
                             >
                                 <button
                                     className={`${!isOpen ? "active" : ""}`}
@@ -175,7 +172,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                         name="Date of Birth"
                                         value={aboutDetails.dob}
                                         left={1}
-                                        date={true}
+                                        isDate={true}
                                     />
                                     <Detail
                                         src={location}

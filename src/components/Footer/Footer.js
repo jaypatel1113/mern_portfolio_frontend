@@ -135,7 +135,7 @@ const Footer = () => {
                                 // viewport={{once: true}}
                                 style={{ position: "relative" }}
                             >
-                                Copyright 2022. All Rights Reserved
+                                Copyright &#169; {new Date().getFullYear()}. All Rights Reserved
                             </motion.p>
                         </motion.div>
                     </Col>

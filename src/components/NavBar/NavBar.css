@@ -30,42 +30,9 @@ nav.navbar a {
     text-decoration: none;
 }
 
-
-/* nav.navbar a.navbar-brand {
-    width: auto;
-} */
-
-/* nav.navbar .navbar-nav .nav-link.navbar-link {
-    font-weight: 400;
-    color: #fff !important;
-    letter-spacing: 0.8px;
-    padding: 0 2.5rem;
-    font-size: 1.8rem;
-    opacity: 0.75;
-} */
-
-/* nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
-nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-    opacity: 1;
-} */
-
-/* nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-    font-weight: 800;
-} */
-
-/* span.navbar-text {
-    display: flex;
-    align-items: center;
-} */
-
 .navbar-light .navbar-brand {
     display: flex;
 }
-
-/* nav.navbar .collapsed .navbar-toggler-icon {
-    background-color: #fff;
-} */
-
 
 
 @media screen and (max-width: 576px) {

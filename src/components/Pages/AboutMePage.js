@@ -1,8 +1,10 @@
 import React from "react";
-import AboutMe from "../AboutMe/AboutMe";
-import './Pages.css';
 
-const AboutMePage = ({user}) => {
+import AboutMe from "../AboutMe/AboutMe";
+
+import "./Pages.css";
+
+const AboutMePage = ({ user }) => {
     return (
         <div className="single-page">
             <AboutMe

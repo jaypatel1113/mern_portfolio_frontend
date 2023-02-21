@@ -9,12 +9,6 @@
     margin-top: -12.2rem;
 }
 
-/* .aboutme-bx h3 {
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    line-height: 3rem;
-} */
-
 .aboutme h2 {
     font-size: 4.5rem;
     font-weight: 700;
@@ -313,10 +307,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-    /* .aboutme table tr td {
-        padding: 1rem 3rem;
-    } */
-
     .aboutme .abtmerow .pinfo .boxcont .box h3 {
         font-size: 1.7rem;
     }
@@ -397,10 +387,6 @@
 }
 
 @media screen and (max-width: 470px) {
-    /* .aboutme table tr td {
-        padding: 2rem 2rem;
-    } */
-
     .aboutme button {
         width: 29rem;
         padding: 2rem 3rem;

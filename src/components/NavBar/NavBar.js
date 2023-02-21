@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container } from "react-bootstrap";
-
-// import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
-
-import "./NavBar.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 
 import { RiUserSharedFill, RiAdminFill } from "react-icons/ri";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
+
 import { logout } from "../../actions/User";
+
+import "./NavBar.css";
 
 const navVariant = {
     hidden: { opacity: 0, right: "-100vh" },
@@ -19,10 +19,10 @@ const navVariant = {
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
+
     const { isAuthenticated } = useSelector((state) => state.login);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const backToTop = () => {
         window.scrollTo({ top: 0 });
@@ -30,7 +30,6 @@ const NavBar = () => {
 
     const logOutHandle = () => {
         dispatch(logout());
-        navigate("/login");
     }
 
     useEffect(() => {
@@ -49,7 +48,6 @@ const NavBar = () => {
 
 
     return (
-        // <Router>
         <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
             <Container>
                 <motion.div
@@ -64,15 +62,12 @@ const NavBar = () => {
                     }}
                 >
                     <NavLink to={"/"} onClick={backToTop}>
-                        {/* <Navbar.Brand> */}
-                        {/* <img src={logo} alt="Logo" className="logo" /> */}
                         <motion.div
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.8 }}
                         >
                             <span className="logo">JAY PATEL</span>
                         </motion.div>
-                        {/* </Navbar.Brand> */}
                     </NavLink>
                     {
                         isAuthenticated ? (
@@ -93,7 +88,6 @@ const NavBar = () => {
                 </motion.div>
             </Container>
         </Navbar>
-        // </Router>
     );
 };
 

@@ -3,12 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import {useDispatch, useSelector} from "react-redux";
+
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
-import "./Login.css";
+
 import loginImg from "../../assets/img/login.svg";
-import { getUser, login } from "../../actions/User";
-import { useNavigate } from "react-router-dom";
+import { login } from "../../actions/User";
+
+import "./Login.css";
 
 const txtVariant = {
     hidden: {
@@ -50,11 +52,10 @@ const Login = () => {
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState("Login");
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch();
     const { error, message, loading } = useSelector((state) => state.login);
 
-    
+    const dispatch = useDispatch();
+
     const setVal = (e) => {
         // console.log(e.target.value);
         const { name, value } = e.target;
@@ -68,7 +69,6 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
         const { userName, password, } = formDetails;
         if ( userName === "" || password === "" )

@@ -20,11 +20,6 @@ const itemA = {
     visible: {
         opacity: 1,
         x: 0,
-        transition: {
-            // type: "spring",
-            // duration: 1,
-            // bounce: 0.3
-        },
     },
 };
 

@@ -31,9 +31,7 @@ const InputField = ({
     return (
         <Col
             sm={`${fullRow ? 12 : 4}`}
-            className={`px-1 adminmargin ${islabel ? "admin-row" : ""} ${
-                fullRow && "admin-top-margin"
-            }`}
+            className={`px-1 adminmargin ${islabel ? "admin-row" : ""} ${fullRow && "admin-top-margin"}`}
         >
             {avtar ? (
                 <>
@@ -79,26 +77,6 @@ const InputField = ({
                     {...rest}
                 />
             )}
-
-            {/* {islabel ? (
-                <motion.label
-                    htmlFor={name}
-                    variants={inpVariant}
-                    transition={{ delay: dly }}
-                >
-                    {labelName}
-                </motion.label>
-            ) : (
-                <motion.input
-                    type={type}
-                    name={name}
-                    value={value}
-                    placeholder={placeholder}
-                    variants={inpVariant}
-                    transition={{ delay: dly }}
-                    {...rest}
-                />
-            )} */}
         </Col>
     );
 };

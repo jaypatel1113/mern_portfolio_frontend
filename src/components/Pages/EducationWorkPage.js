@@ -1,7 +1,8 @@
 import React from "react";
+
 import EducationWork from "../EducationWork/EducationWork";
 
-const EducationWorkPage = ({user}) => {
+const EducationWorkPage = ({ user }) => {
     return (
         <div className="single-page" style={{ marginTop: "18rem" }}>
             <EducationWork

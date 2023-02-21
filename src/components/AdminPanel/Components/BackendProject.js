@@ -3,15 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {
-    addBackendProject,
-    deleteBackendProject,
-    getUser,
-} from "../../../actions/User";
+import { NavLink } from "react-router-dom";
+
 import Title from "../../SubComponents/Title";
 import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
-import { NavLink } from "react-router-dom";
 import ProjectCard from "./SubComponents/ProjectCard";
+
+import { addBackendProject, getUser } from "../../../actions/User";
 
 const txtVariant = {
     hidden: {
@@ -47,22 +45,23 @@ const btnVariant = {
 
 
 const BackendProject = () => {
-    const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    const { message, error, loading } = useSelector((state) => state.update);
-    const { user } = useSelector((state) => state.user);
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [gitLink, setGitLink] = useState("");
     const [demoLink, setDemoLink] = useState("");
 
+    const { message, error, loading } = useSelector((state) => state.update);
+    const { user } = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(addBackendProject(title, description, image, gitLink, demoLink));
         dispatch(getUser());
     };
+
     const handleImage = (e) => {
         const file = e.target.files[0];
 
@@ -102,11 +101,6 @@ const BackendProject = () => {
                                 initial="hidden"
                                 whileInView="visible"
                             >
-                                {/* <LabelNdInput
-                                    labelRight="Name"
-                                    value={formDetails.name}
-                                    setVal={setVal}
-                                /> */}
                                 <LabelNdInput
                                     labelRight="Title"
                                     value={title}
@@ -190,7 +184,7 @@ const BackendProject = () => {
                         </form>
                     </Col>
                 </Row>
-        <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
+                <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
                     {user?.backendProjects?.map((item) => <ProjectCard key={item._id} item={item}  i={3} />)}
                 </div>
             </Container>

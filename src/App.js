@@ -33,11 +33,12 @@ import "./App.css";
 
 
 const App = () => {
-    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+    
     const { isAuthenticated } = useSelector((state) => state.login);
     const { user } = useSelector((state) => state.user);
-    const [loading, setLoading] = useState(true);
-    // const navigate = useNavigate();
+    
+    const dispatch = useDispatch();
 
     
     useEffect(() => {
@@ -50,7 +51,6 @@ const App = () => {
         loadData()
     }, [dispatch]);
 
-    
 
     return (
         <Router>

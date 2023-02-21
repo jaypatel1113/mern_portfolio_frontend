@@ -3,18 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {
-    addEducationTimeline,
-    addWorkTimeline,
-    deleteEducationTimeline,
-    deleteWorkTimeline,
-    getUser,
-} from "../../../actions/User";
-import Title from "../../SubComponents/Title";
-import Links from "./SubComponents/Links"
-import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
 import { NavLink } from "react-router-dom";
+
+import Title from "../../SubComponents/Title";
+import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
 import TimeLine from "./SubComponents/TimeLine";
+
+import { addWorkTimeline, getUser } from "../../../actions/User";
 
 const txtVariant = {
     hidden: {
@@ -50,15 +45,16 @@ const btnVariant = {
 
 
 const WorkTimeLine = () => {
-    const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    const { message, error, loading } = useSelector((state) => state.update);
-    const { user } = useSelector((state) => state.user);
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [startdate, setStartdate] = useState("");
     const [enddate, setEnddate] = useState("");
+
+    const { message, error, loading } = useSelector((state) => state.update);
+    const { user } = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -91,11 +87,6 @@ const WorkTimeLine = () => {
                                 initial="hidden"
                                 whileInView="visible"
                             >
-                                {/* <LabelNdInput
-                                    labelRight="Name"
-                                    value={formDetails.name}
-                                    setVal={setVal}
-                                /> */}
                                 <LabelNdInput
                                     labelRight="Title"
                                     value={title}
@@ -177,7 +168,7 @@ const WorkTimeLine = () => {
                         </form>
                     </Col>
                 </Row>
-        <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
+                <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
                     {user?.workTimeline?.map((item) => <TimeLine key={item._id} item={item}  i={2} />)}
                 </div>
             </Container>

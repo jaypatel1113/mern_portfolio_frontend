@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
@@ -7,9 +8,9 @@ import contactImg from "../../assets/img/contact-img.svg";
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 
-import './Contact.css';
-import { useDispatch, useSelector } from "react-redux";
 import { contactus } from "../../actions/User";
+
+import './Contact.css';
 
 
 const txtVariant = {
@@ -88,8 +89,6 @@ const Contact = () => {
             toast.warn("Fill all detail");
         else if (!email.includes("@")) 
             toast.warn("includes @ in your email!");
-        // else if (phone.length < 10 || phone.length > 10)
-        //     toast.warn("Enter only 10 digits in number!");
         else {
             setButtonText("Sending...");
             dispatch(contactus(fullName, email, message))

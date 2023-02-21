@@ -33,8 +33,10 @@
 }
 
 .menuLinks .menus li a {
-    color: var(--clr);
-    border: 3px solid var(--clr);
+    /* color: var(--clr); */
+    color: #000;
+    /* border: 3px solid var(--clr); */
+    background: #ffcd00;
     border-radius: 50%;
     display: flex;
     justify-content: center;

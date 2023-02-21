@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import Banner from "../Banner/Banner";
 import Skills from "../Skills/Skills";
 import Projects from "../Projects/Projects";
 import Contact from "../Contact/Contact";
 import AboutMe from "../AboutMe/AboutMe";
 import EducationWork from "../EducationWork/EducationWork";
-import { useSelector } from "react-redux";
 
 const HomePage = () => {
     const { user } = useSelector((state) => state.user);

@@ -3,15 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {
-    addFullstackProject,
-    deleteFullstackProject,
-    getUser,
-} from "../../../actions/User";
+import { NavLink } from "react-router-dom";
+
 import Title from "../../SubComponents/Title";
 import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
-import { NavLink } from "react-router-dom";
 import ProjectCard from "./SubComponents/ProjectCard";
+
+import { addFullstackProject, getUser } from "../../../actions/User";
 
 const txtVariant = {
     hidden: {
@@ -47,16 +45,16 @@ const btnVariant = {
 
 
 const FullstackProject = () => {
-    const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    const { message, error, loading } = useSelector((state) => state.update);
-    const { user } = useSelector((state) => state.user);
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [gitLink, setGitLink] = useState("");
     const [demoLink, setDemoLink] = useState("");
+
+    const { message, error, loading } = useSelector((state) => state.update);
+    const { user } = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -94,7 +92,7 @@ const FullstackProject = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col size={12} md={12}>
-                            <Title h2={"Fullstack Projects"} txtVariant={txtVariant} />
+                        <Title h2={"Fullstack Projects"} txtVariant={txtVariant} />
 
                         <form onSubmit={handleSubmit}>
                             <motion.div
@@ -103,11 +101,6 @@ const FullstackProject = () => {
                                 initial="hidden"
                                 whileInView="visible"
                             >
-                                {/* <LabelNdInput
-                                    labelRight="Name"
-                                    value={formDetails.name}
-                                    setVal={setVal}
-                                /> */}
                                 <LabelNdInput
                                     labelRight="Title"
                                     value={title}
@@ -191,7 +184,7 @@ const FullstackProject = () => {
                         </form>
                     </Col>
                 </Row>
-        <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
+                <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
                     {user?.fullstackProjects?.map((item) => <ProjectCard key={item._id} item={item}  i={2} />)}
                 </div>
             </Container>

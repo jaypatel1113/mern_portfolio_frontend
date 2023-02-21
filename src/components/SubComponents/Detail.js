@@ -11,7 +11,7 @@ const itemB = {
     visible: { scale: 1, right: 0 },
 };
 
-const Detail = ({ src, name, value, left, date=false }) => {
+const Detail = ({ src, name, value, left, isDate=false }) => {
     return (
         <motion.h3
             style={{ position: "relative" }}
@@ -21,7 +21,7 @@ const Detail = ({ src, name, value, left, date=false }) => {
                 <img src={src} alt="Error" className="img" />
                 {name} :
             </span>
-            {!date ? (" "+ value) : format(new Date(value), "do MMMM, yyyy")}
+            {!isDate ? (" " + value) : format(new Date(value), "do MMMM, yyyy")}
         </motion.h3>
     );
 };

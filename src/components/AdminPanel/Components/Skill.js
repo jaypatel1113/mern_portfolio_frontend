@@ -3,20 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {
-    addEducationTimeline,
-    addSkill,
-    addWorkTimeline,
-    deleteEducationTimeline,
-    deleteSkill,
-    deleteWorkTimeline,
-    getUser,
-} from "../../../actions/User";
-import Title from "../../SubComponents/Title";
-import Links from "./SubComponents/Links"
-import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
 import { NavLink } from "react-router-dom";
+
+import Title from "../../SubComponents/Title";
+import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
 import LanguageAndSkills from "./SubComponents/LanguageAndSkills";
+
+import { addSkill, getUser } from "../../../actions/User";
 
 const txtVariant = {
     hidden: {
@@ -52,12 +45,12 @@ const btnVariant = {
 
 
 const Skill = () => {
-    const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const [name, setName] = useState("");
+
     const { message, error, loading } = useSelector((state) => state.update);
     const { user } = useSelector((state) => state.user);
 
-    const [name, setName] = useState("");
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -90,11 +83,6 @@ const Skill = () => {
                                 initial="hidden"
                                 whileInView="visible"
                             >
-                                {/* <LabelNdInput
-                                    labelRight="Name"
-                                    value={formDetails.name}
-                                    setVal={setVal}
-                                /> */}
                                 <LabelNdInput
                                     labelRight="Skill"
                                     value={name}
@@ -147,8 +135,8 @@ const Skill = () => {
                 </Row>
                 
                 <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
-                            {user?.skills?.map((item) => <LanguageAndSkills key={item._id} item={item} i={2} />)}
-                        </div>
+                    {user?.skills?.map((item) => <LanguageAndSkills key={item._id} item={item} i={2} />)}
+                </div>
             </Container>
         </section>
     );
