@@ -1,52 +1,61 @@
-.adminpanel .admin-top-margin {
-    margin-top: 5rem !important;
-    font-size: 3rem !important;
+.adminpanelcontainer {
+    display: grid;
+    place-items: center;
+    transition: 0.4s;
 }
-.adminpanel .admin-top-margin label {
-    font-size: 3rem !important;
+
+.adminpanelcontainer h2 {
+    font-size: 3.5rem;
 }
-.adminpanel .links {
-    /* background: red; */
+
+.admin-container-inputbox {
+    gap: 1.5rem 3rem;
+}
+
+.adminpanel-form {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
+    padding: 3rem 6rem;
+    width: 500px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+}
+
+.adminpanel-form input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.adminpanel-form .btncontiner {
+    margin-top: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 5rem;
-    font-size: 1.4rem;
-    gap: 1rem;
 }
-.adminpanel .links > a {
-    background: rgba(255, 255, 255, 0.4);
+
+.adminpanel-form button {
+    margin: 2rem 0;
+    padding: 1rem 3rem;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
     color: #fff;
     font-weight: 600;
-    flex: 1 1 200px;
-    text-align: center;
-    padding: 0.9rem 1.5rem;
+    letter-spacing: .15rem;
+    text-transform: capitalize;
     border-radius: 1rem;
-    text-decoration: none;
+    transition: 0.4s;
 }
 
-.adminpanel .fullwidth {
-    width: 100%;
+.adminpanel-form button.logout {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
 }
 
-.adminpanel.contact .row input:focus {
-    background: rgba(255, 255, 255, 0.2);
-    color: #eee;
-}
-.adminpanel.contact .row input:focus ~ fieldset {
-    border-color: rgba(0, 0, 0, 0);
-}
-.adminpanel.contact .row input:hover ~ fieldset {
-    border: 2px solid #30fff1
-}
-.adminpanel.contact .row input:hover ~ fieldset {
-    border: 2px solid #30fff1
-}
-
-
-.adminpanel.contact .row input::placeholder {
-    font-size: 2em;
-    font-weight: 900;
+.adminpanel-form button:hover {
+    background: #fff;
     color: #000;
+
 }

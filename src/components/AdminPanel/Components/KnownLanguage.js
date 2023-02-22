@@ -1,51 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import Title from "../../SubComponents/Title";
-import LabelNdInput from "./SubComponents/LabelNdInput/LabelNdInput";
-import LanguageAndSkills from "./SubComponents/LanguageAndSkills";
-
 import { addKnownLanguage, getUser } from "../../../actions/User";
-
-const txtVariant = {
-    hidden: {
-        top: "-50px",
-        opacity: 0,
-    },
-    visible: {
-        top: 0,
-        opacity: 1,
-        transition: {
-            delay: 0.5,
-        },
-    },
-};
-
-const contvar = {
-    hidden: {},
-    visible: {},
-};
-
-const btnVariant = {
-    hidden: {
-        x: 500,
-        opacity: 0,
-        scale: 0,
-    },
-    visible: {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-    },
-};
-
+import InputBox from "./InputBox/InputBox";
+import LanguageAndSkills from "./SubComponents/LanguageAndSkills/LanguageAndSkills";
 
 const KnownLanguage = () => {
     const [name, setName] = useState("");
+    const [buttonText, setButtonText] = useState("Add");
 
     const { message, error, loading } = useSelector((state) => state.update);
     const { user } = useSelector((state) => state.user);
@@ -54,8 +18,11 @@ const KnownLanguage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setButtonText("Adding...");
         await dispatch(addKnownLanguage(name));
         dispatch(getUser());
+        setButtonText("Added");
+        setTimeout(() => setButtonText("Add"), 2000);
     };
 
     useEffect(() => {
@@ -70,74 +37,34 @@ const KnownLanguage = () => {
     }, [error, message, dispatch]);
 
     return (
-        <section className="contact login adminpanel" id="connect">
-            <Container>
-                <Row className="align-items-center">
-                    <Col size={12} md={12}>
-                        <Title h2={"Known Languages"} txtVariant={txtVariant} />
+        <section className="contact login adminpanelcontainer" id="connect">
+            <h2>Manage Skills</h2>
 
-                        <form onSubmit={handleSubmit}>
-                            <motion.div
-                                className="row"
-                                variants={contvar}
-                                initial="hidden"
-                                whileInView="visible"
-                            >
-                                <LabelNdInput
-                                    labelRight="Skill"
-                                    value={name}
-                                    onChange={(e) =>
-                                        setName(e.target.value)
-                                    }
-                                    className="fullwidth"
-                                />
-
-                                <Col
-                                    size={12}
-                                    className="px-1"
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "space-between",
-                                    }}
-                                >
-                                    <motion.button
-                                        type="submit"
-                                        variants={btnVariant}
-                                        transition={{
-                                            type: "spring",
-                                            bounce: 0.9,
-                                            delay: 0.9,
-                                            duration: 0.5,
-                                        }}
-                                        disabled={loading}
-                                    >
-                                        <span>Add</span>
-                                    </motion.button>
-                                    <NavLink to='/admin'>
-                                        <motion.button
-                                            type="submit"
-                                            variants={btnVariant}
-                                            transition={{
-                                                type: "spring",
-                                                bounce: 0.9,
-                                                delay: 0.9,
-                                                duration: 0.5,
-                                            }}
-                                            disabled={loading}
-                                            >
-                                            <span>Back</span>
-                                        </motion.button>
-                                    </NavLink>
-                                </Col>
-                            </motion.div>
-                        </form>
-                    </Col>
-                </Row>
-                
-                <div className="containerss" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center"}}>
-                    {user?.languagesKnown?.map((item) => <LanguageAndSkills key={item._id} item={item} i={1} />)}
+            <div className="adminpanel-form">
+                <div className="admin-container-inputbox">
+                    <InputBox
+                        label="Title"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                 </div>
-            </Container>
+                <div className="btncontiner">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={handleSubmit}
+                    >
+                        {buttonText}
+                    </button>
+                    <NavLink to="/admin">
+                        <button disabled={loading}>Back</button>
+                    </NavLink>
+                </div>
+            </div>
+                
+            <div className="all-skill-lang-details">
+                {user?.languagesKnown?.map((item) => <LanguageAndSkills key={item._id} item={item} i={1} />)}
+            </div>
         </section>
     );
 };

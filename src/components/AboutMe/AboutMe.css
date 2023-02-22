@@ -36,8 +36,6 @@
 .aboutme img.imgabt {
     width: 100%;
     height: 100%;
-    /* border-radius: 50%; */
-    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
     animation: waterwave 3s linear infinite;
 }
 

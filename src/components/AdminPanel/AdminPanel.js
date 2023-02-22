@@ -1,51 +1,15 @@
-import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-import Title from "../SubComponents/Title";
-import LabelNdInput from "./Components/SubComponents/LabelNdInput/LabelNdInput";
-import Links from "./Components/SubComponents/Links";
-import InputField from "./Components/SubComponents/InputField/InputField";
-import SkillImages from "./Components/SubComponents/SkillImages/SkillImages";
+import InputBox from "./Components/InputBox/InputBox";
+import ImageBox from "./Components/SubComponents/ImageBox/ImageBox";
 
 import { logout, updateUser } from "../../actions/User";
 
 import "./AdminPanel.css";
+import Links from "./Components/SubComponents/Links";
 
-
-const txtVariant = {
-    hidden: {
-        top: "-50px",
-        opacity: 0,
-    },
-    visible: {
-        top: 0,
-        opacity: 1,
-        transition: {
-            delay: 0.5,
-        },
-    },
-};
-
-const contvar = {
-    hidden: {},
-    visible: {},
-};
-
-const btnVariant = {
-    hidden: {
-        x: 500,
-        opacity: 0,
-        scale: 0,
-    },
-    visible: {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-    },
-};
 
 const AdminPanel = () => {
     const [userName, setUserName] = useState("");
@@ -61,10 +25,10 @@ const AdminPanel = () => {
 
     const handleAboutImage = (e) => {
         const file = e.target.files[0];
-
+        
         const Reader = new FileReader();
         Reader.readAsDataURL(file);
-
+        
         Reader.onload = () => {
             if (Reader.readyState === 2) {
                 // console.log(Reader.result);
@@ -129,14 +93,13 @@ const AdminPanel = () => {
         e.preventDefault();
         setButtonText("Saving...");
         await dispatch(updateUser(userName, password, skillsCubeImg, about));
-        setButtonText("Save");
-        // console.log(userName, password, skillsCubeImg, about)
+        setButtonText("Saved");
+        setTimeout(()=>setButtonText("Save"), 2000);
     };
 
 
     // display messages and errors from backend in all components
     useEffect(() => {
-        console.log(":admin ", error, message, loginMessage);
         if (error) {
             toast.error(error);
             dispatch({ type: "CLEAR_ERROR" });
@@ -152,201 +115,158 @@ const AdminPanel = () => {
     }, [error, message, loginMessage, dispatch]);
 
     return (
-        <section className="contact login adminpanel" id="connect">
-            <Container>
-                <Row className="align-items-center">
-                    <Col size={12} md={12}>
-                        <Title h2={"Admin Panel"} txtVariant={txtVariant} />
+        <section className="contact login adminpanelcontainer" id="connect">
+            <h2>Manage Login details</h2>
 
-                        <form onSubmit={handleSubmit}>
-                            <motion.div
-                                className="row"
-                                variants={contvar}
-                                initial="hidden"
-                                whileInView="visible"
-                            >
-                                {/* <LabelNdInput
-                                    labelRight="Name"
-                                    value={formDetails.name}
-                                    setVal={setVal}
-                                /> */}
-                                <LabelNdInput
-                                    labelRight="UserName"
-                                    value={userName}
-                                    onChange={(e) =>
-                                        setUserName(e.target.value)
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Password"
-                                    value={password}
-                                    onChange={(e) =>
-                                        setPassword(e.target.value)
-                                    }
-                                    className="fullwidth"
-                                />
+            <div className="adminpanel-form">
+                {/* <LabelNdInput
+                    labelRight="Name"
+                    value={formDetails.name}
+                    setVal={setVal}
+                /> */}
+                <div className="admin-container-inputbox">
+                    <InputBox
+                        label="UserName"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                    />
+                    <InputBox
+                        label="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className="btncontiner">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={handleSubmit}
+                    >
+                        {buttonText}
+                    </button>
+                    <button
+                        disabled={loading}
+                        onClick={logOutHandle}
+                        className="logout"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </div>
 
-                                {/* about update */}
-                                <InputField
-                                    islabel={true}
-                                    labelName={`Update About Details`}
-                                    fullRow={true}
-                                />
-                                <LabelNdInput
-                                    labelRight="FullName"
-                                    value={about.fullName}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            fullName: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Address"
-                                    value={about.address}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            address: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Date Of Birth"
-                                    value={about.dob}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            dob: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Email"
-                                    value={about.email}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            email: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Phone Number"
-                                    value={about.phoneNumber}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            phoneNumber: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Freelancing"
-                                    value={about.freeLancing}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            freeLancing: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="CV website Link"
-                                    value={about.cvweblink}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            cvweblink: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="CV Drive Link"
-                                    value={about.cvfileLink}
-                                    onChange={(e) =>
-                                        setAbout({
-                                            ...about,
-                                            cvfileLink: e.target.value,
-                                        })
-                                    }
-                                    className="fullwidth"
-                                />
-                                <LabelNdInput
-                                    labelRight="Avtar"
-                                    onChange={handleAboutImage}
-                                    type="file"
-                                    accept="image/*"
-                                    avtar={true}
-                                />
+            <h2>Manage About details</h2>
 
-                                {/* skill update */}
-                                <InputField
-                                    islabel={true}
-                                    labelName={`Update Skill Images`}
-                                    fullRow={true}
-                                />
-                                <SkillImages handleImage={handleImage} i={1} />
-                                <SkillImages handleImage={handleImage} i={2} />
-                                <SkillImages handleImage={handleImage} i={3} />
-                                <SkillImages handleImage={handleImage} i={4} />
-                                <SkillImages handleImage={handleImage} i={5} />
-                                <SkillImages handleImage={handleImage} i={6} />
+            <div className="adminpanel-form">
+                <div className="admin-container-inputbox">
+                    <ImageBox
+                        label="Profile Picture"
+                        value={about.avatar}
+                        onChange={handleAboutImage}
+                    />
+                    <InputBox
+                        label="Fullname"
+                        value={about.fullName}
+                        onChange={(e) => setAbout({ ...about, fullName: e.target.value })}
+                    />
+                    <InputBox
+                        label="Address"
+                        value={about.address}
+                        onChange={(e) => setAbout({ ...about, address: e.target.value })}
+                    />
+                    <InputBox
+                        label="Birthday"
+                        value={about.dob}
+                        onChange={(e) => setAbout({ ...about, dob: e.target.value })}
+                        isDate={true}
+                    />
+                    <InputBox
+                        label="Email"
+                        value={about.email}
+                        onChange={(e) => setAbout({ ...about, email: e.target.value })}
+                    />
+                    <InputBox
+                        label="Phone Number"
+                        value={about.phoneNumber}
+                        onChange={(e) => setAbout({ ...about, phoneNumber: e.target.value })}
+                    />
+                    <InputBox
+                        label="Freelancing"
+                        value={about.freeLancing}
+                        onChange={(e) => setAbout({ ...about, freeLancing: e.target.value })}
+                        select={true}
+                    />
+                    <InputBox
+                        label="CV website Link"
+                        value={about.cvweblink}
+                        onChange={(e) => setAbout({ ...about, cvweblink: e.target.value })}
+                    />
+                    <InputBox
+                        label="CV Drive Link"
+                        value={about.cvfileLink}
+                        onChange={(e) => setAbout({ ...about, cvfileLink: e.target.value })}
+                    />
+                </div>
+                <div className="btncontiner">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={handleSubmit}
+                    >
+                        {buttonText}
+                    </button>
+                </div>
+            </div>
 
-                               <Links />
+            <h2>Manage Skill Cube Images</h2>
 
-                                <Col
-                                    size={12}
-                                    className="px-1"
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "space-between",
-                                    }}
-                                >
-                                    <motion.button
-                                        type="submit"
-                                        variants={btnVariant}
-                                        transition={{
-                                            type: "spring",
-                                            bounce: 0.9,
-                                            delay: 0.9,
-                                            duration: 0.5,
-                                        }}
-                                        disabled={loading}
-                                    >
-                                        <span>{buttonText}</span>
-                                    </motion.button>
-                                    <motion.button
-                                        variants={btnVariant}
-                                        transition={{
-                                            type: "spring",
-                                            bounce: 0.9,
-                                            delay: 0.9,
-                                            duration: 0.5,
-                                        }}
-                                        style={{
-                                            background: "red",
-                                            color: "#fff",
-                                        }}
-                                        onClick={logOutHandle}
-                                    >
-                                        <span>LogOut</span>
-                                    </motion.button>
-                                </Col>
-                            </motion.div>
-                        </form>
-                    </Col>
-                </Row>
-            </Container>
+            <div className="adminpanel-form">
+                <div className="admin-container-inputbox">
+                    <ImageBox
+                        label="Image 1"
+                        value={skillsCubeImg.image1}
+                        onChange={(e) => handleImage(e, 1)}
+                    />
+                    <ImageBox
+                        label="Image 2"
+                        value={skillsCubeImg.image2}
+                        onChange={(e) => handleImage(e, 2)}
+                    />
+                    <ImageBox
+                        label="Image 3"
+                        value={skillsCubeImg.image3}
+                        onChange={(e) => handleImage(e, 3)}
+                    />
+                    <ImageBox
+                        label="Image 4"
+                        value={skillsCubeImg.image4}
+                        onChange={(e) => handleImage(e, 4)}
+                    />
+                    <ImageBox
+                        label="Image 5"
+                        value={skillsCubeImg.image5}
+                        onChange={(e) => handleImage(e, 5)}
+                    />
+                    <ImageBox
+                        label="Image 6"
+                        value={skillsCubeImg.image6}
+                        onChange={(e) => handleImage(e, 6)}
+                    />
+                </div>
+                
+                <div className="btncontiner">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={handleSubmit}
+                    >
+                        {buttonText}
+                    </button>
+                </div>
+            </div>
+
+            <Links />
+
+           
         </section>
     );
 };

@@ -30,6 +30,7 @@ import { getUser, loadUser } from "./actions/User";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import PreLoader from "./components/ProLoader/PreLoader";
 
 
 const App = () => {
@@ -55,7 +56,7 @@ const App = () => {
     return (
         <Router>
             {loading ? (
-                <div>Loading</div>
+                <PreLoader />
             ) : (
                 <>
                     <ProgressBar />

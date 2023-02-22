@@ -1,7 +1,7 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 
-import "./SkillImages.css";
+// import "./SkillImages.css";
 
 const SkillImages = ({ handleImage, i }) => {
     return (

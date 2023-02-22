@@ -1,0 +1,49 @@
+.inputbox .label {
+    padding: 15px 0 5px 0;
+}
+
+.inputbox label {
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.inputbox .input input,
+.inputbox .input select {
+    font-size: 1.4rem;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1.2rem 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    outline: none;
+    color: #fff
+}
+
+select option {
+    color: #000;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.imagebox {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+.imagebox img {
+    margin-top: 0 !important;
+    width: 150px;
+    height: 150px;
+    align-self: center;
+    object-fit: cover;
+    border-radius: 50%
+}

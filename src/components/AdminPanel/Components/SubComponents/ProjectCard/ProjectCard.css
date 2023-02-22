@@ -1,0 +1,17 @@
+.add-project-details {
+    margin-top: 5rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) ) ;
+    width: 80%;
+}
+.add-project-details .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-project-details .image > img {
+    /* width: auto; */
+    margin-top: 0;
+    width: 100%;
+}

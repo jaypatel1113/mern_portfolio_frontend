@@ -1,0 +1,7 @@
+.all-skill-lang-details {
+    margin-top: 5rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr) ) ;
+    width: 80%;
+}
