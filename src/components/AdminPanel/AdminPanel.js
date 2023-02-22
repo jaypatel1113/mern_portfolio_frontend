@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-import InputBox from "./Components/InputBox/InputBox";
-import ImageBox from "./Components/SubComponents/ImageBox/ImageBox";
 
 import { logout, updateUser } from "../../actions/User";
 
 import "./AdminPanel.css";
+import InputBox from "./Components/SubComponents/InputBox/InputBox";
+import ImageBox from "./Components/SubComponents/ImageBox/ImageBox";
 import Links from "./Components/SubComponents/Links";
 
 

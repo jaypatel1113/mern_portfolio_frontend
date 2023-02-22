@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
 import { addBackendProject, getUser } from "../../../actions/User";
-import ImageBox from "./ImageBox/ImageBox";
-import InputBox from "./InputBox/InputBox";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
+import ImageBox from "./SubComponents/ImageBox/ImageBox";
+import InputBox from "./SubComponents/InputBox/InputBox";
 
 const BackendProject = () => {
     const [title, setTitle] = useState("");

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
 import { addWorkTimeline, getUser } from "../../../actions/User";
-import InputBox from "./InputBox/InputBox";
+import InputBox from "./SubComponents/InputBox/InputBox";
 import TimeLine from "./SubComponents/TimeLIne/TimeLine";
 
 const WorkTimeLine = () => {

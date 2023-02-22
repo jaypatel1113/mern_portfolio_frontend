@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
 import { addFullstackProject, getUser } from "../../../actions/User";
-import ImageBox from "./ImageBox/ImageBox";
-import InputBox from "./InputBox/InputBox";
+import ImageBox from "./SubComponents/ImageBox/ImageBox";
+import InputBox from "./SubComponents/InputBox/InputBox";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
 
 const FullstackProject = () => {

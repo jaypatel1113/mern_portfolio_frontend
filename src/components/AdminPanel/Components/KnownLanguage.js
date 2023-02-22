@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
 import { addKnownLanguage, getUser } from "../../../actions/User";
-import InputBox from "./InputBox/InputBox";
+import InputBox from "./SubComponents/InputBox/InputBox";
 import LanguageAndSkills from "./SubComponents/LanguageAndSkills/LanguageAndSkills";
 
 const KnownLanguage = () => {
