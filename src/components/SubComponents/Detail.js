@@ -21,7 +21,7 @@ const Detail = ({ src, name, value, left, isDate=false }) => {
                 <img src={src} alt="Error" className="img" />
                 {name} :
             </span>
-            {!isDate ? (" " + value) : format(new Date(value), "do MMMM, yyyy")}
+            {!isDate ? (" " + value) : (" " + format(new Date(value), "do MMMM, yyyy"))}
         </motion.h3>
     );
 };
