@@ -5,7 +5,8 @@ export const getUser = () => async (dispatch) => {
         dispatch({
             type: "GET_USER_REQUEST",
         });
-        const {data} = await axios.get(`/admin/user`);
+
+        const {data} = await axios.get("/admin/user");
 
         dispatch({
             type: "GET_USER_SUCCESS",
@@ -25,7 +26,7 @@ export const login = (userName, password) => async (dispatch) => {
             type: "LOGIN_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/login`, {
+        const {data} = await axios.post("/admin/login", {
             userName, password
         }, {
             headers: {
@@ -51,7 +52,7 @@ export const logout = () => async (dispatch) => {
             type: "LOGOUT_REQUEST",
         });
 
-        const {data} = await axios.get(`/admin/logout`);
+        const {data} = await axios.get("/admin/logout");
 
         dispatch({
             type: "LOGOUT_SUCCESS",
@@ -71,7 +72,7 @@ export const loadUser = () => async (dispatch) => {
             type: "LOAD_USER_REQUEST",
         });
 
-        const {data} = await axios.get(`/admin/me`);
+        const {data} = await axios.get("/admin/me");
 
         dispatch({
             type: "LOAD_USER_SUCCESS",
@@ -92,7 +93,7 @@ export const updateLoginDetails = (userName, password) => async (dispatch) => {
             type: "UPDATE_LOGIN_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update-login-details`, { userName, password }, {
+        const {data} = await axios.put("/admin/update-login-details", { userName, password }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -115,7 +116,7 @@ export const updateHome = (home) => async (dispatch) => {
             type: "UPDATE_HOME_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update-home-details`, { home }, {
+        const {data} = await axios.put("/admin/update-home-details", { home }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -138,7 +139,7 @@ export const updateAbout = (about) => async (dispatch) => {
             type: "UPDATE_ABOUT_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update-about-details`, { about }, {
+        const {data} = await axios.put("/admin/update-about-details", { about }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -161,7 +162,7 @@ export const updateSkillImages = (skillsCubeImg) => async (dispatch) => {
             type: "UPDATE_SKILL_IMAGE_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update-skill-images`, { skillsCubeImg }, {
+        const {data} = await axios.put("/admin/update-skill-images", { skillsCubeImg }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -186,7 +187,7 @@ export const addEducationTimeline = (title, description, startdate, enddate) => 
             type: "ADD_EDUCATION_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/education-timeline/add`, {
+        const {data} = await axios.post("/admin/update/education-timeline/add", {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -256,7 +257,7 @@ export const addWorkTimeline = (title, description, startdate, enddate) => async
             type: "ADD_WORK_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/work-timeline/add`, {
+        const {data} = await axios.post("/admin/update/work-timeline/add", {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -326,7 +327,7 @@ export const addSkill = (name) => async (dispatch) => {
             type: "ADD_SKILL_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/skills/add`, {
+        const {data} = await axios.post("/admin/update/skills/add", {
             name
         }, {
             headers: {
@@ -394,7 +395,7 @@ export const addKnownLanguage = (name) => async (dispatch) => {
             type: "ADD_KNOWN_LANGUAGE_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/known-language/add`, { name }, {
+        const {data} = await axios.post("/admin/update/known-language/add", { name }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -460,7 +461,7 @@ export const addFrontendProject = (title, techstack, image, gitLink, demoLink) =
             type: "ADD_FRONTEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/frontend-project/add`, {
+        const {data} = await axios.post("/admin/update/frontend-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -505,7 +506,7 @@ export const addFullstackProject = (title, techstack, image, gitLink, demoLink) 
             type: "ADD_FULLSTACK_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/fullstack-project/add`, {
+        const {data} = await axios.post("/admin/update/fullstack-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -550,7 +551,7 @@ export const addBackendProject = (title, techstack, image, gitLink, demoLink) =>
             type: "ADD_BACKEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/backend-project/add`, {
+        const {data} = await axios.post("/admin/update/backend-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -595,7 +596,7 @@ export const addSocialLinks = (name, link, color, icon) => async (dispatch) => {
             type: "ADD_SOCIAL_LINKS_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/update/social-link/add`, {
+        const {data} = await axios.post("/admin/update/social-link/add", {
             name, link, color, icon
         }, {
             headers: {
@@ -640,7 +641,7 @@ export const addFeedback = (name, email, message) => async (dispatch) => {
             type: "ADD_CONTACT_US_REQUEST",
         });
 
-        const {data} = await axios.post(`/admin/add/feedback`, {
+        const {data} = await axios.post("/admin/add/feedback", {
             name, email, message
         }, {
             headers: {
