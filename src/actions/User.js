@@ -181,7 +181,6 @@ export const updateSkillImages = (skillsCubeImg) => async (dispatch) => {
 }
 
 
-
 export const addEducationTimeline = (title, description, startdate, enddate) => async (dispatch) => {
     try {
         dispatch({
@@ -207,7 +206,6 @@ export const addEducationTimeline = (title, description, startdate, enddate) => 
         });
     }
 }
-
 export const deleteEducationTimeline = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -227,7 +225,31 @@ export const deleteEducationTimeline = (id) => async (dispatch) => {
         });
     }
 }
+export const editEducationTimeline = (id, title, description, startdate, enddate) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "EDIT_EDUCATION_TIMELINE_REQUEST",
+        });
 
+        const {data} = await axios.put(`/admin/update/education-timeline/edit/${id}`, {
+            title, description, startdate, enddate
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "EDIT_EDUCATION_TIMELINE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "EDIT_EDUCATION_TIMELINE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
 
 export const addWorkTimeline = (title, description, startdate, enddate) => async (dispatch) => {
     try {
@@ -254,7 +276,6 @@ export const addWorkTimeline = (title, description, startdate, enddate) => async
         });
     }
 }
-
 export const deleteWorkTimeline = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -274,7 +295,31 @@ export const deleteWorkTimeline = (id) => async (dispatch) => {
         });
     }
 }
+export const editWorkTimeline = (id, title, description, startdate, enddate) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "EDIT_WORK_TIMELINE_REQUEST",
+        });
 
+        const {data} = await axios.put(`/admin/update/work-timeline/edit/${id}`, {
+            title, description, startdate, enddate
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "EDIT_WORK_TIMELINE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "EDIT_WORK_TIMELINE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
 
 export const addSkill = (name) => async (dispatch) => {
     try {
@@ -301,7 +346,6 @@ export const addSkill = (name) => async (dispatch) => {
         });
     }
 }
-
 export const deleteSkill = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -317,76 +361,6 @@ export const deleteSkill = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: "DELETE_SKILL_FAILURE",
-            payload: error.response.data.message,
-        });
-    }
-}
-
-
-export const addKnownLanguage = (name) => async (dispatch) => {
-    try {
-        dispatch({
-            type: "ADD_KNOWN_LANGUAGE_REQUEST",
-        });
-
-        const {data} = await axios.post("/admin/update/known-language/add", { name }, {
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
-
-        dispatch({
-            type: "ADD_KNOWN_LANGUAGE_SUCCESS",
-            payload: data.message,
-        });
-    } catch (error) {
-        dispatch({
-            type: "ADD_KNOWN_LANGUAGE_FAILURE",
-            payload: error.response.data.message,
-        });
-    }
-}
-
-export const deleteKnownLanguage = (id) => async (dispatch) => {
-    try {
-        dispatch({
-            type: "DELETE_KNOWN_LANGUAGE_REQUEST",
-        });
-
-        const {data} = await axios.delete(`/admin/update/known-language/delete/${id}`);
-
-        dispatch({
-            type: "DELETE_KNOWN_LANGUAGE_SUCCESS",
-            payload: data.message,
-        });
-    } catch (error) {
-        dispatch({
-            type: "DELETE_KNOWN_LANGUAGE_FAILURE",
-            payload: error.response.data.message,
-        });
-    }
-}
-
-
-export const editKnownLanguage = (id, name) => async (dispatch) => {
-    try {
-        dispatch({
-            type: "EDIT_KNOWN_LANGUAGE_REQUEST",
-        });
-
-        const {data} = await axios.put(`/admin/update/known-language/edit/${id}`, { name }, {
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
-
-        dispatch({
-            type: "EDIT_KNOWN_LANGUAGE_SUCCESS",
-            payload: data.message,
-        });
-    } catch (error) {
-        dispatch({
-            type: "EDIT_KNOWN_LANGUAGE_FAILURE",
             payload: error.response.data.message,
         });
     }
@@ -415,6 +389,71 @@ export const editSkill = (id, name) => async (dispatch) => {
     }
 }
 
+export const addKnownLanguage = (name) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "ADD_KNOWN_LANGUAGE_REQUEST",
+        });
+
+        const {data} = await axios.post("/admin/update/known-language/add", { name }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "ADD_KNOWN_LANGUAGE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "ADD_KNOWN_LANGUAGE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const deleteKnownLanguage = (id) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "DELETE_KNOWN_LANGUAGE_REQUEST",
+        });
+
+        const {data} = await axios.delete(`/admin/update/known-language/delete/${id}`);
+
+        dispatch({
+            type: "DELETE_KNOWN_LANGUAGE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "DELETE_KNOWN_LANGUAGE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const editKnownLanguage = (id, name) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_REQUEST",
+        });
+
+        const {data} = await axios.put(`/admin/update/known-language/edit/${id}`, { name }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
 
 export const addFrontendProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
@@ -441,7 +480,6 @@ export const addFrontendProject = (title, techstack, image, gitLink, demoLink) =
         });
     }
 }
-
 export const deleteFrontendProject = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -461,7 +499,6 @@ export const deleteFrontendProject = (id) => async (dispatch) => {
         });
     }
 }
-
 
 export const addFullstackProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
@@ -488,7 +525,6 @@ export const addFullstackProject = (title, techstack, image, gitLink, demoLink) 
         });
     }
 }
-
 export const deleteFullstackProject = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -508,7 +544,6 @@ export const deleteFullstackProject = (id) => async (dispatch) => {
         });
     }
 }
-
 
 export const addBackendProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
@@ -535,7 +570,6 @@ export const addBackendProject = (title, techstack, image, gitLink, demoLink) =>
         });
     }
 }
-
 export const deleteBackendProject = (id) => async (dispatch) => {
     try {
         dispatch({
@@ -581,7 +615,6 @@ export const addSocialLinks = (name, link, color, icon) => async (dispatch) => {
         });
     }
 }
-
 export const deleteSocialLinks = (id) => async (dispatch) => {
     try {
         dispatch({

@@ -2,12 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { format } from "date-fns";
 
-import "./Timeline.css";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 import { deleteEducationTimeline, deleteWorkTimeline, getUser } from "../../../../../actions/User";
-import { AiFillDelete } from "react-icons/ai";
 
-const TimeLine = ({ item, i }) => {
+import "./Timeline.css";
+
+const TimeLine = ({ item, i, setTitle, setDescription, setEditId }) => {
     const dispatch = useDispatch();
 
     const handleDelete = async (id) => {
@@ -19,6 +20,11 @@ const TimeLine = ({ item, i }) => {
             await dispatch(deleteWorkTimeline(id));
         }
         dispatch(getUser());
+    };
+    const handleEdit = async (id) => {
+        setTitle(item.title)
+        setDescription(item.description)
+        setEditId(id);
     };
 
     return (
@@ -33,9 +39,8 @@ const TimeLine = ({ item, i }) => {
                     }
                 </div>
                 <div className="button">
-                    <button onClick={() => handleDelete(item._id)}>
-                        <AiFillDelete />
-                    </button>
+                    <button onClick={() => handleDelete(item._id)}><AiFillDelete /></button>
+                    <button onClick={() => handleEdit(item._id)}><AiFillEdit /></button>
                 </div>
             </div>
     );

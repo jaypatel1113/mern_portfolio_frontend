@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-
-import "./AdminPanel.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 import { FaGraduationCap, FaLanguage, FaUserEdit, FaProjectDiagram, FaImages, } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import { GoProject } from "react-icons/go";
@@ -10,9 +11,10 @@ import { HiOutlineLogin } from "react-icons/hi";
 import { FiLink } from "react-icons/fi";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { RiFeedbackFill } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+
 import { logout } from "../../actions/User";
-import { toast } from "react-toastify";
+
+import "./AdminPanel.css";
 
 const AdminPanel = () => {
     const { message, error } = useSelector((state) => state.login);

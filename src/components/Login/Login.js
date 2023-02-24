@@ -8,6 +8,7 @@ import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 
 import loginImg from "../../assets/img/login.svg";
+
 import { login } from "../../actions/User";
 
 import "./Login.css";

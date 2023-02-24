@@ -2,29 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getUser, updateLoginDetails } from "../../../actions/User";
 
 import InputBox from "./SubComponents/InputBox/InputBox";
 
-
+import { getUser, updateLoginDetails } from "../../../actions/User";
 
 const LoginDetails = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [buttonText, setButtonText] = useState("Save");
+    const [buttonText, setButtonText] = useState("Update");
     
     const { message, error, loading } = useSelector((state) => state.update);
     
     const dispatch = useDispatch();
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setButtonText("Saving...");
+        setButtonText("Updating...");
         await dispatch(updateLoginDetails(userName, password));
         dispatch(getUser());
-        setButtonText("Saved");
-        setTimeout(()=>setButtonText("Save"), 2000);
+        setButtonText("Updated");
+        setTimeout(()=>setButtonText("Update"), 2000);
     };
 
     // display messages and errors from backend in all components

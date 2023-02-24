@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getUser, updateSkillImages } from "../../../actions/User";
 
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 
+import { getUser, updateSkillImages } from "../../../actions/User";
 
 const SkillImages = () => {
     const [skillsCubeImg, setSkillsCubeImg] = useState({});
-    const [buttonText, setButtonText] = useState("Save");
+    const [buttonText, setButtonText] = useState("Update");
     
     const { message, error, loading } = useSelector((state) => state.update);
     
@@ -65,11 +65,11 @@ const SkillImages = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setButtonText("Saving...");
+        setButtonText("Updating...");
         await dispatch(updateSkillImages(skillsCubeImg));
         dispatch(getUser());
-        setButtonText("Saved");
-        setTimeout(()=>setButtonText("Save"), 2000);
+        setButtonText("Updated");
+        setTimeout(()=>setButtonText("Update"), 2000);
     };
 
     // display messages and errors from backend in all components

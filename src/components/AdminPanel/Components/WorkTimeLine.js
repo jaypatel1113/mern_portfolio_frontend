@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addWorkTimeline, getUser } from "../../../actions/User";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import TimeLine from "./SubComponents/TimeLIne/TimeLine";
+
+import { addWorkTimeline, editWorkTimeline, getUser } from "../../../actions/User";
 
 const WorkTimeLine = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [startdate, setStartdate] = useState("");
     const [enddate, setEnddate] = useState("");
+    const [editId, setEditId] = useState(null);
     const [buttonText, setButtonText] = useState("Add");
 
     const { message, error, loading } = useSelector((state) => state.update);
@@ -27,8 +29,14 @@ const WorkTimeLine = () => {
         setButtonText("Added");
         setTimeout(()=>setButtonText("Add"), 2000);
     };
+    const handleUpdate = async (e, id, title, description, startdate, enddate) => {
+        e.preventDefault();
+        await dispatch(editWorkTimeline(id, title, description, startdate, enddate));
+        dispatch(getUser());
+    };
 
     useEffect(() => {
+        setEditId(null);
         if (error) {
             toast.error(error);
             dispatch({ type: "CLEAR_ERROR" });
@@ -69,13 +77,23 @@ const WorkTimeLine = () => {
                     />
                 </div>
                 <div className="btncontiner">
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        onClick={handleSubmit}
-                    >
-                        {buttonText}
-                    </button>
+                    {!editId ? (
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            onClick={handleSubmit}
+                        >
+                            {buttonText}
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            onClick={(e) => handleUpdate(e, editId, title, description, startdate, enddate)}
+                        >
+                            Update
+                        </button>
+                    )}
                     <NavLink to="/admin">
                         <button disabled={loading}>Back</button>
                     </NavLink>
@@ -83,7 +101,16 @@ const WorkTimeLine = () => {
             </div>
 
             <div className="all-timeline-details">
-                {user?.workTimeline?.map((item) => <TimeLine key={item._id} item={item}  i={2} />)}
+                {user?.workTimeline?.map((item) => (
+                    <TimeLine
+                        key={item._id}
+                        item={item}
+                        i={2}
+                        setTitle={setTitle}
+                        setDescription={setDescription}
+                        setEditId={setEditId}
+                    />
+                ))}
             </div>
         </section>
     );

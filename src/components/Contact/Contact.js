@@ -4,11 +4,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
-import contactImg from "../../assets/img/contact-img.svg";
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 
-import { addFeedback } from "../../actions/User";
+import contactImg from "../../assets/img/contact-img.svg";
+
+import { addFeedback, getUser } from "../../actions/User";
 
 import './Contact.css';
 
@@ -66,9 +67,10 @@ const Contact = () => {
     };
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState("Send");
+    const [btnDisable, setBtnDisable] = useState(false);
 
     const dispatch = useDispatch();
-    const { message:updateMessage, error, loading } = useSelector((state) => state.update);
+    const { message:updateMessage, error } = useSelector((state) => state.update);
 
     const setVal = (e) => {
         // console.log(e.target.value);
@@ -90,9 +92,16 @@ const Contact = () => {
         else if (!email.includes("@")) 
             toast.warn("includes @ in your email!");
         else {
+            setBtnDisable(true);
             setButtonText("Sending...");
-            dispatch(addFeedback(fullName, email, message))
+            await dispatch(addFeedback(fullName, email, message))
+            await dispatch(getUser());
             setButtonText("Send");
+            setFormDetails(formInitialDetails);
+            setTimeout(() => {
+                setBtnDisable(false);
+            }, 1000*60*5);
+            // only after 5 min user can send another feedback
         }
     };
 
@@ -169,7 +178,7 @@ const Contact = () => {
                                             delay: 0.9,
                                             duration: 0.5,
                                         }}
-                                        disabled={loading}
+                                        disabled={btnDisable}
                                     >
                                         <span>{buttonText}</span>
                                     </motion.button>

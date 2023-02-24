@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addSkill, editSkill, getUser } from "../../../actions/User";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import LanguageAndSkills from "./SubComponents/LanguageAndSkills/LanguageAndSkills";
+
+import { addSkill, editSkill, getUser } from "../../../actions/User";
 
 const Skill = () => {
     const [name, setName] = useState("");
@@ -29,11 +30,11 @@ const Skill = () => {
     const handleUpdate = async (e, id, name) => {
         e.preventDefault();
         await dispatch(editSkill(id, name));
-        setEditId(null);
         dispatch(getUser());
     };
 
     useEffect(() => {
+        setEditId(null);
         if (error) {
             toast.error(error);
             dispatch({ type: "CLEAR_ERROR" });

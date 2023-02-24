@@ -7,6 +7,7 @@ import Bottombar from "./components/BottomBar/Bottombar";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import PreLoader from "./components/PreLoader/PreLoader";
 
 import HomePage from "./components/Pages/HomePage";
 import AboutMePage from "./components/Pages/AboutMePage";
@@ -24,19 +25,18 @@ import KnownLanguage from "./components/AdminPanel/Components/KnownLanguage";
 import FrontendProject from "./components/AdminPanel/Components/FrontendProject";
 import FullstackProject from "./components/AdminPanel/Components/FullstackProject";
 import BackendProject  from "./components/AdminPanel/Components/BackendProject";
-import PreLoader from "./components/ProLoader/PreLoader";
 import LoginDetails from "./components/AdminPanel/Components/LoginDetails";
 import AboutDetails from "./components/AdminPanel/Components/AboutDetails";
 import SkillImages from "./components/AdminPanel/Components/SkillImage";
 import HomeDetails from "./components/AdminPanel/Components/HomeDetails";
 import Feedbacks from "./components/AdminPanel/Components/Feedbacks";
+import SocialMediaLinks from "./components/AdminPanel/Components/SocialMediaLinks";
 
 import { getUser, loadUser } from "./actions/User";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import SocialMediaLinks from "./components/AdminPanel/Components/SocialMediaLinks";
 
 
 const App = () => {

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-// import { BrowserRouter as Router } from "react-router-dom";
 
 import { RiUserSharedFill, RiAdminFill } from "react-icons/ri";
 import { BiLogOutCircle } from "react-icons/bi";

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
-import colorSharp from "../../assets/img/color-sharp.png";
-
 import Title from "../SubComponents/Title";
 import SkillList from "../SubComponents/SkillList";
 import SkillCubeFace from "../SubComponents/SkillCubeFace";
+
+import colorSharp from "../../assets/img/color-sharp.png";
 
 import './Skills.css';
 

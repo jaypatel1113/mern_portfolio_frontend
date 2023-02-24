@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import './ProjectCard.css';
+
+import { AiFillDelete } from "react-icons/ai";
 
 import { deleteBackendProject, deleteFrontendProject, deleteFullstackProject, getUser } from "../../../../../actions/User";
-import { AiFillDelete } from "react-icons/ai";
+
+import './ProjectCard.css';
 
 const ProjectCard = ({ item, i }) => {
     const dispatch = useDispatch();

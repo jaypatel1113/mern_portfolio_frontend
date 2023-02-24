@@ -149,6 +149,17 @@ export const updateReducer = createReducer({}, {
         state.loading = false;
         state.error = action.payload; 
     },
+    EDIT_EDUCATION_TIMELINE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    EDIT_EDUCATION_TIMELINE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    EDIT_EDUCATION_TIMELINE_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
 
     ADD_WORK_TIMELINE_REQUEST: (state) => {
         state.loading = true;
@@ -169,6 +180,17 @@ export const updateReducer = createReducer({}, {
         state.message = action.payload; 
     },
     DELETE_WORK_TIMELINE_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+    EDIT_WORK_TIMELINE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    EDIT_WORK_TIMELINE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    EDIT_WORK_TIMELINE_FAILURE: (state, action) => {
         state.loading = false;
         state.error = action.payload; 
     },

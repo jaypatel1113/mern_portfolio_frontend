@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addBackendProject, getUser } from "../../../actions/User";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
+
+import { addBackendProject, getUser } from "../../../actions/User";
 
 const BackendProject = () => {
     const [title, setTitle] = useState("");

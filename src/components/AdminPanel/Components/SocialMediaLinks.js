@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addSocialLinks, getUser } from "../../../actions/User";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import FooterIcons from "./SubComponents/FooterIcons/FooterIcons";
+
+import { addSocialLinks, getUser } from "../../../actions/User";
 
 const SocialMediaLinks = () => {
     const [name, setName] = useState("");

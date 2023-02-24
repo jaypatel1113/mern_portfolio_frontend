@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
-import { getUser, updateHome } from "../../../actions/User";
+
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 
+import { getUser, updateHome } from "../../../actions/User";
 
 const HomeDetails = () => {
     const [home, setHome] = useState({});
-    const [buttonText, setButtonText] = useState("Save");
+    const [buttonText, setButtonText] = useState("Update");
     
     const { message, error, loading } = useSelector((state) => state.update);
     
@@ -36,11 +37,11 @@ const HomeDetails = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setButtonText("Saving...");
+        setButtonText("Updating...");
         await dispatch(updateHome(home));
         dispatch(getUser());
-        setButtonText("Saved");
-        setTimeout(()=>setButtonText("Save"), 2000);
+        setButtonText("Updated");
+        setTimeout(()=>setButtonText("Update"), 2000);
     };
 
 
@@ -58,7 +59,7 @@ const HomeDetails = () => {
 
     return (
         <section className="contact login adminpanelcontainer" id="connect">
-            <h2>Manage About details</h2>
+            <h2>Manage Home details</h2>
 
             <div className="adminpanel-form">
                 <div className="admin-container-inputbox">

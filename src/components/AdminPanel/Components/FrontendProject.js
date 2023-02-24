@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addFrontendProject, getUser } from "../../../actions/User";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
+
+import { addFrontendProject, getUser } from "../../../actions/User";
 
 const FrontendProject = () => {
     const [title, setTitle] = useState("");

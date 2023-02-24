@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
-import { getUser, updateAbout } from "../../../actions/User";
+
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 
+import { getUser, updateAbout } from "../../../actions/User";
 
 const AboutDetails = () => {
     const [about, setAbout] = useState({});
-    const [buttonText, setButtonText] = useState("Save");
+    const [buttonText, setButtonText] = useState("Update");
     
     const { message, error, loading } = useSelector((state) => state.update);
     
@@ -31,11 +32,11 @@ const AboutDetails = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setButtonText("Saving...");
+        setButtonText("Updating...");
         await dispatch(updateAbout(about));
         dispatch(getUser());
-        setButtonText("Saved");
-        setTimeout(()=>setButtonText("Save"), 2000);
+        setButtonText("Updated");
+        setTimeout(()=>setButtonText("Update"), 2000);
     };
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+
 import { deleteFeedback, getUser } from "../../../../../actions/User";
 
 const FeedbackDetail = ({item}) => {

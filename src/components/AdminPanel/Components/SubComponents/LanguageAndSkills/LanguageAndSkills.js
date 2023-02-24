@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 import {  deleteKnownLanguage, deleteSkill, getUser } from "../../../../../actions/User";
+
 import './LanguageAndSkills.css';
 
 const LanguageAndSkills = ({ item, i, setName, setEditId }) => {
