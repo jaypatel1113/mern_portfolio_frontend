@@ -10,7 +10,7 @@ import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
 
 const FrontendProject = () => {
     const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
+    const [techstack, setTechstack] = useState("");
     const [image, setImage] = useState("");
     const [gitLink, setGitLink] = useState("");
     const [demoLink, setDemoLink] = useState("");
@@ -24,7 +24,7 @@ const FrontendProject = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setButtonText("Adding");
-        await dispatch(addFrontendProject(title, description, image, gitLink, demoLink));
+        await dispatch(addFrontendProject(title, techstack, image, gitLink, demoLink));
         dispatch(getUser());
         setButtonText("Added");
         setTimeout(() => setButtonText("Add"), 2000);
@@ -72,9 +72,9 @@ const FrontendProject = () => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <InputBox
-                        label="Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        label="Technology Used"
+                        value={techstack}
+                        onChange={(e) => setTechstack(e.target.value)}
                     />
                     <InputBox
                         label="Github Link"

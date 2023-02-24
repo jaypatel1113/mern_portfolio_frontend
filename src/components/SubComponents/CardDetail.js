@@ -7,7 +7,11 @@ const CardDetail = ({ data, icon, ...rest }) => {
         <motion.div className="box" {...rest}>
             <div className="year">
                 <img src={icon} alt="Error" className="img" />
-                {format(new Date(data.startdate), "MMM yyyy")} - {format(new Date(data.enddate), "MMM yyyy")}
+                {format(new Date(data.startdate), "MMM yyyy")} - 
+                {data.enddate
+                    ? format(new Date(data.enddate), "MMM yyyy")
+                    : "Present"
+                }
             </div>
             <h3 className="bxName">{data.title}</h3>
             <p className="bxDetail" style={{ fontSize: "1.5rem" }}>

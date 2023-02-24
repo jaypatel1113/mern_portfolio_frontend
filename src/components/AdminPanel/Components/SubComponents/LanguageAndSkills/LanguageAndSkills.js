@@ -1,15 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 import {  deleteKnownLanguage, deleteSkill, getUser } from "../../../../../actions/User";
 import './LanguageAndSkills.css';
 
-const LanguageAndSkills = ({ item, i }) => {
+const LanguageAndSkills = ({ item, i, setName, setEditId }) => {
     const dispatch = useDispatch();
 
     const handleDelete = async (id) => {
-        console.log(i, id)
         if(i===1){
             await dispatch(deleteKnownLanguage(id));
         }
@@ -17,6 +16,10 @@ const LanguageAndSkills = ({ item, i }) => {
             await dispatch(deleteSkill(id));
         }
         dispatch(getUser());
+    };
+    const handleEdit = async (id) => {
+        setName(item.name);
+        setEditId(id);
     };
 
     return (
@@ -26,6 +29,7 @@ const LanguageAndSkills = ({ item, i }) => {
             </div>
             <div className="button">
                 <button onClick={() => handleDelete(item._id)}><AiFillDelete /></button>
+                <button onClick={() => handleEdit(item._id)}><AiFillEdit /></button>
             </div>
         </div>
     );

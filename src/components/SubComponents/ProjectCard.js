@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // import { useInView } from "react-intersection-observer";
 // import { useEffect } from "react";
 
-import gitIcon from "../../assets/img/nav-icon6.svg";
+import gitIcon from "../../assets/img/git.svg";
 import liveIcon from "../../assets/img/live.svg";
 
 export const ProjectCard = ({project, ...rest}) => {
@@ -39,7 +39,7 @@ export const ProjectCard = ({project, ...rest}) => {
                 <img src={project.image.url} alt="Error" className="projectImg" />
                 <div className="proj-txtx">
                     <h4>{project.title}</h4>
-                    <span>{project.description}</span>
+                    <span>{project.techstack}</span>
                     <a
                         target="_blank"
                         href={project.gitLink}

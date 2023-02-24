@@ -9,7 +9,6 @@ const ProjectCard = ({ item, i }) => {
     const dispatch = useDispatch();
 
     const handleDelete = async (id) => {
-        console.log(i, id)
         if(i===1){
             await dispatch(deleteFrontendProject(id));
         }
@@ -28,7 +27,7 @@ const ProjectCard = ({ item, i }) => {
                 <img src={item.image.url} alt="Error" />
             </div>
             <div className="title">{item.title}</div>
-                <div className="title description">{item.description}</div>
+                <div className="title description">{item.techstack}</div>
                 <div className="button">
                     <button onClick={() => handleDelete(item._id)}><AiFillDelete /></button>
                 </div>

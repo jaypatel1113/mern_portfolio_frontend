@@ -82,13 +82,11 @@ const Login = () => {
 
     // display messages and errors from backend in all components
     useEffect(() => {
-        // console.log(":login ", error, message);
         if(error) {
           toast.error(error);
           dispatch({type: "CLEAR_ERROR"})
       }
       if(message) {
-        console.log("login ", message);
           toast.success(message);
           dispatch({type: "CLEAR_MESSAGE"})
         }

@@ -3,7 +3,7 @@
 .banner {
     margin-top: 0;
     padding: 15rem 0 10rem 0;
-    background-image: url('../../assets/img/banner-bg.png');
+    /* background-image: url('../../assets/img/banner-bg.png');          added dynamically from backend */
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;

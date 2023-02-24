@@ -29,13 +29,15 @@
     color: #fff;
 }
 
-.adminpanel-form .btncontiner {
+.adminpanelcontainer .btncontiner {
     margin-top: 1.5rem;
     display: flex;
     justify-content: space-between;
 }
 
-.adminpanel-form button {
+.adminpanelcontainer .adminpanel-form button,
+.adminpanelcontainer .feedbackback button,
+.adminpanelcontainer button.logout {
     margin: 2rem 0;
     padding: 1rem 3rem;
     background: rgba(255, 255, 255, 0.2);
@@ -48,14 +50,38 @@
     transition: 0.4s;
 }
 
-.adminpanel-form button.logout {
+.adminpanelcontainer button.logout {
     border: 2px solid #fff;
     background: transparent;
     color: #fff;
 }
 
-.adminpanel-form button:hover {
+.adminpanelcontainer button:hover, 
+.adminpanelcontainer button.logout:hover{
     background: #fff;
     color: #000;
+}
 
+.adminpanelcontainer .links {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr) ) ;
+    width: 90%;
+}
+.adminpanelcontainer .links a {
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 1.6rem;
+    padding: 2rem;
+    margin: 1rem;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+.adminpanelcontainer .links a svg {
+    font-size: 2rem;
 }

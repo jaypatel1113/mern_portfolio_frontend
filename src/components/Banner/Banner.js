@@ -3,8 +3,6 @@ import { ArrowRightCircle } from "react-bootstrap-icons";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-import headerImg from "../../assets/img/header-img.svg";
-
 import './Banner.css';
 
 const containerVariant = {
@@ -24,7 +22,7 @@ const itemA = {
 }
 
 
-const Banner = () => {
+const Banner = ({homeDetails}) => {
     return (
         <motion.section
             className="banner"
@@ -32,6 +30,7 @@ const Banner = () => {
             variants={containerVariant}
             initial="hidden"
             animate="visible"
+            style={{backgroundImage: `url(${homeDetails.background.url})`}}
         >
             <Container>
                 <Row className="aligh-items-center">
@@ -65,13 +64,13 @@ const Banner = () => {
                         <motion.p 
                             variants={itemA}
                         >
-                            I'm an Enthusiastic, Self-Motivated, Reliable, Responsible & Hard Working Person. I use a creative approach to solve the problem. I am motivated to go to the gym before work to get fit and healthy.
+                            {homeDetails.detail}
                             <br />
                             <br />
                             {/* When i'm not coding, I'm the proud father of a baby bulldog, 2 cats and a bunny. */}
                             {/* Programming is like sex: One mistake and you have to support it for the rest of your life. */}
                             <motion.button whileHover={{ scale: 1.05, x:15 }} whileTap={{scale: 0.7, x: -65}} >
-                                <span>while ( ! ( succeed = try ( ) ) ) ;</span>
+                                <span>{homeDetails.quote}</span>
                             </motion.button>
                         </motion.p>
                         <Nav.Link href="#aboutmesec" className="navbar-link">
@@ -92,7 +91,7 @@ const Banner = () => {
                                 borderRadius: ["20%", "20%", "50%", "50%", "20%"],
                             }}
                         >
-                            <img src={headerImg} alt="Header Img" />
+                            <img src={homeDetails.banner_img.url} alt="Header Img" />
                         </motion.div>
                     </Col>
                 </Row>

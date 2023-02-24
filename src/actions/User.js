@@ -86,31 +86,101 @@ export const loadUser = () => async (dispatch) => {
     }
 }
 
-export const updateUser = (userName, password, skillsCubeImg, about) => async (dispatch) => {
+
+export const updateLoginDetails = (userName, password) => async (dispatch) => {
     try {
         dispatch({
-            type: "UPDATE_USER_REQUEST",
+            type: "UPDATE_LOGIN_REQUEST",
         });
 
-        const {data} = await axios.put("/admin/update-details", {
-            userName, password, skillsCubeImg, about
-        }, {
+        const {data} = await axios.put("/admin/update-login-details", { userName, password }, {
             headers: {
                 "Content-Type": "application/json",
             }
         });
 
         dispatch({
-            type: "UPDATE_USER_SUCCESS",
+            type: "UPDATE_LOGIN_SUCCESS",
             payload: data.message,
         });
     } catch (error) {
         dispatch({
-            type: "UPDATE_USER_FAILURE",
+            type: "UPDATE_LOGIN_FAILURE",
             payload: error.response.data.message,
         });
     }
 }
+export const updateHome = (home) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "UPDATE_HOME_REQUEST",
+        });
+
+        const {data} = await axios.put("/admin/update-home-details", { home }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "UPDATE_HOME_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "UPDATE_HOME_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const updateAbout = (about) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "UPDATE_ABOUT_REQUEST",
+        });
+
+        const {data} = await axios.put("/admin/update-about-details", { about }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "UPDATE_ABOUT_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "UPDATE_ABOUT_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const updateSkillImages = (skillsCubeImg) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "UPDATE_SKILL_IMAGE_REQUEST",
+        });
+
+        const {data} = await axios.put("/admin/update-skill-images", { skillsCubeImg }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "UPDATE_SKILL_IMAGE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "UPDATE_SKILL_IMAGE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+
+
 
 export const addEducationTimeline = (title, description, startdate, enddate) => async (dispatch) => {
     try {
@@ -259,9 +329,7 @@ export const addKnownLanguage = (name) => async (dispatch) => {
             type: "ADD_KNOWN_LANGUAGE_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/known-language/add", {
-            name
-        }, {
+        const {data} = await axios.post("/admin/update/known-language/add", { name }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -300,14 +368,62 @@ export const deleteKnownLanguage = (id) => async (dispatch) => {
 }
 
 
-export const addFrontendProject = (title, description, image, gitLink, demoLink) => async (dispatch) => {
+export const editKnownLanguage = (id, name) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_REQUEST",
+        });
+
+        const {data} = await axios.put(`/admin/update/known-language/edit/${id}`, { name }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "EDIT_KNOWN_LANGUAGE_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const editSkill = (id, name) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "EDIT_SKILL_REQUEST",
+        });
+
+        const {data} = await axios.put(`/admin/update/skill/edit/${id}`, { name }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "EDIT_SKILL_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "EDIT_SKILL_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+
+
+export const addFrontendProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
         dispatch({
             type: "ADD_FRONTEND_PROJECT_REQUEST",
         });
 
         const {data} = await axios.post("/admin/update/frontend-project/add", {
-            title, description, image, gitLink, demoLink
+            title, techstack, image, gitLink, demoLink
         }, {
             headers: {
                 "Content-Type": "application/json",
@@ -319,7 +435,6 @@ export const addFrontendProject = (title, description, image, gitLink, demoLink)
             payload: data.message,
         });
     } catch (error) {
-        console.log(error);
         dispatch({
             type: "ADD_FRONTEND_PROJECT_FAILURE",
             payload: error.response.data.message,
@@ -348,14 +463,14 @@ export const deleteFrontendProject = (id) => async (dispatch) => {
 }
 
 
-export const addFullstackProject = (title, description, image, gitLink, demoLink) => async (dispatch) => {
+export const addFullstackProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
         dispatch({
             type: "ADD_FULLSTACK_PROJECT_REQUEST",
         });
 
         const {data} = await axios.post("/admin/update/fullstack-project/add", {
-            title, description, image, gitLink, demoLink
+            title, techstack, image, gitLink, demoLink
         }, {
             headers: {
                 "Content-Type": "application/json",
@@ -395,14 +510,14 @@ export const deleteFullstackProject = (id) => async (dispatch) => {
 }
 
 
-export const addBackendProject = (title, description, image, gitLink, demoLink) => async (dispatch) => {
+export const addBackendProject = (title, techstack, image, gitLink, demoLink) => async (dispatch) => {
     try {
         dispatch({
             type: "ADD_BACKEND_PROJECT_REQUEST",
         });
 
         const {data} = await axios.post("/admin/update/backend-project/add", {
-            title, description, image, gitLink, demoLink
+            title, techstack, image, gitLink, demoLink
         }, {
             headers: {
                 "Content-Type": "application/json",
@@ -434,7 +549,6 @@ export const deleteBackendProject = (id) => async (dispatch) => {
             payload: data.message,
         });
     } catch (error) {
-        console.log(error)
         dispatch({
             type: "DELETE_BACKEND_PROJECT_FAILURE",
             payload: error.response.data.message,
@@ -442,13 +556,59 @@ export const deleteBackendProject = (id) => async (dispatch) => {
     }
 }
 
-export const contactus = (name, email, message) => async (dispatch) => {
+export const addSocialLinks = (name, link, color, icon) => async (dispatch) => {
     try {
         dispatch({
-            type: "CONTACT_US_REQUEST",
+            type: "ADD_SOCIAL_LINKS_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/contact", {
+        const {data} = await axios.post("/admin/update/social-link/add", {
+            name, link, color, icon
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        dispatch({
+            type: "ADD_SOCIAL_LINKS_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "ADD_SOCIAL_LINKS_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+
+export const deleteSocialLinks = (id) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "DELETE_SOCIAL_LINKS_REQUEST",
+        });
+
+        const {data} = await axios.delete(`/admin/update/social-link/delete/${id}`);
+
+        dispatch({
+            type: "DELETE_SOCIAL_LINKS_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "DELETE_SOCIAL_LINKS_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+
+export const addFeedback = (name, email, message) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "ADD_CONTACT_US_REQUEST",
+        });
+
+        const {data} = await axios.post("/admin/add/feedback", {
             name, email, message
         }, {
             headers: {
@@ -457,12 +617,31 @@ export const contactus = (name, email, message) => async (dispatch) => {
         });
 
         dispatch({
-            type: "CONTACT_US_SUCCESS",
+            type: "ADD_CONTACT_US_SUCCESS",
             payload: data.message,
         });
     } catch (error) {
         dispatch({
-            type: "CONTACT_US_FAILURE",
+            type: "ADD_CONTACT_US_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+export const deleteFeedback = (id) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "DELETE_CONTACT_US_REQUEST",
+        });
+
+        const {data} = await axios.delete(`/admin/delete/feedback/${id}`);
+
+        dispatch({
+            type: "DELETE_CONTACT_US_SUCCESS",
+            payload: data.message,
+        });
+    } catch (error) {
+        dispatch({
+            type: "DELETE_CONTACT_US_FAILURE",
             payload: error.response.data.message,
         });
     }

@@ -12,7 +12,7 @@ const ImageBox = (props) => {
             )}
             <div className="inputbox">
                 <div className="label">
-                    <label htmlFor={props.value}>New {props.label}</label>
+                    <label htmlFor={props.value}>{props.label}</label>
                 </div>
                 <div className="input">
                     <input

@@ -3,17 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addFullstackProject, getUser } from "../../../actions/User";
+import { addSocialLinks, getUser } from "../../../actions/User";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
-import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
+import FooterIcons from "./SubComponents/FooterIcons/FooterIcons";
 
-const FullstackProject = () => {
-    const [title, setTitle] = useState("");
-    const [techstack, setTechstack] = useState("");
-    const [image, setImage] = useState("");
-    const [gitLink, setGitLink] = useState("");
-    const [demoLink, setDemoLink] = useState("");
+const SocialMediaLinks = () => {
+    const [name, setName] = useState("");
+    const [link, setLink] = useState("");
+    const [color, setColor] = useState("");
+    const [icon, setIcon] = useState("");
     const [buttonText, setButtonText] = useState("Add");
 
     const { message, error, loading } = useSelector((state) => state.update);
@@ -24,12 +23,12 @@ const FullstackProject = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setButtonText("Adding");
-        await dispatch(addFullstackProject(title, techstack, image, gitLink, demoLink));
+        await dispatch(addSocialLinks(name, link, color, icon));
         dispatch(getUser());
         setButtonText("Added");
         setTimeout(() => setButtonText("Add"), 2000);
     };
-    
+
     const handleImage = (e) => {
         const file = e.target.files[0];
 
@@ -38,8 +37,7 @@ const FullstackProject = () => {
 
         Reader.onload = () => {
             if (Reader.readyState === 2) {
-                // console.log(Reader.result);
-                setImage(Reader.result);
+                setIcon(Reader.result);
             }
         };
     };
@@ -57,35 +55,30 @@ const FullstackProject = () => {
 
     return (
         <section className="contact login adminpanelcontainer" id="connect">
-            <h2>Manage Fullstack Projects</h2>
+            <h2>Manage Social Media Links</h2>
 
             <div className="adminpanel-form">
                 <div className="admin-container-inputbox">
                     <ImageBox
-                        label="Picture"
-                        value={image}
+                        label="SVG / Icon"
+                        value={icon}
                         onChange={handleImage}
                     />
 
                     <InputBox
-                        label="Title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        label="Social Media Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <InputBox
-                        label="Technology Used"
-                        value={techstack}
-                        onChange={(e) => setTechstack(e.target.value)}
+                        label="Link"
+                        value={link}
+                        onChange={(e) => setLink(e.target.value)}
                     />
                     <InputBox
-                        label="Github Link"
-                        value={gitLink}
-                        onChange={(e) => setGitLink(e.target.value)}
-                    />
-                    <InputBox
-                        label="Demo Link"
-                        value={demoLink}
-                        onChange={(e) => setDemoLink(e.target.value)}
+                        label="Color"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
                     />
                 </div>
                 <div className="btncontiner">
@@ -102,10 +95,10 @@ const FullstackProject = () => {
                 </div>
             </div>
                 <div className="add-project-details">
-                    {user?.fullstackProjects?.map((item) => <ProjectCard key={item._id} item={item}  i={2} />)}
+                    {user?.socialLinks?.map((item) => <FooterIcons key={item._id} item={item} />)}
                 </div>
         </section>
     );
 };
 
-export default FullstackProject;
+export default SocialMediaLinks;

@@ -45,5 +45,5 @@ select {
     height: 150px;
     align-self: center;
     object-fit: cover;
-    border-radius: 50%
+    /* border-radius: 50%; */
 }

@@ -10,8 +10,6 @@ import phone from "../../assets/img/phone.svg";
 import bday from "../../assets/img/bday.svg";
 import freelancer from "../../assets/img/freelancer.svg";
 import language from "../../assets/img/language.svg";
-import DarkResume from "../../assets/pdfs/CV-resume-Dark Mode.pdf";
-import LightResume from "../../assets/pdfs/CV-resume-Light Mode.pdf";
 
 import Detail from "../SubComponents/Detail";
 import Title from "../SubComponents/Title";
@@ -55,7 +53,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
         // console.log(aboutDetails);
         const randInt = Math.floor(Math.random() * 1000) + 1;
         setPdf(randInt % 2);
-        // console.log(randInxt);
+        // console.log(randInt);
     }, [pdf]);
 
     return (
@@ -125,10 +123,9 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                         animate={{ opacity: 1 }}
                                     >
                                         <Nav.Link
-                                            href={`${
-                                                pdf % 2 === 0
-                                                    ? LightResume
-                                                    : DarkResume
+                                            href={`${pdf % 2 === 0
+                                                    ? aboutDetails.cvfileLinkDark
+                                                    : aboutDetails.cvfileLinkLight
                                             }`}
                                             download="Jay's Resume"
                                             className="navbar-link"

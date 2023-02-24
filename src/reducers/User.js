@@ -77,15 +77,51 @@ export const loginReducer = createReducer({}, {
     },
 });
 
-export const updateReducer = createReducer({}, {
-    UPDATE_USER_REQUEST: (state) => {
+export const updateReducer = createReducer({}, {    
+    UPDATE_LOGIN_REQUEST: (state) => {
         state.loading = true;
     },
-    UPDATE_USER_SUCCESS: (state, action) => {
+    UPDATE_LOGIN_SUCCESS: (state, action) => {
         state.loading = false;
         state.message = action.payload; 
     },
-    UPDATE_USER_FAILURE: (state, action) => {
+    UPDATE_LOGIN_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+    
+    UPDATE_HOME_REQUEST: (state) => {
+        state.loading = true;
+    },
+    UPDATE_HOME_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    UPDATE_HOME_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+    
+    UPDATE_ABOUT_REQUEST: (state) => {
+        state.loading = true;
+    },
+    UPDATE_ABOUT_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    UPDATE_ABOUT_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+
+    UPDATE_SKILL_IMAGE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    UPDATE_SKILL_IMAGE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    UPDATE_SKILL_IMAGE_FAILURE: (state, action) => {
         state.loading = false;
         state.error = action.payload; 
     },
@@ -160,6 +196,17 @@ export const updateReducer = createReducer({}, {
         state.loading = false;
         state.error = action.payload; 
     },
+    EDIT_SKILL_REQUEST: (state) => {
+        state.loading = true;
+    },
+    EDIT_SKILL_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    EDIT_SKILL_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
 
     
     ADD_KNOWN_LANGUAGE_REQUEST: (state) => {
@@ -181,6 +228,17 @@ export const updateReducer = createReducer({}, {
         state.message = action.payload; 
     },
     DELETE_KNOWN_LANGUAGE_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+    EDIT_KNOWN_LANGUAGE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    EDIT_KNOWN_LANGUAGE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    EDIT_KNOWN_LANGUAGE_FAILURE: (state, action) => {
         state.loading = false;
         state.error = action.payload; 
     },
@@ -254,15 +312,50 @@ export const updateReducer = createReducer({}, {
         state.error = action.payload; 
     },
 
-    
-    CONTACT_US_REQUEST: (state) => {
+    ADD_SOCIAL_LINKS_REQUEST: (state) => {
         state.loading = true;
     },
-    CONTACT_US_SUCCESS: (state, action) => {
+    ADD_SOCIAL_LINKS_SUCCESS: (state, action) => {
         state.loading = false;
         state.message = action.payload; 
     },
-    CONTACT_US_FAILURE: (state, action) => {
+    ADD_SOCIAL_LINKS_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+    DELETE_SOCIAL_LINKS_REQUEST: (state) => {
+        state.loading = true;
+    },
+    DELETE_SOCIAL_LINKS_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    DELETE_SOCIAL_LINKS_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+
+    
+    ADD_CONTACT_US_REQUEST: (state) => {
+        state.loading = true;
+    },
+    ADD_CONTACT_US_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    ADD_CONTACT_US_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+
+    DELETE_CONTACT_US_REQUEST: (state) => {
+        state.loading = true;
+    },
+    DELETE_CONTACT_US_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload; 
+    },
+    DELETE_CONTACT_US_FAILURE: (state, action) => {
         state.loading = false;
         state.error = action.payload; 
     },

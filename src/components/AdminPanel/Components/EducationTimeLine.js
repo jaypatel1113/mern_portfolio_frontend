@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
@@ -31,13 +30,11 @@ const EducationTimeLine = () => {
 
     // display messages and errors from backend in all components
     useEffect(() => {
-        console.log(error, message);
         if (error) {
             toast.error(error);
             dispatch({ type: "CLEAR_ERROR" });
         }
         if (message) {
-            console.log(message);
             toast.success(message);
             dispatch({ type: "CLEAR_MESSAGE" });
         }

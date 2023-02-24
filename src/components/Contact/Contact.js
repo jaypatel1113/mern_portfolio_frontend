@@ -8,7 +8,7 @@ import contactImg from "../../assets/img/contact-img.svg";
 import Title from "../SubComponents/Title";
 import InputTag from "../SubComponents/InputTag";
 
-import { contactus } from "../../actions/User";
+import { addFeedback } from "../../actions/User";
 
 import './Contact.css';
 
@@ -91,7 +91,7 @@ const Contact = () => {
             toast.warn("includes @ in your email!");
         else {
             setButtonText("Sending...");
-            dispatch(contactus(fullName, email, message))
+            dispatch(addFeedback(fullName, email, message))
             setButtonText("Send");
         }
     };

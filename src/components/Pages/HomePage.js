@@ -17,7 +17,9 @@ const HomePage = () => {
 
     return (
         <>
-            <Banner />
+            <Banner 
+                homeDetails={user.home}
+            />
             <AboutMe
                 aboutDetails={user.about}
                 languagesKnown={user.languagesKnown}

@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
-import { addKnownLanguage, getUser } from "../../../actions/User";
+import { addKnownLanguage, editKnownLanguage, getUser } from "../../../actions/User";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import LanguageAndSkills from "./SubComponents/LanguageAndSkills/LanguageAndSkills";
 
 const KnownLanguage = () => {
     const [name, setName] = useState("");
+    const [editId, setEditId] = useState(null);
     const [buttonText, setButtonText] = useState("Add");
 
     const { message, error, loading } = useSelector((state) => state.update);
@@ -23,6 +24,14 @@ const KnownLanguage = () => {
         dispatch(getUser());
         setButtonText("Added");
         setTimeout(() => setButtonText("Add"), 2000);
+        setEditId(null);
+    };
+
+    const handleUpdate = async (e, id, name) => {
+        e.preventDefault();
+        await dispatch(editKnownLanguage(id, name));
+        setEditId(null);
+        dispatch(getUser());
     };
 
     useEffect(() => {
@@ -49,21 +58,39 @@ const KnownLanguage = () => {
                     />
                 </div>
                 <div className="btncontiner">
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        onClick={handleSubmit}
-                    >
-                        {buttonText}
-                    </button>
+                    {!editId ? (
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            onClick={handleSubmit}
+                        >
+                            {buttonText}
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            onClick={(e) => handleUpdate(e, editId, name)}
+                        >
+                            Update
+                        </button>
+                    )}
                     <NavLink to="/admin">
                         <button disabled={loading}>Back</button>
                     </NavLink>
                 </div>
             </div>
-                
+
             <div className="all-skill-lang-details">
-                {user?.languagesKnown?.map((item) => <LanguageAndSkills key={item._id} item={item} i={1} />)}
+                {user?.languagesKnown?.map((item) => (
+                    <LanguageAndSkills
+                        key={item._id}
+                        item={item}
+                        i={1}
+                        setEditId={setEditId}
+                        setName={setName}
+                    />
+                ))}
             </div>
         </section>
     );
