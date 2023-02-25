@@ -1,12 +1,20 @@
 import axios from "axios";
 
+const client = axios.create({
+    withCredentials: true,
+    baseURL: "https://jay-portfolio-backend.up.railway.app",
+    // baseURL: "https://portfolio-server-zbcv.onrender.com",
+    // baseURL: "http://localhost:3002",
+})
+// "proxy": "https://jay-portfolio-backend.up.railway.app/",
+
 export const getUser = () => async (dispatch) => {
     try {
         dispatch({
             type: "GET_USER_REQUEST",
         });
 
-        const {data} = await axios.get("/admin/user");
+        const {data} = await client.get("/admin/user");
 
         dispatch({
             type: "GET_USER_SUCCESS",
@@ -26,7 +34,7 @@ export const login = (userName, password) => async (dispatch) => {
             type: "LOGIN_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/login", {
+        const {data} = await client.post("/admin/login", {
             userName, password
         }, {
             headers: {
@@ -52,7 +60,7 @@ export const logout = () => async (dispatch) => {
             type: "LOGOUT_REQUEST",
         });
 
-        const {data} = await axios.get("/admin/logout");
+        const {data} = await client.get("/admin/logout");
 
         dispatch({
             type: "LOGOUT_SUCCESS",
@@ -72,7 +80,7 @@ export const loadUser = () => async (dispatch) => {
             type: "LOAD_USER_REQUEST",
         });
 
-        const {data} = await axios.get("/admin/me");
+        const {data} = await client.get("/admin/me");
 
         dispatch({
             type: "LOAD_USER_SUCCESS",
@@ -93,7 +101,7 @@ export const updateLoginDetails = (userName, password) => async (dispatch) => {
             type: "UPDATE_LOGIN_REQUEST",
         });
 
-        const {data} = await axios.put("/admin/update-login-details", { userName, password }, {
+        const {data} = await client.put("/admin/update-login-details", { userName, password }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -116,7 +124,7 @@ export const updateHome = (home) => async (dispatch) => {
             type: "UPDATE_HOME_REQUEST",
         });
 
-        const {data} = await axios.put("/admin/update-home-details", { home }, {
+        const {data} = await client.put("/admin/update-home-details", { home }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -139,7 +147,7 @@ export const updateAbout = (about) => async (dispatch) => {
             type: "UPDATE_ABOUT_REQUEST",
         });
 
-        const {data} = await axios.put("/admin/update-about-details", { about }, {
+        const {data} = await client.put("/admin/update-about-details", { about }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -162,7 +170,7 @@ export const updateSkillImages = (skillsCubeImg) => async (dispatch) => {
             type: "UPDATE_SKILL_IMAGE_REQUEST",
         });
 
-        const {data} = await axios.put("/admin/update-skill-images", { skillsCubeImg }, {
+        const {data} = await client.put("/admin/update-skill-images", { skillsCubeImg }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -187,7 +195,7 @@ export const addEducationTimeline = (title, description, startdate, enddate) => 
             type: "ADD_EDUCATION_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/education-timeline/add", {
+        const {data} = await client.post("/admin/update/education-timeline/add", {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -212,7 +220,7 @@ export const deleteEducationTimeline = (id) => async (dispatch) => {
             type: "DELETE_EDUCATION_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/education-timeline/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/education-timeline/delete/${id}`);
 
         dispatch({
             type: "DELETE_EDUCATION_TIMELINE_SUCCESS",
@@ -231,7 +239,7 @@ export const editEducationTimeline = (id, title, description, startdate, enddate
             type: "EDIT_EDUCATION_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update/education-timeline/edit/${id}`, {
+        const {data} = await client.put(`/admin/update/education-timeline/edit/${id}`, {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -257,7 +265,7 @@ export const addWorkTimeline = (title, description, startdate, enddate) => async
             type: "ADD_WORK_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/work-timeline/add", {
+        const {data} = await client.post("/admin/update/work-timeline/add", {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -282,7 +290,7 @@ export const deleteWorkTimeline = (id) => async (dispatch) => {
             type: "DELETE_WORK_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/work-timeline/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/work-timeline/delete/${id}`);
 
         dispatch({
             type: "DELETE_WORK_TIMELINE_SUCCESS",
@@ -301,7 +309,7 @@ export const editWorkTimeline = (id, title, description, startdate, enddate) => 
             type: "EDIT_WORK_TIMELINE_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update/work-timeline/edit/${id}`, {
+        const {data} = await client.put(`/admin/update/work-timeline/edit/${id}`, {
             title, description, startdate, enddate
         }, {
             headers: {
@@ -327,7 +335,7 @@ export const addSkill = (name) => async (dispatch) => {
             type: "ADD_SKILL_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/skills/add", {
+        const {data} = await client.post("/admin/update/skills/add", {
             name
         }, {
             headers: {
@@ -352,7 +360,7 @@ export const deleteSkill = (id) => async (dispatch) => {
             type: "DELETE_SKILL_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/skills/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/skills/delete/${id}`);
 
         dispatch({
             type: "DELETE_SKILL_SUCCESS",
@@ -371,7 +379,7 @@ export const editSkill = (id, name) => async (dispatch) => {
             type: "EDIT_SKILL_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update/skill/edit/${id}`, { name }, {
+        const {data} = await client.put(`/admin/update/skill/edit/${id}`, { name }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -395,7 +403,7 @@ export const addKnownLanguage = (name) => async (dispatch) => {
             type: "ADD_KNOWN_LANGUAGE_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/known-language/add", { name }, {
+        const {data} = await client.post("/admin/update/known-language/add", { name }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -418,7 +426,7 @@ export const deleteKnownLanguage = (id) => async (dispatch) => {
             type: "DELETE_KNOWN_LANGUAGE_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/known-language/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/known-language/delete/${id}`);
 
         dispatch({
             type: "DELETE_KNOWN_LANGUAGE_SUCCESS",
@@ -437,7 +445,7 @@ export const editKnownLanguage = (id, name) => async (dispatch) => {
             type: "EDIT_KNOWN_LANGUAGE_REQUEST",
         });
 
-        const {data} = await axios.put(`/admin/update/known-language/edit/${id}`, { name }, {
+        const {data} = await client.put(`/admin/update/known-language/edit/${id}`, { name }, {
             headers: {
                 "Content-Type": "application/json",
             }
@@ -461,7 +469,7 @@ export const addFrontendProject = (title, techstack, image, gitLink, demoLink) =
             type: "ADD_FRONTEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/frontend-project/add", {
+        const {data} = await client.post("/admin/update/frontend-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -486,7 +494,7 @@ export const deleteFrontendProject = (id) => async (dispatch) => {
             type: "DELETE_FRONTEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/frontend-project/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/frontend-project/delete/${id}`);
 
         dispatch({
             type: "DELETE_FRONTEND_PROJECT_SUCCESS",
@@ -506,7 +514,7 @@ export const addFullstackProject = (title, techstack, image, gitLink, demoLink) 
             type: "ADD_FULLSTACK_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/fullstack-project/add", {
+        const {data} = await client.post("/admin/update/fullstack-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -531,7 +539,7 @@ export const deleteFullstackProject = (id) => async (dispatch) => {
             type: "DELETE_FULLSTACK_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/fullstack-project/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/fullstack-project/delete/${id}`);
 
         dispatch({
             type: "DELETE_FULLSTACK_PROJECT_SUCCESS",
@@ -551,7 +559,7 @@ export const addBackendProject = (title, techstack, image, gitLink, demoLink) =>
             type: "ADD_BACKEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/backend-project/add", {
+        const {data} = await client.post("/admin/update/backend-project/add", {
             title, techstack, image, gitLink, demoLink
         }, {
             headers: {
@@ -576,7 +584,7 @@ export const deleteBackendProject = (id) => async (dispatch) => {
             type: "DELETE_BACKEND_PROJECT_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/backend-project/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/backend-project/delete/${id}`);
 
         dispatch({
             type: "DELETE_BACKEND_PROJECT_SUCCESS",
@@ -596,7 +604,7 @@ export const addSocialLinks = (name, link, color, icon) => async (dispatch) => {
             type: "ADD_SOCIAL_LINKS_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/update/social-link/add", {
+        const {data} = await client.post("/admin/update/social-link/add", {
             name, link, color, icon
         }, {
             headers: {
@@ -621,7 +629,7 @@ export const deleteSocialLinks = (id) => async (dispatch) => {
             type: "DELETE_SOCIAL_LINKS_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/update/social-link/delete/${id}`);
+        const {data} = await client.delete(`/admin/update/social-link/delete/${id}`);
 
         dispatch({
             type: "DELETE_SOCIAL_LINKS_SUCCESS",
@@ -641,7 +649,7 @@ export const addFeedback = (name, email, message) => async (dispatch) => {
             type: "ADD_CONTACT_US_REQUEST",
         });
 
-        const {data} = await axios.post("/admin/add/feedback", {
+        const {data} = await client.post("/admin/add/feedback", {
             name, email, message
         }, {
             headers: {
@@ -666,7 +674,7 @@ export const deleteFeedback = (id) => async (dispatch) => {
             type: "DELETE_CONTACT_US_REQUEST",
         });
 
-        const {data} = await axios.delete(`/admin/delete/feedback/${id}`);
+        const {data} = await client.delete(`/admin/delete/feedback/${id}`);
 
         dispatch({
             type: "DELETE_CONTACT_US_SUCCESS",
