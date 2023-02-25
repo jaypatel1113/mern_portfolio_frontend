@@ -2,11 +2,8 @@ import axios from "axios";
 
 const client = axios.create({
     withCredentials: true,
-    baseURL: "https://jay-portfolio-backend.up.railway.app",
-    // baseURL: "https://portfolio-server-zbcv.onrender.com",
-    // baseURL: "http://localhost:3002",
+    baseURL: process.env.REACT_APP_BACKEND_LINK,
 })
-// "proxy": "https://jay-portfolio-backend.up.railway.app/",
 
 export const getUser = () => async (dispatch) => {
     try {
