@@ -32,7 +32,7 @@ import HomeDetails from "./components/AdminPanel/Components/HomeDetails";
 import Feedbacks from "./components/AdminPanel/Components/Feedbacks";
 import SocialMediaLinks from "./components/AdminPanel/Components/SocialMediaLinks";
 
-import { getUser, loadUser } from "./actions/User";
+import { getUser, incVisitCount, loadUser } from "./actions/User";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -52,6 +52,7 @@ const App = () => {
         const loadData = async () => {
             await dispatch(getUser());
             await dispatch(loadUser());
+            await dispatch(incVisitCount());
             // await dispatch({type: "CLEAR_ERROR"})
             setLoading(false);
         }

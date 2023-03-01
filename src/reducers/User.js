@@ -17,6 +17,18 @@ export const userReducer = createReducer(initialState, {
         state.error = action.payload; 
     },
 
+    INC_VISITOR_COUNT_REQUEST: (state) => {
+        state.loading = true;
+    },
+    INC_VISITOR_COUNT_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.user = action.payload; 
+    },
+    INC_VISITOR_COUNT_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload; 
+    },
+
     CLEAR_ERROR: (state) => {
         state.error = null
     },

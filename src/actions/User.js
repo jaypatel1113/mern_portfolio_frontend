@@ -5,6 +5,26 @@ const client = axios.create({
     baseURL: process.env.REACT_APP_BACKEND_LINK,
 })
 
+export const incVisitCount = () => async (dispatch) => {
+    try {
+        dispatch({
+            type: "INC_VISITOR_COUNT_REQUEST",
+        });
+
+        const {data} = await client.get("/admin/inccount");
+
+        dispatch({
+            type: "INC_VISITOR_COUNT_SUCCESS",
+            payload: data.user,
+        });
+    } catch (error) {
+        dispatch({
+            type: "INC_VISITOR_COUNT_FAILURE",
+            payload: error.response.data.message,
+        });
+    }
+}
+
 export const getUser = () => async (dispatch) => {
     try {
         dispatch({
