@@ -32,6 +32,9 @@ export const userReducer = createReducer(initialState, {
     CLEAR_ERROR: (state) => {
         state.error = null
     },
+    CLEAR_MESSAGE: (state) => {
+        state.message = null
+    },
 });
 
 export const loginReducer = createReducer({}, {
