@@ -22,7 +22,7 @@ export const userReducer = createReducer(initialState, {
     },
     INC_VISITOR_COUNT_SUCCESS: (state, action) => {
         state.loading = false;
-        state.user = action.payload; 
+        state.message = action.payload;
     },
     INC_VISITOR_COUNT_FAILURE: (state, action) => {
         state.loading = false;
