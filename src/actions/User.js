@@ -15,7 +15,7 @@ export const incVisitCount = () => async (dispatch) => {
 
         dispatch({
             type: "INC_VISITOR_COUNT_SUCCESS",
-            payload: data.message,
+            payload: {message: data.message, visitors: data.visitors, allVisitors: data.allVisitors},
         });
     } catch (error) {
         dispatch({

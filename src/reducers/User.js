@@ -17,12 +17,20 @@ export const userReducer = createReducer(initialState, {
         state.error = action.payload; 
     },
 
+    CLEAR_ERROR: (state) => {
+        state.error = null
+    },
+});
+
+export const visitorStatsReducer = createReducer({}, {
     INC_VISITOR_COUNT_REQUEST: (state) => {
         state.loading = true;
     },
     INC_VISITOR_COUNT_SUCCESS: (state, action) => {
         state.loading = false;
-        state.message = action.payload;
+        state.message = action.payload.message;
+        state.visitors = action.payload.visitors;
+        state.allVisitors = action.payload.allVisitors;
     },
     INC_VISITOR_COUNT_FAILURE: (state, action) => {
         state.loading = false;
