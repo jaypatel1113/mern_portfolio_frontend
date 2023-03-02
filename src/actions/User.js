@@ -12,10 +12,11 @@ export const incVisitCount = () => async (dispatch) => {
         });
 
         const {data} = await client.get("/admin/inccount");
+        console.log(data)
 
         dispatch({
             type: "INC_VISITOR_COUNT_SUCCESS",
-            payload: {message: data.message, visitors: data.visitors, allVisitors: data.allVisitors},
+            payload: {message: data.message, visitors: data.vistorData.visitors, allVisitors: data.vistorData.allVisitors},
         });
     } catch (error) {
         dispatch({
