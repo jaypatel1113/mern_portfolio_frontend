@@ -54,6 +54,13 @@
     position: relative;
     animation: cubeRotation 15s linear infinite alternate;
     transform-style: preserve-3d;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.skillcube:hover {
+    width: 150px;
+    height: 150px;
 }
 
 .skillface {
