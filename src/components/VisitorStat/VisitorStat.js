@@ -18,24 +18,21 @@ const VisitorStat = () => {
     return (
         <div className={classlist}>
             <div className="countup">
-                <div className="data">Total Visitors</div>
-                {/* <div className="value">{allVisitors.total}</div> */}
-                <div className="value">
-                    <CountUp end={allVisitors.total} duration={2} />
-                </div>
-            </div>
-            <div className="countup">
                 <div className="data">Unique Visitors</div>
-                {/* <div className="value">{uniqueVisitor.total}</div> */}
                 <div className="value">
-                    <CountUp end={100} duration={2} />
+                    <CountUp end={uniqueVisitor.total} duration={2} />
                 </div>
             </div>
             <div className="countup">
                 <div className="data">Your Visits</div>
-                {/* <div className="value">{visitors.total}</div> */}
                 <div className="value">
                     <CountUp end={visitors.total} duration={2} />
+                </div>
+            </div>
+            <div className="countup">
+                <div className="data">Total Visitors</div>
+                <div className="value">
+                    <CountUp end={allVisitors.total} duration={2} />
                 </div>
             </div>
         </div>

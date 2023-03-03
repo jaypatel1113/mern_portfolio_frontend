@@ -31,6 +31,7 @@ export const visitorStatsReducer = createReducer({}, {
         state.message = action.payload.message;
         state.visitors = action.payload.visitors;
         state.allVisitors = action.payload.allVisitors;
+        state.uniqueVisitor = action.payload.uniqueVisitor;
     },
     INC_VISITOR_COUNT_FAILURE: (state, action) => {
         state.loading = false;
