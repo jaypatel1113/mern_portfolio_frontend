@@ -16,6 +16,8 @@ import SkillPage from "./components/Pages/SkillPage";
 import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
 import LoginPage from "./components/Pages/LoginPage";
+import VisitorStat from "./components/VisitorStat/VisitorStat";
+import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import EducationTimeLine from "./components/AdminPanel/Components/EducationTimeLine";
@@ -37,7 +39,6 @@ import { getUser, incVisitCount, loadUser } from "./actions/User";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import VisitorStat from "./components/VisitorStat/VisitorStat";
 
 
 const App = () => {
@@ -79,7 +80,7 @@ const App = () => {
                             <Route path="/contact" element={<ContactPage />} />
 
                             <Route path="/login" element={isAuthenticated ? <Navigate to="/admin" /> : <LoginPage />} />
-                            <Route path="/admin" element={isAuthenticated ? <AdminPanel /> :<LoginPage />} />
+                            {/* <Route path="/admin" element={isAuthenticated ? <AdminPanel /> :<LoginPage />} />
                             <Route path="/update/login-details" element={isAuthenticated ? <LoginDetails /> :<LoginPage />} />
                             <Route path="/update/home-details" element={isAuthenticated ? <HomeDetails /> :<LoginPage />} />
                             <Route path="/update/about-details" element={isAuthenticated ? <AboutDetails /> :<LoginPage />} />
@@ -93,7 +94,27 @@ const App = () => {
                             <Route path="/update/backend-project" element={isAuthenticated ? <BackendProject /> :<LoginPage />} />
                             <Route path="/update/social-link" element={isAuthenticated ? <SocialMediaLinks /> :<LoginPage />} />
 
-                            <Route path="/view/feedbacks" element={isAuthenticated ? <Feedbacks /> :<LoginPage />} />
+                            <Route path="/view/feedbacks" element={isAuthenticated ? <Feedbacks /> :<LoginPage />} /> */}
+                            
+                            <Route element={<ProtectedRoutes isAuthenticated={isAuthenticated} />}>
+                                <Route path="/admin" element={<AdminPanel />} />
+
+                                <Route path="/update/login-details" element={<LoginDetails />} />
+                                <Route path="/update/home-details" element={<HomeDetails />} />
+                                <Route path="/update/about-details" element={<AboutDetails />} />
+                                <Route path="/update/skill-images" element={<SkillImages />} />
+                                <Route path="/update/education-timeline" element={<EducationTimeLine />} />
+                                <Route path="/update/work-timeline" element={<WorkTimeLine />} />
+                                <Route path="/update/skills" element={<Skill />} />
+                                <Route path="/update/known-language" element={<KnownLanguage />} />
+                                <Route path="/update/frontend-project" element={<FrontendProject />} />
+                                <Route path="/update/fullstack-project" element={<FullstackProject />} />
+                                <Route path="/update/backend-project" element={<BackendProject />} />
+                                <Route path="/update/social-link" element={<SocialMediaLinks />} />
+
+                                <Route path="/view/feedbacks" element={<Feedbacks />} />
+                            </Route>
+
                             <Route path="*" element={<Navigate to="/login" />} />
                         </Routes>
 

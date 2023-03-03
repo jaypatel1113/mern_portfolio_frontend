@@ -5,15 +5,91 @@
     top: 50%;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.2);
-    transform: translate(90%, -50%);
+    border-radius: 2rem 0 0 2rem;
+    backdrop-filter: blur(12px);
+    transform: translate(95%, -50%);
     transition: all 0.3s;
-
-
-
-    
-    display: none;
+    display: flex;
+    gap: 3rem;
+    z-index: 100;
 }
 .visitor-stat.show,
 .visitor-stat:hover {
     transform: translate(0px, -50%);
+}
+
+.countup {
+    position: relative;
+    height: 100px;
+    cursor: not-allowed;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--clr);
+    font-weight: 500;
+    border-bottom: 3px solid var(--clr);
+    transition: all 0.5s;
+}
+
+.countup:hover{
+    border-radius: 2rem;
+    background: var(--clr);
+    color: #000;
+}
+
+.value {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--clr);
+}
+
+.countup:hover .value {
+    color: #000;
+}
+
+
+.countup:hover .value::after {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+    height: 8px;
+    width: 8px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--clr);
+}
+
+.countup:hover .value::before {
+    content: attr(data-title);
+    position: absolute;
+    top: -3.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--clr);
+    width: auto;
+    height: 2.5rem;
+    font-weight: 500;
+    color: #111;
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+    border: 1px solid var(--clr);
+}
+
+
+@media screen and (max-width: 992px) {
+    .visitor-stat {
+        display: none;
+    }
 }
