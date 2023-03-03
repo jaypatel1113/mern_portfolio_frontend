@@ -12,7 +12,7 @@ import { FiLink } from "react-icons/fi";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { RiFeedbackFill } from "react-icons/ri";
 
-import { logout } from "../../actions/User";
+import { logout } from "../../redux/actions/User";
 
 import "./AdminPanel.css";
 

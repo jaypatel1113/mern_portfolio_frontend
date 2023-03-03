@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 
-import { getUser, updateSkillImages } from "../../../actions/User";
+import { getUser, updateSkillImages } from "../../../redux/actions/User";
 
 const SkillImages = () => {
     const [skillsCubeImg, setSkillsCubeImg] = useState({});

@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 
-import { getUser, updateAbout } from "../../../actions/User";
+import { getUser, updateAbout } from "../../../redux/actions/User";
 
 const AboutDetails = () => {
     const [about, setAbout] = useState({});

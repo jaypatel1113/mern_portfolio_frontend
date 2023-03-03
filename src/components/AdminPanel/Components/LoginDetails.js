@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 import InputBox from "./SubComponents/InputBox/InputBox";
 
-import { getUser, updateLoginDetails } from "../../../actions/User";
+import { getUser, updateLoginDetails } from "../../../redux/actions/User";
 
 const LoginDetails = () => {
     const [userName, setUserName] = useState("");

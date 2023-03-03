@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 
-import { getUser, updateHome } from "../../../actions/User";
+import { getUser, updateHome } from "../../../redux/actions/User";
 
 const HomeDetails = () => {
     const [home, setHome] = useState({});

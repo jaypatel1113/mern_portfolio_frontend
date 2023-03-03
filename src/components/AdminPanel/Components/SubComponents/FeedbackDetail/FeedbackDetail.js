@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
-import { deleteFeedback, getUser } from "../../../../../actions/User";
+import { deleteFeedback, getUser } from "../../../../../redux/actions/User";
 
 const FeedbackDetail = ({item}) => {
     const dispatch = useDispatch();

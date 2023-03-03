@@ -7,7 +7,7 @@ import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
 
-import { addFullstackProject, getUser } from "../../../actions/User";
+import { addFullstackProject, getUser } from "../../../redux/actions/User";
 
 const FullstackProject = () => {
     const [title, setTitle] = useState("");

@@ -9,7 +9,7 @@ import InputTag from "../SubComponents/InputTag";
 
 import contactImg from "../../assets/img/contact-img.svg";
 
-import { addFeedback, getUser } from "../../actions/User";
+import { addFeedback, getUser } from "../../redux/actions/User";
 
 import './Contact.css';
 

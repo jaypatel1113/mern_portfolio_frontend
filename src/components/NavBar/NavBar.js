@@ -7,7 +7,7 @@ import { RiUserSharedFill, RiAdminFill } from "react-icons/ri";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logout } from "../../actions/User";
+import { logout } from "../../redux/actions/User";
 
 import "./NavBar.css";
 

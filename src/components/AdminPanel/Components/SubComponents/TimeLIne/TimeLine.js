@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-import { deleteEducationTimeline, deleteWorkTimeline, getUser } from "../../../../../actions/User";
+import { deleteEducationTimeline, deleteWorkTimeline, getUser } from "../../../../../redux/actions/User";
 
 import "./Timeline.css";
 

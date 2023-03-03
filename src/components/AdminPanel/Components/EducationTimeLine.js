@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import TimeLine from "./SubComponents/TimeLIne/TimeLine";
 
-import { addEducationTimeline, editEducationTimeline, getUser } from "../../../actions/User";
+import { addEducationTimeline, editEducationTimeline, getUser } from "../../../redux/actions/User";
 
 const EducationTimeLine = () => {
     const [title, setTitle] = useState("");

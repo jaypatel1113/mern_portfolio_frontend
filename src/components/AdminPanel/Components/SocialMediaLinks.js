@@ -7,7 +7,7 @@ import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import FooterIcons from "./SubComponents/FooterIcons/FooterIcons";
 
-import { addSocialLinks, getUser } from "../../../actions/User";
+import { addSocialLinks, getUser } from "../../../redux/actions/User";
 
 const SocialMediaLinks = () => {
     const [name, setName] = useState("");

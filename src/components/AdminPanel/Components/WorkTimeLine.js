@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import TimeLine from "./SubComponents/TimeLIne/TimeLine";
 
-import { addWorkTimeline, editWorkTimeline, getUser } from "../../../actions/User";
+import { addWorkTimeline, editWorkTimeline, getUser } from "../../../redux/actions/User";
 
 const WorkTimeLine = () => {
     const [title, setTitle] = useState("");

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-import {  deleteKnownLanguage, deleteSkill, getUser } from "../../../../../actions/User";
+import {  deleteKnownLanguage, deleteSkill, getUser } from "../../../../../redux/actions/User";
 
 import './LanguageAndSkills.css';
 

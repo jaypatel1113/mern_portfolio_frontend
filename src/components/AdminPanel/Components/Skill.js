@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import LanguageAndSkills from "./SubComponents/LanguageAndSkills/LanguageAndSkills";
 
-import { addSkill, editSkill, getUser } from "../../../actions/User";
+import { addSkill, editSkill, getUser } from "../../../redux/actions/User";
 
 const Skill = () => {
     const [name, setName] = useState("");

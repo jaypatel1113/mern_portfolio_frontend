@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { AiFillDelete } from "react-icons/ai";
 
-import { deleteSocialLinks, getUser } from "../../../../../actions/User";
+import { deleteSocialLinks, getUser } from "../../../../../redux/actions/User";
 
 const FooterIcons = ({ item, styles }) => {
     const dispatch = useDispatch();

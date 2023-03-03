@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { AiFillDelete } from "react-icons/ai";
 
-import { deleteBackendProject, deleteFrontendProject, deleteFullstackProject, getUser } from "../../../../../actions/User";
+import { deleteBackendProject, deleteFrontendProject, deleteFullstackProject, getUser } from "../../../../../redux/actions/User";
 
 import './ProjectCard.css';
 

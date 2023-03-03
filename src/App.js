@@ -34,7 +34,7 @@ import HomeDetails from "./components/AdminPanel/Components/HomeDetails";
 import Feedbacks from "./components/AdminPanel/Components/Feedbacks";
 import SocialMediaLinks from "./components/AdminPanel/Components/SocialMediaLinks";
 
-import { getUser, incVisitCount, loadUser } from "./actions/User";
+import { getUser, incVisitCount, loadUser } from "./redux/actions/User";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";

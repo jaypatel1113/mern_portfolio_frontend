@@ -7,7 +7,7 @@ import ImageBox from "./SubComponents/ImageBox/ImageBox";
 import InputBox from "./SubComponents/InputBox/InputBox";
 import ProjectCard from "./SubComponents/ProjectCard/ProjectCard";
 
-import { addFrontendProject, getUser } from "../../../actions/User";
+import { addFrontendProject, getUser } from "../../../redux/actions/User";
 
 const FrontendProject = () => {
     const [title, setTitle] = useState("");
