@@ -37,6 +37,7 @@ import { getUser, incVisitCount, loadUser } from "./actions/User";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import VisitorStat from "./components/VisitorStat/VisitorStat";
 
 
 const App = () => {
@@ -98,6 +99,7 @@ const App = () => {
 
                     <Footer user={user} />
                     <Bottombar />
+                    <VisitorStat />
 
                     <ToastContainer
                         theme="colored"

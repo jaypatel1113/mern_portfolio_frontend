@@ -12,7 +12,6 @@ export const incVisitCount = () => async (dispatch) => {
         });
 
         const {data} = await client.get("/admin/inccount");
-        console.log(data)
 
         dispatch({
             type: "INC_VISITOR_COUNT_SUCCESS",

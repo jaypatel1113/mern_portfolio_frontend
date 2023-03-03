@@ -1,0 +1,19 @@
+.visitor-stat {
+    position: fixed;
+    top: 0;
+    right: 0;
+    top: 50%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(90%, -50%);
+    transition: all 0.3s;
+
+
+
+    
+    display: none;
+}
+.visitor-stat.show,
+.visitor-stat:hover {
+    transform: translate(0px, -50%);
+}
