@@ -2,7 +2,7 @@ import axios from "axios";
 
 const client = axios.create({
     withCredentials: true,
-    baseURL: process.env.REACT_APP_BACKEND_LINK,
+    baseURL: process.env.REACT_APP_BACKEND_LINK3,
 })
 
 export const incVisitCount = () => async (dispatch) => {

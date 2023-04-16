@@ -7,7 +7,7 @@ const CardDetail = ({ data, icon, ...rest }) => {
         <motion.div className="box" {...rest}>
             <div className="year">
                 <img src={icon} alt="Error" className="img" />
-                {format(new Date(data.startdate), "MMM yyyy")} - 
+                {format(new Date(data.startdate), "MMM yyyy")} -&nbsp;
                 {data.enddate
                     ? format(new Date(data.enddate), "MMM yyyy")
                     : "Present"
