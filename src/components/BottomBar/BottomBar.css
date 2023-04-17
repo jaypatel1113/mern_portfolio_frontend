@@ -12,4 +12,5 @@
     align-items: center;
     padding-left: 4.5rem;
     padding-right: 8.25rem;
+    pointer-events: none;
 }

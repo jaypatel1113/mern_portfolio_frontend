@@ -3,7 +3,7 @@
 .eyeCont {
     position: relative;
     transition: 0.3s;
-    /* z-index: 1; */
+    pointer-events: auto;
 }
 
 .eyeCont .arrow {

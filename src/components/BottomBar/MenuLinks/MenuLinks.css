@@ -2,7 +2,7 @@
 /* menu links */
 .menuLinks {
     display: inline-block;
-    z-index: 1000000000000;
+    pointer-events: auto;
 }
 
 .menuLinks .menus {
