@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import {format } from "date-fns";
 
 const itemA = {
-    hidden: { scale: 0, left: "-20vh" },
-    visible: { scale: 1, left: 0 },
+    hidden: { opacity: 0, left: "-20vh" },
+    visible: { opacity: 1, left: 0 },
 };
 const itemB = {
-    hidden: { scale: 0, right: "-20vh" },
-    visible: { scale: 1, right: 0 },
+    hidden: { opacity: 0, right: "-20vh" },
+    visible: { opacity: 1, right: 0 },
 };
 
 const Detail = ({ src, name, value, left, isDate=false }) => {

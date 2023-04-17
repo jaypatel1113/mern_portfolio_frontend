@@ -110,7 +110,7 @@ const EducationWork = ({educationTimeline, workTimeline}) => {
                                 titlee="My Education"
                                 details={educationTimeline}
                                 icon={edu}
-                                />
+                            />
                         </div>
                         <div ref={ref} className="cols">
                             <EduWorkCard

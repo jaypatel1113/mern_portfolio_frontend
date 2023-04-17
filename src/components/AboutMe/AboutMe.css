@@ -214,6 +214,11 @@
     color: #fff;
 }
 
+.aboutme button > svg{
+    z-index: 1;
+    font-size: 3rem;
+}
+
 .aboutme button:hover::before {
     content: "";
     width: 100%;

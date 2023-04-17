@@ -84,14 +84,14 @@ const Login = () => {
     // display messages and errors from backend in all components
     useEffect(() => {
         if(error) {
-          toast.error(error);
-          dispatch({type: "CLEAR_ERROR"})
-      }
-      if(message) {
-          toast.success(message);
-          dispatch({type: "CLEAR_MESSAGE"})
+            toast.error(error);
+            dispatch({type: "CLEAR_ERROR"})
         }
-      }, [error, message, dispatch]);
+        if(message) {
+            toast.success(message);
+            dispatch({type: "CLEAR_MESSAGE"})
+        }
+    }, [error, message, dispatch]);
 
     return (
         <section className="contact login" id="connect">

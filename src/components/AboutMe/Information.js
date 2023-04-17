@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Col, Nav, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "react-bootstrap-icons";
+import { HiDownload } from "react-icons/hi"
+import { FaLink } from "react-icons/fa"
 
 import location from "../../assets/img/location.svg";
 import user from "../../assets/img/user.svg";
@@ -112,7 +114,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                     className={`${!isOpen ? "active" : ""}`}
                                 >
                                     <motion.span layout="position">
-                                        {isOpen ? "Download CV" : "Close"}
+                                        {isOpen ? "Resume" : "Close"}
                                         <ArrowRightCircle size={25} />
                                     </motion.span>
                                 </button>
@@ -129,9 +131,11 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                             }`}
                                             download="Jay's Resume"
                                             className="navbar-link"
+                                            target="_blank"
                                         >
                                             <button>
-                                                <span>CV Download</span>
+                                                <span>Resume</span>
+                                                <HiDownload />
                                             </button>
                                         </Nav.Link>
                                         <Nav.Link
@@ -140,7 +144,8 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                             className="navbar-link"
                                         >
                                             <button>
-                                                <span>CV Website</span>
+                                                <span>CV</span>
+                                                <FaLink />
                                             </button>
                                         </Nav.Link>
                                     </motion.span>
@@ -208,8 +213,8 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                             style={{ paddingLeft: "2rem", width: "100%" }}
                         >
                             <motion.h3
-                                initial={{ scale: 0 }}
-                                whileInView={{ scale: 1 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 // viewport={{once: true}}
                                 transition={{ delay: 0.8 }}
                             >
