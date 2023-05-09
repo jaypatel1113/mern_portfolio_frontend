@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import PreLoader from "./components/PreLoader/PreLoader";
+import DynamicTitle from "./components/SubComponents/DynamicTitle";
 
 import HomePage from "./components/Pages/HomePage";
 import AboutMePage from "./components/Pages/AboutMePage";
@@ -69,6 +70,7 @@ const App = () => {
             ) : (
                 <>
                     <ProgressBar />
+                    <DynamicTitle />
                     <NavBar />
 
                         <Routes>
