@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    /* cursor: none; */
 }
 
 html {
@@ -15,6 +14,7 @@ html {
     scroll-padding-top: 7.5rem;
     font-size: 62.5%;
     overflow-x: hidden;
+    cursor: url("./assets/img/cursor-default.png"), auto;
 }
 
 body {
@@ -34,6 +34,11 @@ img {
 button {
     border: 0;
     background-color: transparent;
+    cursor: url("./assets/img/cursor-pointer.png"), auto !important;
+}
+
+a {
+    cursor: url("./assets/img/cursor-grab.png"), auto;
 }
 
 input:focus,

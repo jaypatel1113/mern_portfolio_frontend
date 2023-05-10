@@ -24,7 +24,7 @@
 }
 .loading-text p:hover {
     transform: scale(.7);
-    cursor: not-allowed;
+    cursor: url("../../assets/img/cursor-not-allowed.png"), auto;
 }
 
 @keyframes loading {

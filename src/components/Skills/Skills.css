@@ -54,7 +54,7 @@
     position: relative;
     animation: cubeRotation 15s linear infinite alternate;
     transform-style: preserve-3d;
-    cursor: pointer;
+    cursor: url("../../assets/img/cursor-not-allowed.png"), auto;
     transition: all 0.4s;
 }
 
@@ -126,7 +126,7 @@
     font-weight: bolder;
     box-shadow: 0 0 5px rgba(74, 47, 189, 0.65);
     transition: all .4s;
-    cursor: pointer;
+    cursor: url("../../assets/img/cursor-not-allowed.png"), auto;
 }
 
 .marquee p span:hover {

@@ -4,6 +4,11 @@
     position: relative;
     transition: 0.3s;
     pointer-events: auto;
+    cursor: url("../../../assets/img/cursor-grab.png"), auto;
+}
+
+.eyeCont.default {
+    cursor: url("../../../assets/img/cursor-default.png"), auto;
 }
 
 .eyeCont .arrow {

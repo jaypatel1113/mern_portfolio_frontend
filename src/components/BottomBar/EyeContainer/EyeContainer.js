@@ -66,12 +66,9 @@ const EyeContainer = () => {
 
     return (
         <div
-            className="eyeCont"
+            className={`eyeCont ${!scrolled && "default"}`}
             onClick={backToTop}
-            style={{
-                opacity: `${scrolled ? 1 : 0}`,
-                cursor: `${scrolled ? "grabbing" : "default"}`,
-            }}
+            style={{ opacity: `${scrolled ? 1 : 0}`}}
         >
             <div className="arrow">
                 <CaretUpFill size={25} />

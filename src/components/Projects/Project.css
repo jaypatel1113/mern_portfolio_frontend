@@ -34,7 +34,7 @@
 
 .project .nav.nav-pills .nav-item {
     width: 33.33333%;
-    cursor: pointer;
+    cursor: url("../../assets/img/cursor-pointer.png"), auto;
 }
 
 .project .nav.nav-pills .nav-link {
@@ -99,7 +99,7 @@
     border-radius: 3rem;
     overflow: hidden;
     margin-bottom: 3rem;
-    cursor: pointer;
+    cursor: url("../../assets/img/cursor-pointer.png"), auto;
     border: double 3px transparent;
     border-radius: 3rem;
     background-image: linear-gradient(white, white), linear-gradient(30deg, #AA367C, #4A2FBD);
