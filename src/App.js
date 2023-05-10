@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import PreLoader from "./components/PreLoader/PreLoader";
 import DynamicTitle from "./components/SubComponents/DynamicTitle";
+import Cursor from "./components/Cursor/Cursor";
 
 import HomePage from "./components/Pages/HomePage";
 import AboutMePage from "./components/Pages/AboutMePage";
@@ -69,8 +70,10 @@ const App = () => {
                 <PreLoader />
             ) : (
                 <>
-                    <ProgressBar />
+                    <Cursor />
                     <DynamicTitle />
+                    <ProgressBar />
+
                     <NavBar />
 
                         <Routes>
