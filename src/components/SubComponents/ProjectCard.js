@@ -40,14 +40,17 @@ export const ProjectCard = ({project, ...rest}) => {
                 <div className="proj-txtx">
                     <h4>{project.title}</h4>
                     <span>{project.techstack}</span>
-                    <a
-                        target="_blank"
-                        href={project.gitLink}
-                        className="git"
-                        rel="noreferrer"
-                    >
-                        <img src={gitIcon} alt="Error" className="projectGit" />
-                    </a>
+                    {
+                        project.gitLink!=="" && 
+                        <a
+                            target="_blank"
+                            href={project.gitLink}
+                            className="git"
+                            rel="noreferrer"
+                        >
+                            <img src={gitIcon} alt="Error" className="projectGit" />
+                        </a>
+                    }
                     <a
                         target="_blank"
                         href={project.demoLink}
