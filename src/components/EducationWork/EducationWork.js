@@ -77,7 +77,7 @@ const EducationWork = ({educationTimeline, workTimeline}) => {
         } else if (!inViewExperience && !initialRender.experience) {
             animationExperience1.start("hidden");
             animationExperience2.start("hidden");
-            setInitialRender({...initialRender, experience: true});
+            setInitialRender(prev => ({...prev, experience: true}));
         }
         if(inViewEducation) {
             animationEducation1.start("visible");
@@ -85,11 +85,11 @@ const EducationWork = ({educationTimeline, workTimeline}) => {
         } else if(!inViewEducation && !initialRender.education) {
             animationEducation1.start("hidden");
             animationEducation2.start("hidden");
-            setInitialRender({...initialRender, education: true});
+            setInitialRender(prev => ({...prev, education: true}));
         }
         // console.log("in view = ", inViewEducation );
         // console.log("in view = ", inViewExperience );
-    }, [inViewExperience, inViewEducation, animationExperience1, animationExperience2, animationEducation1, animationEducation2]);
+    }, [initialRender.education, initialRender.experience, inViewExperience, inViewEducation, animationExperience1, animationExperience2, animationEducation1, animationEducation2]);
 
     return (
         <section className="skill eduwork" id="educations">

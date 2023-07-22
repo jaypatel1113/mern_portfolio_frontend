@@ -28,10 +28,10 @@ export const ProjectCard = ({project}) => {
             animation.start({
                 opacity: 0, scale: 0
             });
-            setInitialRender({...initialRender, card: true});
+            setInitialRender(prev => ({...prev, card: true}));
         }
         // console.log("in view = ", inView );
-    }, [inView, animation]);
+    }, [initialRender.card, inView, animation]);
 
     return (
         <Col size={12} sm={6} md={4} ref={ref}>
