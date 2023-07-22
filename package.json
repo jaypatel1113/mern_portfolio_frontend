@@ -1,5 +1,5 @@
 {
-  "name": "mern-portfolio",
+  "name": "mern-portfolio-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
