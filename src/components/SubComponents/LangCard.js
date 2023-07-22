@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const itemA = {
-    hidden: { scale: 0, left: "-20vh" },
-    visible: { scale: 1, left: 0 },
+    hidden: { opacity: 0, left: "-20px" },
+    visible: { opacity: 1, left: 0 },
 };
 
 const LangCard = ({ name }) => {

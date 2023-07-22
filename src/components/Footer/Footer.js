@@ -56,6 +56,7 @@ const Footer = ({user}) => {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: 0.5 }}
+                            viewport={{once: true}}
                         >
                             JAY PATEL
                         </motion.span>
@@ -66,6 +67,7 @@ const Footer = ({user}) => {
                             variants={container}
                             initial="hidden"
                             whileInView="visible"
+                            viewport={{once: true}}
                         >
                             {user?.socialLinks?.map((item) => (
                                 <FooterLink
@@ -81,10 +83,11 @@ const Footer = ({user}) => {
                             variants={container}
                             initial="hidden"
                             whileInView="visible"
+                            viewport={{once: true}}
                         >
                             <motion.p
                                 variants={txtVariant}
-                                // viewport={{once: true}}
+                                viewport={{once: true}}
                                 style={{ position: "relative" }}
                             >
                                 Copyright &#169; {new Date().getFullYear()}. All

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -12,9 +12,9 @@ import work from "../../assets/img/work.svg";
 import './EducationWork.css';
 
 const container = {
-    hidden: { scale: 0 },
+    hidden: { opacity: 0 },
     visible: {
-        scale: 1,
+        opacity: 1,
         transition: {
             staggerChildren: 0.1,
             delayChildren: 0.8,
@@ -57,32 +57,39 @@ const txtVariant = {
 };
 
 const EducationWork = ({educationTimeline, workTimeline}) => {
-    const { ref, inView } = useInView({
+    const { ref: refExperience, inView: inViewExperience } = useInView({
         threshold: 0.3,
     });
-    // const {ref2, inView2} = useInView({
-    //     threshold: 0.5
-    // });
-    const animation = useAnimation();
-    const animation2 = useAnimation();
+    const {ref: refEducation, inView: inViewEducation} = useInView({
+        threshold: 0.1,
+    });
+    const animationExperience1 = useAnimation();
+    const animationExperience2 = useAnimation();
+    const animationEducation1 = useAnimation();
+    const animationEducation2 = useAnimation();
+
+    const [initialRender, setInitialRender] = useState({experience: false, education: false});
 
     useEffect(() => {
-        if (inView) {
-            animation.start("visible");
-            animation2.start("visible");
-        } else if (!inView) {
-            animation.start("hidden");
-            animation2.start("hidden");
+        if (inViewExperience) {
+            animationExperience1.start("visible");
+            animationExperience2.start("visible");
+        } else if (!inViewExperience && !initialRender.experience) {
+            animationExperience1.start("hidden");
+            animationExperience2.start("hidden");
+            setInitialRender({...initialRender, experience: true});
         }
-        // if(inView2) {
-        //     animation.start("visible");
-        //     animation2.start("visible");
-        // } else if(!inView2) {
-        //     animation.start("hidden");
-        //     animation2.start("hidden");
-        // }
-        // console.log("in view = ", inView );
-    }, [inView, animation, animation2]);
+        if(inViewEducation) {
+            animationEducation1.start("visible");
+            animationEducation2.start("visible");
+        } else if(!inViewEducation && !initialRender.education) {
+            animationEducation1.start("hidden");
+            animationEducation2.start("hidden");
+            setInitialRender({...initialRender, education: true});
+        }
+        // console.log("in view = ", inViewEducation );
+        // console.log("in view = ", inViewExperience );
+    }, [inViewExperience, inViewEducation, animationExperience1, animationExperience2, animationEducation1, animationEducation2]);
 
     return (
         <section className="skill eduwork" id="educations">
@@ -92,7 +99,7 @@ const EducationWork = ({educationTimeline, workTimeline}) => {
                     variants={contVariant}
                     initial="hidden"
                     whileInView="visible"
-                    // viewport={{once: true}}
+                    viewport={{once: true}}
                     style={{ position: "relative" }}
                 >
                     <Title
@@ -103,20 +110,25 @@ const EducationWork = ({educationTimeline, workTimeline}) => {
 
                     <motion.div className="rows" variants={container}>
                         <div
-                            // ref={ref2}
+                            ref={refEducation}
                             className="cols"
                         >
                             <EduWorkCard
                                 titlee="My Education"
                                 details={educationTimeline}
                                 icon={edu}
+                                animation={animationEducation1}
+                                animation2={animationEducation2}
                             />
                         </div>
-                        <div ref={ref} className="cols">
+                        <div 
+                            ref={refExperience} 
+                            className="cols"
+                        >
                             <EduWorkCard
                                 titlee="My Experience"
-                                animation={animation}
-                                animation2={animation2}
+                                animation={animationExperience1}
+                                animation2={animationExperience2}
                                 icon={work}
                                 details={workTimeline}
                             />

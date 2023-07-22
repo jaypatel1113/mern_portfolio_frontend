@@ -19,19 +19,19 @@ import LangCard from "../SubComponents/LangCard";
 
 
 const container = {
-    hidden: { rotate: 90 },
+    hidden: { opacity : 0 },
     visible: {
-        rotate: 0,
+        opacity: 1,
         transition: {
             staggerChildren: 0.1,
-            delayChildren: 0.5,
+            delayChildren: 0.2,
         },
     },
 };
 
 const txtVariant = {
     hidden: {
-        top: "-50px",
+        top: "-20px",
         opacity: 0,
     },
     visible: {
@@ -94,7 +94,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                             }
                             transition={{ duration: 1 }}
                             onViewportEnter={() => setIsInView(true)}
-                            onViewportLeave={() => setIsInView(false)}
+                            // onViewportLeave={() => setIsInView(false)}
                         >
                             <img
                                 src={aboutDetails.avatar.url}
@@ -161,7 +161,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                     variants={container}
                                     initial="hidden"
                                     whileInView="visible"
-                                    // viewport={{once: true}}
+                                    viewport={{once: true}}
                                 >
                                     <Detail
                                         src={user}
@@ -188,7 +188,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                     variants={container}
                                     initial="hidden"
                                     whileInView="visible"
-                                    // viewport={{once: true}}
+                                    viewport={{once: true}}
                                 >
                                     <Detail
                                         src={email}
@@ -215,7 +215,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                             <motion.h3
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
-                                // viewport={{once: true}}
+                                viewport={{once: true}}
                                 transition={{ delay: 0.8 }}
                             >
                                 <img
@@ -230,7 +230,7 @@ export const Information = ({aboutDetails, languagesKnown}) => {
                                 variants={container}
                                 initial="hidden"
                                 whileInView="visible"
-                                // viewport={{once: true}}
+                                viewport={{once: true}}
                             >
                                 {
                                     languagesKnown?.map((language) => <LangCard key={language._id} name={language.name} />)

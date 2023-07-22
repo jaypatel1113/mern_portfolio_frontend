@@ -33,7 +33,7 @@ const txtVariant = {
 
 const cubeVariant = {
     hidden: {
-        top: "-150px",
+        top: "-50px",
         opacity: 0,
         scale: 0
     },
@@ -59,7 +59,7 @@ const Skills = ({skills, skillImages}) => {
                             initial="hidden"
                             whileInView="visible"
                             style={{ position: "relative" }}
-                            // viewport={{once: true}}
+                            viewport={{once: true}}
                         >
                             <Title
                                 h2={"Skills"}

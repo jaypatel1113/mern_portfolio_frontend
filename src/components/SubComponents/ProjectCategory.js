@@ -15,13 +15,6 @@ const container = {
     },
 };
 
-const itemA = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-        opacity: 1,
-        x: 0,
-    },
-};
 
 const ProjectCategory = ({ projects, type }) => {
     return (
@@ -31,13 +24,13 @@ const ProjectCategory = ({ projects, type }) => {
                 variants={container}
                 initial="hidden"
                 whileInView="visible"
+                viewport={{once: true}}
             >
                 {projects?.map((project) => {
                     return (
                         <ProjectCard
                             key={project._id}
                             project={project}
-                            variants={itemA}
                         />
                     );
                 })}

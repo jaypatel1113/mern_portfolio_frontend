@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import React from "react";
 
-import './PregressBar.css';
+import './ProgressBar.css';
 
 const ProgressBar = () => {
     const { scrollYProgress } = useScroll();

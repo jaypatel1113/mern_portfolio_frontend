@@ -8,7 +8,7 @@ const Title = ({h2, p, txtVariant}) => {
                 variants={txtVariant}
                 initial="hidden"
                 whileInView="visible"
-                // viewport={{once: true}}
+                viewport={{once: true}}
                 style={{ position: "relative" }}
             >
                 {(h2 || "")}
@@ -17,7 +17,7 @@ const Title = ({h2, p, txtVariant}) => {
                 variants={txtVariant}
                 initial="hidden"
                 whileInView="visible"
-                // viewport={{once: true}}
+                viewport={{once: true}}
                 style={{ position: "relative" }}
             >
                 {(p || "")}

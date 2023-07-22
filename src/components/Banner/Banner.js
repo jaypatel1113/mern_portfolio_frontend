@@ -11,14 +11,14 @@ const containerVariant = {
         opacity: 1,
         transition: {
             staggerChildren: 0.2,
-            delayChildren: 0.5,
+            delayChildren: 0.55,
         },
     },
 };
 
 const itemA = {
-    hidden: { scale: 0},
-    visible: { scale: 1},
+    hidden: { opacity: 0, x: -20},
+    visible: { opacity: 1, x: 0},
 }
 
 

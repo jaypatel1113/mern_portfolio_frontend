@@ -5,11 +5,11 @@ import CardDetail from "./CardDetail";
 
 const itemA = {
     hidden: { opacity: 0, left: "-20vh" },
-    visible: { opacity: 1, left: 0, transition: { delay: 1.5 } },
+    visible: { opacity: 1, left: 0, transition: { delay: 0.5 } },
 };
 const itemB = {
     hidden: { opacity: 0, right: "-20vh" },
-    visible: { opacity: 1, right: 0, transition: { delay: 1.5 } },
+    visible: { opacity: 1, right: 0, transition: { delay: 0.5 } },
 };
 
 const EduWorkCard = ({ titlee, animation, animation2, details, icon }) => {

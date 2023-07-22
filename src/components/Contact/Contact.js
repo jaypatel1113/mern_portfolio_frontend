@@ -30,12 +30,10 @@ const txtVariant = {
 
 const inpVariant = {
     hidden: {
-        width: "0%",
-        x: "50vw",
+        x: 500,
         opacity: 0,
     },
     visible: {
-        width: "100%",
         x: 0,
         opacity: 1,
     },
@@ -50,12 +48,10 @@ const btnVariant = {
     hidden: {
         x: 500,
         opacity: 0,
-        scale: 0,
     },
     visible: {
         x: 0,
         opacity: 1,
-        scale: 1,
     },
 };
 
@@ -141,6 +137,7 @@ const Contact = () => {
                                 variants={contvar}
                                 initial="hidden"
                                 whileInView="visible"
+                                viewport={{once: true}}
                             >
                                 <InputTag
                                     type="text"
@@ -176,7 +173,7 @@ const Contact = () => {
                                             type: "spring",
                                             bounce: 0.9,
                                             delay: 0.9,
-                                            duration: 0.5,
+                                            duration: 0.2,
                                         }}
                                         disabled={btnDisable}
                                     >

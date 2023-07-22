@@ -36,12 +36,10 @@ const btnVariant = {
     hidden: {
         x: 500,
         opacity: 0,
-        scale: 0,
     },
     visible: {
         x: 0,
         opacity: 1,
-        scale: 1,
     },
 };
 
@@ -113,6 +111,7 @@ const Login = () => {
                                 variants={contvar}
                                 initial="hidden"
                                 whileInView="visible"
+                                viewport={{once: true}}
                             >
                                 <InputTag
                                     type="text"
@@ -122,7 +121,7 @@ const Login = () => {
                                     setVal={setVal}
                                     dly={0.2}
                                     loginPage={true}
-                                    />
+                                />
                                 <InputTag
                                     type="password"
                                     name="password"

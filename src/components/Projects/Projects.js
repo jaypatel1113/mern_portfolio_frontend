@@ -1,4 +1,5 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 import ProjectCategory from "../SubComponents/ProjectCategory";
 import ProjectCategoryName from "../SubComponents/ProjectCategoryName";
@@ -30,9 +31,7 @@ const Projects = (props) => {
                     <Col size={12}>
                         <Title
                             h2={"Projects"}
-                            p={
-                                "These are the projects that showcases my skills and experience."
-                            }
+                            p={"These are the projects that showcases my skills and experience."}
                             txtVariant={txtVariant}
                         />
 
@@ -40,24 +39,31 @@ const Projects = (props) => {
                             id="projects-tabs"
                             defaultActiveKey="first"
                         >
-                            <Nav
-                                variant="pills"
-                                className="nav-pills mb-5 justify-content-center align-items-center"
-                                id="pills-tab"
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 0.4, delay: 1 }}
+                                viewport={{once: true}}
                             >
-                                <ProjectCategoryName
-                                    projectType="FrontEnd Projects"
-                                    number="first"
-                                />
-                                <ProjectCategoryName
-                                    projectType="FullStack Projects"
-                                    number="second"
-                                />
-                                <ProjectCategoryName
-                                    projectType="BackEnd Projects"
-                                    number="third"
-                                />
-                            </Nav>
+                                <Nav
+                                    variant="pills"
+                                    className="nav-pills mb-5 justify-content-center align-items-center"
+                                    id="pills-tab"
+                                >
+                                    <ProjectCategoryName
+                                        projectType="FrontEnd Projects"
+                                        number="first"
+                                    />
+                                    <ProjectCategoryName
+                                        projectType="FullStack Projects"
+                                        number="second"
+                                    />
+                                    <ProjectCategoryName
+                                        projectType="BackEnd Projects"
+                                        number="third"
+                                    />
+                                </Nav>
+                            </motion.div>
                             <Tab.Content id="slideInUp">
                                 <ProjectCategory
                                     projects={props.frontendProjects}

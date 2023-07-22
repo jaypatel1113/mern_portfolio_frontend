@@ -128,6 +128,16 @@ input[type=number] {
     color: rgb(147, 88, 215);
 }
 
+::selection {
+    background: #9358d7;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #9358d7;
+    color: #fff;
+}
+
 
 
 

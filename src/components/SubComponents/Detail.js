@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import {format } from "date-fns";
 
 const itemA = {
-    hidden: { opacity: 0, left: "-20vh" },
+    hidden: { opacity: 0, left: "-20px" },
     visible: { opacity: 1, left: 0 },
 };
 const itemB = {
-    hidden: { opacity: 0, right: "-20vh" },
+    hidden: { opacity: 0, right: "-20px" },
     visible: { opacity: 1, right: 0 },
 };
 

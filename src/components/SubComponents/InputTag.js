@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const inpVariant = {
     hidden: {
         opacity: 0,
-        x: "50vw",
+        x: 100,
     },
     visible: {
         x: 0,
