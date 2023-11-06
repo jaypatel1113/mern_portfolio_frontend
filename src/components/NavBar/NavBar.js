@@ -60,7 +60,7 @@ const NavBar = () => {
                         width: "100%",
                     }}
                 >
-                    <NavLink to={"/"} onClick={backToTop}>
+                    <NavLink to={"/?redirect=false"} onClick={backToTop}>
                         <motion.div
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.8 }}

@@ -28,7 +28,7 @@ const MenuLinks = () => {
                     clr={"#ff2972"}
                     setClick={setClick}
                     click={click}
-                    href={"/"}
+                    href={"/?redirect=false"}
                     title={"Home"}
                     svg={<HouseDoor />}
                 />
